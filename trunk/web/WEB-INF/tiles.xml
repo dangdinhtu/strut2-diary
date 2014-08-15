@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/layout/backend/index.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/layout/backend/header.jsp" />
+                <put-attribute name="sidebar" value="/layout/backend/sidebar.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="form" value="/backend/user/confirm-delete.jsp" />
+	</definition>
+
+        <definition name="/listUser.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Danh sách User" />
+		<put-attribute name="body" value="/backend/user/list.jsp" />
+	</definition>
+        <definition name="/form.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Thêm mới user" />
+		<put-attribute name="body" value="/backend/user/form.jsp" />
+	</definition>
+        
+        
+        
+        
+        <!--==================layout cho frontend=========================-->
+	<definition name="layout-frontend" template="/layout/frontend/index.jsp">
+            <put-attribute name="title" value="" />
+            <put-attribute name="header" value="/layout/frontend/header.jsp" />
+            <put-attribute name="menu" value="/layout/frontend/menu.jsp" />
+            <put-attribute name="body" value="" />
+            <put-attribute name="footer" value="/layout/frontend/footer.jsp" />
+	</definition>
+
+        <definition name="/index.tiles" extends="layout-frontend">
+		<put-attribute name="title" value="Trang chủ" />
+		<put-attribute name="body" value="/layout/frontend/body.jsp" />
+	</definition>
+</tiles-definitions>

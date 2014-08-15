@@ -1,0 +1,18 @@
+.page-number-odd{
+	margin-top:71px;
+    bottom: 0px!important;
+}
+
+.page-number-even{
+    margin-top:60px;
+    bottom: 0px!important;
+}
+
+.read-menu{
+    float: left;
+}
+
+.list{
+    left: 126px!important;
+    top: 340px!important;
+}

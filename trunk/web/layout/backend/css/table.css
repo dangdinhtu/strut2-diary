@@ -1,0 +1,135 @@
+.table-action{
+    margin-bottom: 10px!important;
+    position: relative;
+}
+.search-table{
+    width: 300px!important;;
+}
+.table-responsive{
+    margin-top: 10px!important;
+}
+
+.table-footer{
+    height: 50px;
+}
+
+.table-pagination{
+    margin-top: -22px;
+}
+
+#dataTables-example input[type=checkbox]{
+    margin-left: 10px;
+}
+
+.table-th-edit{
+    width: 95px;
+}
+table th{
+    background: #4682B4;
+    color: #f5f5f5;
+}
+
+
+.table-a-edit{
+    margin-left: 20px;
+}
+.table-selection{
+    width: 50px;
+    text-align: center;
+}
+.table-selection input[type=checkbox]{
+    margin-left: -2px!important;
+}
+.form-modal input[type=text], .form-modal input[type=password],
+.form-modal select, .form-modal input[type=date], .form-modal input[type=email]{
+    width: 350px;
+}
+
+.panel-login{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background: #eaebe9;
+}
+
+.panel-login input[type=text], .panel-login input[type=password]{
+    background: #eaebe9!important;
+    width: 270px;
+}
+
+.panel-login .panel-heading{
+    height: 40px;
+}
+.panel-login .panel-body{
+    margin-top: 10px;
+}
+.panel-login .panel-heading h4{
+    margin-top: 0px!important;
+}
+
+.login-remember-password, .login-bt{
+    margin-left: -30px!important;
+}
+.js-hidden{
+    display: none;
+}
+
+.modal-footer, .modal-header{
+    background: #f5f5f5!important;
+}
+.btn-default{
+    background: #fff!important;
+}
+.btn-default:hover{
+    background: #ddd!important;
+}
+button.btn-default{
+    height: 34px
+}
+
+table th a{
+    color: #f5f5f5;
+}
+table th a:hover{
+    color: #f5f5f5;
+    text-decoration: underline;
+}
+.pagebanner{
+    position: absolute;
+/*    margin-top: 47%;*/
+margin-top: -33px;
+    margin-left: 2%;
+    font-size: 16px;
+}
+.pagelinks{
+    position: absolute;
+/*    margin-top: 47%;*/
+    margin-top: -33px;
+    margin-left: 25%;
+    font-size: 16px;
+}
+table.form-modal{
+    margin: 0 auto;
+}
+.form-modal{
+    margin-bottom: -90px;
+}
+table.form-modal tbody tr{
+    padding-top: 10px;
+    height: 40px;
+}
+.label{
+    color: #101010!important;
+    font-weight: bold;
+    font-size: 13px;
+}
+.js-add{
+    margin-top: 15px;
+    position: absolute;
+    margin-left: -23px;
+}
+.js-reset{
+    margin-top: -26px;
+position: absolute;
+margin-left: -104px;
+}

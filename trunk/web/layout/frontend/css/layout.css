@@ -1,0 +1,207 @@
+.dev-main{
+    margin : 0 auto;
+}
+
+.main-quiz{
+    text-align: left;
+    margin : 0 auto;
+    width: 49.2%;
+}
+
+body{
+    background: url("../images/bg.png");
+}
+
+.header{
+    background: #F5F5F5;
+    background: rgba(245, 245, 245, 0.75);
+    border: 2px solid #FFFFFF;
+    -webkit-box-shadow: #444 0px 0px 7px;
+    -moz-box-shadow: #444 0px 0px 7px;
+    box-shadow: #444 0px 0px 7px;
+}
+
+.js-hidden{
+    display: none;
+}
+
+.quiz-fast{
+    min-height: 300px;
+    width: 100%;
+    /*background: url("../images/bg-center-quizzyshop.png");*/
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    background: #F5F5F5;
+    background: rgba(245, 245, 245, 0.75);
+    border: 1px solid #FFFFFF;
+    -webkit-box-shadow: #444 0px 0px 7px;
+    -moz-box-shadow: #444 0px 0px 7px;
+    box-shadow: #444 0px 0px 7px;
+
+}
+/*.quiz-fast:before {*/
+    /*width: 100%;*/
+    /*content: "";*/
+    /*height: 8px;*/
+    /*margin-top: -8px;*/
+    /*margin-left: 0px;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*background-image: url(../images/bg-top-quizz-fast_01.png);*/
+    /*background-repeat: repeat-x;*/
+/*}*/
+/*.quiz-fast:after {*/
+    /*width: 100%;*/
+    /*content: "";*/
+    /*height: 8px;*/
+    /*margin-top: -8px;*/
+    /*margin-left: 0px;*/
+    /*position: absolute;*/
+    /*bottom: -8px;*/
+    /*left: 0;*/
+    /*background-image: url(../images/bg-bottom-quizz-fast_01.png);*/
+    /*background-repeat: repeat-x;*/
+/*}*/
+
+.quiz-fast img{
+    width: 100%;
+}
+.quiz-fast h4 a{
+    font-size: 0.67em;
+    color: #603913;
+    line-height: 17px;
+    font-weight: bold;
+    font-family: Arial;
+    text-transform: uppercase;
+}
+.quiz-fast h4 a:hover{
+    text-decoration: none;
+    color: #c12e2a;
+}
+
+.quiz-fast .media-body {
+    font-size: 13px;
+    font-family: Arial;
+    text-align: left;
+    color: #603913;
+    line-height: 18px;
+}
+
+.quiz-fast .media:nth-of-type(1){
+    margin-top: 20px;
+}
+
+.quiz-fast .media{
+    border-bottom: 1px dashed #603913;
+    min-height: 95px;
+    margin: 0 10px 16px 10px;
+}
+
+.quiz-fast .media:last-child{
+    border-bottom: none;
+    margin: 0 10px 14px 10px;
+}
+
+.quiz-fast .media > a{
+    border: 1px solid #bbb;
+    padding: 6px;
+    margin-bottom: 17px;
+    width: 26%;
+    min-width: 60px;
+}
+
+.icon-home{
+    width: 60px;
+}
+ /*==============menu=========================*/
+.nav-menu{
+    border: 1px solid #FFFFFF;
+    -webkit-box-shadow: #444 0px 0px 7px;
+    -moz-box-shadow: #444 0px 0px 7px;
+    box-shadow: #444 0px 0px 7px;
+}
+
+.quiz-fast-title{
+    font-size: 20px;
+    color: brown;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid;
+    margin-bottom: 23px;
+    padding-bottom: 10px;
+}
+
+.header-search{
+    width: 300px;
+    margin: 10px 0 5px 0;
+}
+
+.btn-search{
+    height: 34px;
+}
+
+.choose-language{
+    width: 150px;
+    margin: 10px 0 5px 0;
+}
+
+.choose-language select option{
+    height: 50px!important;
+}
+
+.active-icon-home{
+    list-style: none;
+}
+.active-icon-home a{
+    background-image: -webkit-linear-gradient(top,#ebebeb 0,#f3f3f3 100%);
+    background-image: -o-linear-gradient(top,#ebebeb 0,#f3f3f3 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#ebebeb),to(#f3f3f3));
+    background-image: linear-gradient(to bottom,#ebebeb 0,#f3f3f3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#fff3f3f3', GradientType=0);
+    background-repeat: repeat-x;
+
+}
+
+/*footer*/
+.footer h3{
+    color: #c12e2a;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer p{
+    color: #c12e2a;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+}
+
+hr.hr-footer{
+    color: #2b669a!important;
+    height: 2px!important;
+    background: #2b669a;
+    border: none;
+    margin: 20 auto;
+}
+
+
+.panel-footer-create{
+    height: 58px;
+}
+
+.btn-default{
+    color: #333;
+    background-color: #fff!important;
+    border-color: #ccc;
+    background-image:none!important;
+}
+
+.btn-default:hover{
+    color: #333;
+    background-color: #e5e5e5!important;
+    border-color: #ccc;
+    background-image:none!important;
+}

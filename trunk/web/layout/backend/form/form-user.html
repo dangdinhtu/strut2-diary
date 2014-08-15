@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị Nhuận Bút</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
+    <link href="../css/table.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/jquery.toastmessage.css">
+</head>
+
+<body>
+<!-- Modal -->
+<form class="form-horizontal form-modal" method="get" role="form">
+    <div class="form-group">
+        <label for="lbFullname" class="col-sm-3 control-label">Tên đầy đủ</label>
+        <div class="col-sm-9">
+
+            <input type="text" class="form-control required" id="lbFullname" placeholder="Tên đầy đủ">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lbGender" class="col-sm-3 control-label">Giới tính</label>
+        <div class="col-sm-9">
+            <label class="radio-inline">
+                <input type="radio" name="gender" id="lbGender" value="1" checked>Nam
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="gender" id="lbGender1" value="0">Nữ
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lbBirthday" class="col-sm-3 control-label">Ngày sinh</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required" id="lbBirthday" placeholder="Ngày sinh">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+
+    <div class="form-group input-inline">
+        <label for="lbCMTNN" class="col-sm-3 control-label">CMTNN</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required" id="lbCMTNN" placeholder="Số chứng minh">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lbEmail" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required email" id="lbEmail" placeholder="Email">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lbPhone" class="col-sm-3 control-label">Điện thoại</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required phone" id="lbPhone" placeholder="Điện thoại">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lbAddress" class="col-sm-3 control-label">Địa chỉ</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required" id="lbAddress" placeholder="Địa chỉ">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Ảnh đại diện</label>
+        <div class="col-sm-9">
+            <img src="../images/no-avatar_03.png">
+            <input type="button" class="btn btn-warning" value="Xóa ảnh">
+            <input type="button" class="btn btn-info" value="Đổi ảnh">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lbUserName" class="col-sm-3 control-label">Tên đăng nhập</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required" id="lbUserName" placeholder="Tên đăng nhập">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lbPassword" class="col-sm-3 control-label">Mật khẩu</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control required" id="lbPassword" placeholder="Mật khẩu">
+            <label class="text-danger js-hidden"></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-sm-3 control-label">Chức vụ</label>
+        <div class="col-sm-9 required-checkbox" style="width: 500px;">
+
+            <label class="checkbox-inline">
+                <input type="checkbox">Chủ sở hữu
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Kế toán trưởng
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người quản trị
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người duyệt bài
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người quản trị
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người duyệt bài
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người duyệt bài
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người quản trị
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox">Người duyệt bài
+            </label>
+            <br><label class="text-danger js-hidden">loi</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <input type="submit" value="Submit" class="js-submit btn btn-info">
+        </div>
+    </div>
+</form>
+    <!-- Core Scripts - Include with every page -->
+    <script src="../../js/lib/jquery-1.9.js"></script>
+    <script src="../js/lib/bootstrap.min.js"></script>
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src= "../../js/check-valid-form-main.js">  </script>
+    <script src= "../../js/check-valid-form.js">  </script>
+
+</body>
+
+</html>

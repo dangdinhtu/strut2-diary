@@ -1,0 +1,135 @@
+html, body
+{
+min-height:100%;
+height:100%;
+display:block;
+width:100%;
+}
+body
+{
+ text-align: center;
+ margin: 0;
+ font-family: sans-serif;
+ line-height: 1.5em;
+ background-color: #EEE;
+ background-image: url('../images/back.jpg');
+-moz-font-smooth:  never;
+}
+#book-wrapper #book, #book-wrapper #bookpagezoomwrapper
+{
+ font-family: 'Quattrocento', Arial, sans-serif;
+}
+#book-wrapper h1, #book-wrapper h2,#book-wrapper h3, #book-wrapper h4, #book-wrapper h5, #book-wrapper h6
+{
+font-size: 150%;
+}
+#book-wrapper h1
+{
+padding:1em 1em 0;
+}
+#book-wrapper h2 
+{
+padding:.5em 1em;
+}
+#book-wrapper h3
+{
+padding:1em 1em .5em;
+}
+#book-wrapper h4, #book-wrapper h5, #book-wrapper h6
+{
+padding:.1em 1em;
+}
+#book-wrapper h4
+{
+font-size: 200%;
+ line-height: 1.5em;
+}
+#book-wrapper p, #book-wrapper .page div ul, #book-wrapper #bookpagezoom ul
+{
+ padding: 1em 3em 0 3em;
+ text-align: left;
+ line-height: 1.5em;
+ margin: 0;
+}
+#book-wrapper .image
+{
+width:20%;
+margin:0 4em .5em 1em;
+}
+#book-wrapper .floatright
+{
+float:right;
+}
+#book-wrapper .floatleft
+{
+float:left
+}
+#book-wrapper p.now-with, #book-wrapper p.now-with:after, #book-wrapper p.now-with:before
+{
+ border: solid 1px rgba(0,0,0,0.1);
+ border-radius: 3px;
+}
+#book-wrapper p.now-with
+{
+ padding: 1em;
+ font-weight: bold;
+ font-size: 150%;
+ width: 30%;
+ text-transform: uppercase;
+ text-align: center;
+-webkit-transform: rotate(-10deg);
+position:relative;
+margin: 1em 30% 1.5em 2em;
+background: rgba(0,0,0,0.05);
+}
+#book-wrapper p.now-with.also
+{
+ padding: 1em;
+ font-size: 100%;
+ width: 30%;
+-webkit-transform: rotate(10deg);
+-moz-transform: rotate(10deg);
+margin: -1em 2em 2em 0;
+}
+#book-wrapper p.now-with:after, #book-wrapper p.now-with:before
+{
+position:absolute;
+top:0;
+left:0;
+display:block;
+width:100%;
+height:100%;
+content:"";
+background: rgba(0,0,0,0.05);
+}
+#book-wrapper p.now-with:after
+{
+-webkit-transform: rotate(-25deg);
+-moz-transform: rotate(-25deg);
+}
+#book-wrapper p.now-with:before
+{
+-webkit-transform: rotate(25deg);
+-moz-transform: rotate(25deg);
+}
+
+/************************ FRONT COVER ***********************************/
+
+#book-wrapper #book .front-cover.right div
+{ 
+background: #5f56bf url('../images/cover.jpg') 90% 10%; 
+box-shadow: inset 1px 1px 10px rgba(255,255,255,0.5), inset -1px -1px 10px rgba(0,0,0,0.5);
+color:#fff;
+color: rgba(255,255,255,0.7);
+text-shadow: 1px 1px 1px rgba(255,255,255,0.5), -1px -1px 1px rgba(0,0,0,0.5);
+background-size: 200%;
+}
+#book-wrapper .front-cover h4
+{
+margin-top:3em;
+}
+#book-wrapper .front-cover p
+{
+ color: rgba(255, 204, 0, 0.7);
+text-align:center;
+}
