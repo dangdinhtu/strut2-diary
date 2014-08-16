@@ -34,8 +34,6 @@ public class AdminUserController extends ActionSupport {
             boolean flag = userDAO.saveOrUpdate(userId, user);
             if(userId == null && flag)
                 result = Message.getMessage("Thêm mới bản ghi thành công", "success");
-            else if( userId == null && !flag)
-                result = Message.getMessage("Thêm mới bản ghi thất bại", "error");
             else if(userId != 0 || userId != null && flag)
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success");
             else
