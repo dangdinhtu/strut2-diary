@@ -19,7 +19,12 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="table-action">
-                    <div class="pull-left search-table">
+                    
+                    <div class="pull-left">
+                        <a href="AdminUserController?action=add" class="btn btn-default">Thêm</a>
+                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminUserController?action=delete&id=" value="Xóa">
+                    </div>
+                    <div class="pull-right search-table">
                         <form action="AdminUserController" method="get">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
@@ -30,10 +35,6 @@
                                 </span>
                             </div><!-- /input-group -->
                         </form>
-                    </div>
-                    <div class="pull-right">
-                        <a href="AdminUserController?action=add" class="btn btn-default">Thêm</a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminUserController?action=delete&id=" value="Xóa">
                     </div>
                 </div>
                 <br>
