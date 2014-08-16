@@ -205,3 +205,11 @@ hr.hr-footer{
     border-color: #ccc;
     background-image:none!important;
 }
+.social-icons ul li{
+	list-style : none;
+	display : inline-block;
+}
+.social-icons{
+	margin: auto;
+	text-align: right;
+}
