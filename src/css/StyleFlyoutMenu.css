@@ -1,0 +1,64 @@
+/* 
+    Document   : StyleFlyoutMenu
+    Created on : Jul 25, 2014, 6:21:46 PM
+    Author     : ThuTrang
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+*{margin: 0px; padding: 0px;}
+div#wrapper{
+    width: 500px;
+    margin: 40px auto;
+    line-height: 2em;
+    font-family: monospace;
+    font-size: 12px;
+    
+}
+div#mainMenu{
+    width: 200px;
+}
+
+div#mainMenu h1{
+    font-size: 14px;
+    background: #3883cc;
+    color: white;
+    text-align: center;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+}
+
+div#mainMenu ul{
+    list-style: none;
+    border: 1px solid #bccbd8;
+}
+
+div#mainMenu ul li{
+    position: relative;
+    border-bottom: 1px solid #bccbd8;
+}
+
+div#mainMenu ul li a{
+    color: #1e5b7e;
+    text-decoration: none;
+    padding: 5px;
+}
+
+div#mainMenu ul li a:hover{
+    text-decoration: underline;
+}
+
+div#mainMenu ul li ul{
+    position: absolute;
+    top : -1px;
+    left: 198px;
+    display: none;
+}
+
+div#mainMenu ul li:hover ul{
+    display: block;
+    width: 100%;
+}
