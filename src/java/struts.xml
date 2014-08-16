@@ -9,13 +9,12 @@
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
         </result-types>
         <action name="Index" class="diary.controller.Index">
-            <result name="success" type="tiles">/index.tiles</result>            
+            <result name="success" type="tiles">/index.tiles</result> 
         </action>   
         
         <action name="AdminUserController" class="diary.controller.AdminUserController">
             <result name="success" type="tiles">/listUser.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
-            <result name="redirect" type="redirect">AdminUserController</result>        
         </action>        
     </package>
 </struts>
