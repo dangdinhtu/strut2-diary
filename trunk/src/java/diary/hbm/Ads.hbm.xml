@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="diary.bo.AdsBO" table="ADS">
+    <id name="adsId">
+      <column name="ADS_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name">
+      <column name="NAME"/>
+    </property>
+    <property name="position">
+      <column name="POSITION"/>
+    </property>
+    <property name="link">
+      <column name="LINK"/>
+    </property>
+    <property name="images">
+      <column name="IMAGES"/>
+    </property>
+    <property name="descript">
+      <column name="DESCRIPT"/>
+    </property>
+    <property name="title">
+      <column name="TITLE"/>
+    </property>
+    <property name="content">
+      <column name="CONTENT"/>
+    </property>
+    <property name="timeStart">
+      <column name="TIME_START"/>
+    </property>
+    <property name="timeEnd">
+      <column name="TIME_END"/>
+    </property>
+    <property name="active">
+      <column name="ACTIVE"/>
+    </property>
+  </class>
+</hibernate-mapping>
