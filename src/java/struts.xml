@@ -4,17 +4,21 @@
 
 <struts>
     <!-- Configuration for the default package. -->
+    <include file="admin.xml"/>
     <package name="default" extends="struts-default" namespace="/">
         <result-types>
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
         </result-types>
         <action name="Index" class="diary.controller.Index">
-            <result name="success" type="tiles">/index.tiles</result> 
-        </action>   
-        
-        <action name="AdminUserController" class="diary.controller.AdminUserController">
-            <result name="success" type="tiles">/listUser.tiles</result> 
-            <result name="input" type="tiles">/form.tiles</result>   
-        </action>        
+            <result name="success" type="tiles">/index.tiles</result>            
+        </action>      
+        <action name="QuizController" class="diary.controller.QuizController">
+            <result name="success" type="tiles">/quiz.tiles</result> 
+        </action> 
+        <action name="diary" class="diary.controller.DiaryController">
+            <result name="success" type="tiles">/diary.tiles</result> 
+            <result name="create-diary" type="tiles">/create-diary.tiles</result> 
+            <result name="write-diary" type="tiles">/write-diary.tiles</result>
+        </action> 
     </package>
 </struts>
