@@ -19,5 +19,6 @@
     <property name="hibernate.c3p0.idle_test_period">3000</property>
     <!-- Vùng mapping -->
     <mapping resource="diary/hbm/User.hbm.xml"/>
+    <mapping resource="diary/hbm/Ads.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
