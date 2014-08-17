@@ -41,28 +41,28 @@ body{
 
 }
 /*.quiz-fast:before {*/
-    /*width: 100%;*/
-    /*content: "";*/
-    /*height: 8px;*/
-    /*margin-top: -8px;*/
-    /*margin-left: 0px;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*background-image: url(../images/bg-top-quizz-fast_01.png);*/
-    /*background-repeat: repeat-x;*/
+/*width: 100%;*/
+/*content: "";*/
+/*height: 8px;*/
+/*margin-top: -8px;*/
+/*margin-left: 0px;*/
+/*position: absolute;*/
+/*top: 0;*/
+/*left: 0;*/
+/*background-image: url(../images/bg-top-quizz-fast_01.png);*/
+/*background-repeat: repeat-x;*/
 /*}*/
 /*.quiz-fast:after {*/
-    /*width: 100%;*/
-    /*content: "";*/
-    /*height: 8px;*/
-    /*margin-top: -8px;*/
-    /*margin-left: 0px;*/
-    /*position: absolute;*/
-    /*bottom: -8px;*/
-    /*left: 0;*/
-    /*background-image: url(../images/bg-bottom-quizz-fast_01.png);*/
-    /*background-repeat: repeat-x;*/
+/*width: 100%;*/
+/*content: "";*/
+/*height: 8px;*/
+/*margin-top: -8px;*/
+/*margin-left: 0px;*/
+/*position: absolute;*/
+/*bottom: -8px;*/
+/*left: 0;*/
+/*background-image: url(../images/bg-bottom-quizz-fast_01.png);*/
+/*background-repeat: repeat-x;*/
 /*}*/
 
 .quiz-fast img{
@@ -115,7 +115,7 @@ body{
 .icon-home{
     width: 60px;
 }
- /*==============menu=========================*/
+/*==============menu=========================*/
 .nav-menu{
     border: 1px solid #FFFFFF;
     -webkit-box-shadow: #444 0px 0px 7px;
@@ -206,10 +206,44 @@ hr.hr-footer{
     background-image:none!important;
 }
 .social-icons ul li{
-	list-style : none;
-	display : inline-block;
+    list-style : none;
+    display : inline-block;
 }
 .social-icons{
-	margin: auto;
-	text-align: right;
+    margin: auto;
+    text-align: right;
+    margin-top: 21px;
+}
+
+#like1 {
+    min-width: 70px;
+    max-width: 100px;
+    max-height: 200px;
+    min-height: 200px;
+    background: #F5F5F5;
+    background: rgba(245, 245, 245, 0.75);
+    border: 1px solid #FFFFFF;
+    -webkit-box-shadow: #444 0px 0px 7px;
+    -moz-box-shadow: #444 0px 0px 7px;
+    box-shadow: #444 0px 0px 7px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 10px;
+}
+
+#toppage1k
+{
+    padding:0px;
+    position:fixed;
+    bottom:10px;right:10px;
+    cursor:pointer;
+
+    opacity:0.7;
+
+}/* di chuột lên đầu trang*/
+#toppage1k:hover
+{
+    opacity:1.0;
 }

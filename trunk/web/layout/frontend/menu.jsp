@@ -18,16 +18,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="quiz.html">Trắc nghiệm</a></li>
+                    <li class=""><a href="QuizController">Trắc nghiệm</a></li>
                     <li><a href="#">Xem bói</a></li>
                     <li><a href="#">Tạo ảnh</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhật kí <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="read-diary.html">Đọc nhật kí</a></li>
-                            <li><a href="#">Viết nhật kí</a></li>
+                            <li><a href="diary?action=write-diary">Viết nhật kí</a></li>
                             <li class="divider"></li>
-                            <li><a href="create-diary.html">Tạo mới nhật kí</a></li>
+                            <li><a href="diary?action=create-diary">Tạo mới nhật kí</a></li>
                         </ul>
                     </li>
                 </ul>
