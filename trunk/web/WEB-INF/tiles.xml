@@ -18,6 +18,10 @@
 		<put-attribute name="title" value="Danh sách User" />
 		<put-attribute name="body" value="/backend/user/list.jsp" />
 	</definition>
+        <definition name="/listCategory.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Danh sách Category" />
+		<put-attribute name="body" value="/backend/category/list.jsp" />
+	</definition>
         <definition name="/form.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Thêm mới user" />
 		<put-attribute name="body" value="/backend/user/form.jsp" />
