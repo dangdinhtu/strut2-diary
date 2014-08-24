@@ -20,5 +20,7 @@
     <!-- Vùng mapping -->
     <mapping resource="diary/hbm/User.hbm.xml"/>
     <mapping resource="diary/hbm/Ads.hbm.xml"/>
+    <mapping resource="diary/hbm/Category.hbm.xml"/>
+    <mapping resource="diary/hbm/DiaryBook.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
