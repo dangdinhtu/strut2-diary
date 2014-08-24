@@ -48,18 +48,18 @@ public class UserDAO extends HibernateDAO{
     }
     public static void main(String args[]) {
         UserDAO obj = new UserDAO();
-//        List<UserBO> persons = obj.getList();
-//        for (int i = 0; i < persons.size(); i++) {
-//            UserBO person = (UserBO) persons.get(i);
-//            System.out.println("sinhVien " + person.getName());
-//
-//        }
+        List<UserBO> persons = obj.getList();
+        for (int i = 0; i < persons.size(); i++) {
+            UserBO person = (UserBO) persons.get(i);
+            System.out.println("sinhVien " + person.getName());
+
+        }
         
-//        UserBO user = obj.getDataById(1);
-//        System.out.println(user.getName());
-//        user.setName("Le Trang");
-//        user.setAddress("Ha Noi");
-//        Integer id = obj.save(user);
-//        System.out.println(id);
+        UserBO user = obj.getDataById1(1);
+        System.out.println(user.getName());
+        user.setName("Le Trang");
+        user.setAddress("Ha Noi");
+        boolean id = obj.save(user);
+        System.out.println(id);
     }
 }
