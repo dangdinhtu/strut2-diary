@@ -22,24 +22,5 @@
     <mapping resource="diary/hbm/Ads.hbm.xml"/>
     <mapping resource="diary/hbm/Category.hbm.xml"/>
     <mapping resource="diary/hbm/DiaryBook.hbm.xml"/>
-    <mapping resource="diary/hbm/DiaryBookContent.hbm.xml"/>
-    <mapping resource="diary/hbm/Divination.hbm.xml"/>
-    <mapping resource="diary/hbm/DivinationCategory.hbm.xml"/>
-    <mapping resource="diary/hbm/DivinationFast.hbm.xml"/>
-    <mapping resource="diary/hbm/DivinationLong.hbm.xml"/>
-    <mapping resource="diary/hbm/DivinationLongContents.hbm.xml"/>
-    <mapping resource="diary/hbm/Function.hbm.xml"/>
-    <mapping resource="diary/hbm/FunnyImages.hbm.xml"/>
-    <mapping resource="diary/hbm/Permission.hbm.xml"/>
-    <mapping resource="diary/hbm/Remind.hbm.xml"/>
-    <mapping resource="diary/hbm/Resource.hbm.xml"/>
-    <mapping resource="diary/hbm/ResultsDivinationCouples.hbm.xml"/>
-    <mapping resource="diary/hbm/ResultsDivinationFast.hbm.xml"/>
-    <mapping resource="diary/hbm/ResultsDivinationLong.hbm.xml"/>
-    <mapping resource="diary/hbm/Role.hbm.xml"/>
-    <mapping resource="diary/hbm/RolePerm.hbm.xml"/>
-    <mapping resource="diary/hbm/UserDiaryBook.hbm.xml"/>
-    <mapping resource="diary/hbm/UserRole.hbm.xml"/>
-    <mapping resource="diary/hbm/Zodiac.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

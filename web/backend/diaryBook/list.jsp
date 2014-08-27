@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách Category</h1>
+        <h1 class="page-header">Danh sách Nhật ký</h1>
     </div>
 </div>
 <div class="row">
@@ -21,11 +21,11 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminCategoryController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminCategoryController?action=delete&id=" value="Xóa">
+                        <a href="AdminDiaryBookController?action=add" class="btn btn-default">Thêm </a>
+                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDiaryBookController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
-                        <form action="AdminCategoryController" method="get">
+                        <form action="AdminDiaryBookController" method="get">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
                                 <span class="input-group-btn">
@@ -40,9 +40,9 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listCategory" requestURI="/AdminCategoryController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                    <display:table id="data"  export="true" name="listDiaryBook" requestURI="/AdminDiaryBookController" pagesize="10" class="table table-striped table-bordered table-hover" >
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
-                            <input type="checkbox" name="category.listId[]" class="checkbox-selection " value="${data.categoryId}">
+                            <input type="checkbox" name="category.listId[]" class="checkbox-selection " value="${data.diaryBookId}">
                         </display:column>
                         <display:column property="name" title="Tên" sortable="true"/>
                         <display:column property="descript" title="Mô tả"/>
@@ -50,8 +50,8 @@
                             <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
                         </display:column>
                         <display:column title="resource.key">
-                            <a href="AdminUserController?action=form-edit&id=${data.categoryId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminCategoryController?action=delete&id=${data.categoryId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminUserController?action=form-edit&id=${data.diaryBookId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#"  class="table-a-delete" data-redirect ="AdminDiaryBookController?action=delete&id=${data.diaryBookId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						
