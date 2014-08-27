@@ -17,6 +17,10 @@
             <result name="success" type="tiles">/listCategory.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
+        <action name="AdminDiaryBookController" class="diary.controller.AdminDiaryBookController">
+            <result name="success" type="tiles">/listDiaryBook.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
     </package>
 </struts>
 
