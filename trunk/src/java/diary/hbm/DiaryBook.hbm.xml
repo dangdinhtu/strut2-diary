@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="diary.bo.DiaryBookBO" table="DIARY_BOOK">
+    <id name="dbkId">
+      <column name="DBK_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name">
+      <column name="NAME"/>
+    </property>
+    <property name="dateCreate">
+      <column name="DATE_CREATE"/>
+    </property>
+    <property name="coverPhoto">
+      <column name="COVER_PHOTO"/>
+    </property>
+    <property name="backgroundImages">
+      <column name="BACKGROUND-IMAGES"/>
+    </property>
+    <property name="backgroundAudio">
+      <column name="BACKGROUND_AUDIO"/>
+    </property>
+    <property name="audioAutoPlay">
+      <column name="AUDIO_AUTOPLAY"/>
+    </property>
+    <property name="categoryId">
+      <column name="CATEGORY_ID"/>
+    </property>
+      
+</class>
+  
+</hibernate-mapping>
