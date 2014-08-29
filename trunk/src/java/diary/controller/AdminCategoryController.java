@@ -55,9 +55,9 @@ public class AdminCategoryController extends ActionSupport{
             CategoryBO categoryBO = categoryDAO.get(CategoryBO.class, id);
             boolean check = categoryDAO.delete(categoryBO);
             if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminUserController");
+                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminCategoryController");
             else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminUserController");
+                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminCategoryController");
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
