@@ -16,7 +16,7 @@
       <column name="COVER_PHOTO"/>
     </property>
     <property name="backgroundImages">
-      <column name="BACKGROUND-IMAGES"/>
+      <column name="BACKGROUND_IMAGES"/>
     </property>
     <property name="backgroundAudio">
       <column name="BACKGROUND_AUDIO"/>

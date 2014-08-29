@@ -17,13 +17,13 @@ public class DiaryBookDAO extends HibernateDAO{
     public List getList() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         try { 
-            List<DiaryBookBO> listOfDiaryBook = new ArrayList();
+            List<DiaryBookBO> listOfDbc = new ArrayList();
             StringBuffer sb = new StringBuffer();
             sb.append(" FROM DiaryBookBO ");
             sb.append(" ORDER BY DBK_ID DESC  ");
             org.hibernate.Query query = session.createQuery(sb.toString());
-            listOfDiaryBook = query.list();
-            return listOfDiaryBook;
+            listOfDbc = query.list();
+            return listOfDbc;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {

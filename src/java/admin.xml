@@ -21,6 +21,22 @@
             <result name="success" type="tiles">/listDiaryBook.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
+        <action name="AdminDivinationController" class="diary.controller.AdminDivinationController">
+            <result name="success" type="tiles">/listDivination.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
+        <action name="AdminDBCController" class="diary.controller.AdminDBCController">
+            <result name="success" type="tiles">/listDBC.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
+        <action name="AdminDCYController" class="diary.controller.AdminDCYController">
+            <result name="success" type="tiles">/listDCY.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
+        <action name="AdminDivinationFastController" class="diary.controller.AdminDivinationFastController">
+            <result name="success" type="tiles">/listDivinationFast.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
     </package>
 </struts>
 

@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách Nhật ký</h1>
+        <h1 class="page-header">Danh sách Divination</h1>
     </div>
 </div>
 <div class="row">
@@ -21,11 +21,11 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminDiaryBookController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDiaryBookController?action=delete&id=" value="Xóa">
+                        <a href="AdminDivinationController?action=add" class="btn btn-default">Thêm </a>
+                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDivinationController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
-                        <form action="AdminDiaryBookController" method="get">
+                        <form action="AdminDivinationController" method="get">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
                                 <span class="input-group-btn">
@@ -40,20 +40,16 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listDiaryBook" requestURI="/AdminDiaryBookController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                    <display:table id="data"  export="true" name="listDivination" requestURI="/AdminDivinationController" pagesize="10" class="table table-striped table-bordered table-hover" >
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
-                            <input type="checkbox" name="diaryBook.listId[]" class="checkbox-selection " value="${data.dbkId}">
+                            <input type="checkbox" name="dbc.listId[]" class="checkbox-selection " value="${data.divinationId}">
                         </display:column>
                         <display:column property="name" title="Tên" sortable="true"/>
-                        <display:column property="dateCreate" title="Mô tả"/>
-                        <display:column property="coverPhoto" title="Ảnh"/>
-                        <display:column property="backgroundImages" title="Ảnh bìa"/>
-                        <display:column property="backgroundAudio" title="Nhạc nền"/>
-                        <display:column property="audioAutoPlay" title="Video"/>
-                        <display:column property="categoryId" title="Thể loại"/>
+                        <display:column property="descript" title="Mô tả"/>
+                        <display:column property="dcyId" title="DCY"/>
                         <display:column title="resource.key">
-                            <a href="AdminDiaryBookController?action=form-edit&id=${data.dbkId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminDiaryBookController?action=delete&id=${data.dbkId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminDivinationController?action=form-edit&id=${data.divinationId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#"  class="table-a-delete" data-redirect ="AdminDivinationController?action=delete&id=${data.divinationId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						

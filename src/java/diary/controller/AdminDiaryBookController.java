@@ -51,9 +51,9 @@ public class AdminDiaryBookController extends ActionSupport{
             DiaryBookBO diaryBookBO = diaryBookDAO.get(DiaryBookBO.class, id);
             boolean check = diaryBookDAO.delete(diaryBookBO);
             if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminUserController");
+                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDiaryBookController");
             else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminUserController");
+                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDiaryBookController");
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
