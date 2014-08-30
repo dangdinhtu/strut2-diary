@@ -42,13 +42,13 @@ public class AdminResourceController extends ActionSupport {
         }else if ("add".equals(action)) {
             return INPUT;
         }else if("form-edit".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
+            String id = (String)req.getParameter("id");
             resource = resourceDAO.get(ResourceBO.class, id);
             return INPUT;
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
+            String id = (String)req.getParameter("id");
             ResourceBO resourceBO = resourceDAO.get(ResourceBO.class, id);
             boolean check = resourceDAO.delete(resourceBO);
             if(check)
