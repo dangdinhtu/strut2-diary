@@ -1,0 +1,395 @@
+
+.what-we-do .service {
+    padding-bottom: 23px;
+    background: #f8f8f8;
+    border-bottom: 2px solid #9d426b;
+    margin-top:15px;
+}
+
+.what-we-do .service .icon-awesome {
+    margin-top: 15px;
+    font-size: 50px;
+    line-height: 50px;
+    color: #5d5d5d;
+}
+
+.what-we-do .service .icon-awesome {
+    margin-top: 15px;
+    font-size: 50px;
+    line-height: 50px;
+    color: #5d5d5d;
+}
+
+.what-we-do .service p {
+    padding-bottom: 10px;
+    line-height: 24px;
+}
+.what-we-do .service a {
+    padding: 5px 22px;
+    background: #9d426b;
+    color: #fff;
+    font-style: italic;
+    text-decoration: none;
+    -moz-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
+    -webkit-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
+    box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
+}
+
+.course-price {
+    position: absolute;
+    top: 52px;
+    left: 11px;
+}
+.price-text {
+    display: block;
+    padding: 0.2em 10px;
+    min-width: 38px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: #5ea5d7;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    font-size: 1.5em;
+}
+.price-text.danger{
+    background-color: #f3715d!important ;
+}
+.price-text {
+    background-image: -moz-linear-gradient(top, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.15)), color-stop(100%,rgba(255,255,255,0)));
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%);
+    background-image: -o-linear-gradient(top, rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%);
+    background-image: -ms-linear-gradient(top, rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 100%);
+}
+.course-price .corner-wrap {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 4px;
+    height: 4px;
+}
+
+.course-price .corner {
+    position: relative;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.course-price .corner, .course-price .corner-background {
+    width: 0;
+    height: 0;
+    border: 2px solid #5ea5d7;
+    border-bottom-color: #fff;
+    border-left-color: #fff;
+}
+.course-price .corner-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-color: #000;
+    border-right-color: #000;
+}
+
+.course-users a{
+    font-size: 15px;
+}
+
+.detail-teacher img{
+    max-width: 100%!important;
+}
+
+.container-margin{
+    margin-top: 30px;
+}
+
+.star-teacher{
+    height: 40px;
+}
+
+.body-detail-teacher p{
+    font-size: 2em;
+}
+p.detail-title{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.list-news h4{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+
+/*=======media=============*/
+.row .fivecol {
+    width: 39.45%;
+}
+
+.column {
+    position: relative;
+    float: left;
+    margin-right: 3.8%;
+    min-height: 1px;
+}
+
+.bordered-image.thick-border {
+    padding: 5px;
+}
+
+.tooltip-text, .course-preview, .certificate-wrap,  .bordered-image, .wp-caption, .gallery-icon, .boxed-slider, .content-block, ul.products li.product img, .header-navigation ul ul {
+    -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.gallery-icon, .wp-caption, .bordered-image {
+    position: relative;
+    overflow: hidden;
+    padding: 3px;
+    max-width: 100%;
+    border: 1px solid #e1e1e1;
+    background: #fff;
+    width: 37%;
+}
+
+.gallery-icon img, .wp-caption img, .bordered-image img {
+    display: block;
+    width: 100%!important;
+    height: auto;
+    border-width: 0!important;
+}
+
+.media-heading a:hover{
+    text-decoration: none;
+    color: #9d426b;
+}
+.media-body p{
+    font-size: 15px;
+    color: #777;
+}
+.media-body span{
+    font-size: 18px;
+    color: #9d426b;
+}
+
+.main_bg_no_background{
+    background: none!important;
+}
+a.list-group-item {
+    font-size: 17px;
+}
+
+
+
+
+footer {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    background: #f8f8f8 url(../images/pattern.jpg) left top repeat;
+    -moz-box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,.05) inset;
+}
+
+footer .widget {
+    margin-top: 20px;
+    text-align: left;
+}
+footer .widget h4 {
+    margin-top: 20px;
+    font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding-left: 22px;
+    color: #5d5d5d;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(255,255,255,.7);
+}
+footer .widget p {
+    line-height: 24px;
+    font-size: 14px;
+    padding-left: 18px;
+}
+
+.flickr-feed {
+    margin: 16px 0 0 0;
+    overflow: hidden;
+}
+
+.flickr-feed li {
+    float: left;
+    padding: 0 4px 4px 0;
+    list-style: none;
+}
+
+a {
+    color: #9d426b;
+    text-decoration: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+}
+.flickr-feed li img {
+    width: 50px;
+    border: 2px solid #eaeaea;
+}
+
+footer .footer-border {
+    margin-top: 30px;
+    border-top: 1px dashed #ddd;
+}
+footer .copyright {
+    margin-top: 15px;
+    text-align: center;
+}
+
+footer .copyright p{
+    font-size: 14px;
+}
+footer .social {
+    margin-top: 10px;
+    text-align: right;
+}
+
+footer .social a:hover {
+    background-position: left top;
+}
+
+footer .social a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 8px;
+    vertical-align: middle;
+}
+footer .social a.facebook {
+    background: url(../images/icons/facebook.png) left bottom no-repeat;
+}
+
+footer .social a.dribbble {
+    background: url(../images/icons/dribbble.png) left bottom no-repeat;
+}
+
+footer .social a:hover {
+    background-position: left top;
+}
+
+footer .social a.twitter {
+    background: url(../images/icons/twitter.png) left bottom no-repeat;
+}
+
+footer .social a.pinterest {
+    background: url(../images/icons/pinterest.png) left bottom no-repeat;
+}
+
+#myCarousel{
+    max-width: 87%;
+    margin: 0 auto;
+}
+
+
+.top-grid {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-right: 3%;
+    font-family: 'Open Sans', sans-serif;
+    background: #FFF;
+    padding: 1em 0;
+    border-top: 5px solid #9d426b;
+    margin-top: 2em;
+    -webkit-box-shadow: 0px 56px 36px -60px #121D12;
+    -moz-box-shadow: 0px 56px 36px -60px #121D12;
+    -o-box-shadow: 0px 56px 36px -60px #121D12;
+}
+
+.top-grid img {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+.top-grid h3 {
+    color: #9d426b;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+.top-grid p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: #777;
+    line-height: 1.5em;
+    margin: 0.5em auto 0.8em auto;
+    width: 90%;
+    min-height: 150px;
+}
+
+.button {
+    color: #FFF;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 0.8em;
+    border: 1px solid #EEE;
+    display: inline-block;
+    background: #9d426b;
+}
+
+.button:hover {
+    text-decoration:none;
+    color: #FFF;
+    background:#e81962;
+}
+
+
+.course-footer {
+    padding: 0.7em 15px;
+    border-top: 1px solid #f0f0f0;
+    background: #f2f2f2;
+}
+.left {
+    float: left;
+}
+.course-footer .course-users {
+    padding-left: 17px;
+    background: url(images/icons/user_icon.png) 0 0.2em no-repeat;
+    color: #777;
+    text-shadow: 0 1px 0 #fff;
+}
+.course-rating {
+    float: right;
+    margin: 0;
+}
+.course-rating {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 90px!important;
+}
+
+#owl-demo .item img {
+    display: inline-block!important;
+}
+.main_btm {
+    background: #f6f6f6;
+    border-top: 1px solid rgb(233, 233, 233);
+    width: 100%;
+}
+
+.content_right h4 {
+    color: #353535;
+    font-size: 2em;
+    font-family: 'texgyreadventorregular';
+    line-height: 1.5em;
+}
+
+.para {
+    font-size: 14px;
+    line-height: 1.8em;
+    color: #868686;
+}
+.content_left img{
+    margin-top: 22px;
+}

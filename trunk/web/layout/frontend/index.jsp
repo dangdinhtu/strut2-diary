@@ -9,10 +9,11 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
             <title><tiles:insertAttribute name="title" ignore="true" /></title>
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/layout.css">
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom-mobile.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom.css">
 
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/default.css" />
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/component.css" />
@@ -34,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         <script src="${contextPath}/layout/frontend/js/jquery.cycle2.min.js"></script>
 
-        
+
 
     </head>
     <body>
@@ -51,10 +52,9 @@
             <div class="row">
                 <tiles:insertAttribute name="slide" />
             </div>
+
             <!--========body=================-->
-            <div class="row">
-                <tiles:insertAttribute name="body" />       
-            </div>
+            <tiles:insertAttribute name="body" />       
             <br><hr class="hr-footer" size="2px" width="83%">
             <div class="row">
                 <tiles:insertAttribute name="footer" />
@@ -90,8 +90,8 @@
             })
         </script>
         <!-- like mạng xã hội-->
-        <script src='https://apis.google.com/js/plusone.js' type='text/javascript' ></script>
-        <script src='http://connect.facebook.net/en_US/all.js#xfbml=1? ' type='text/javascript' ></script>
+<!--        <script src='https://apis.google.com/js/plusone.js' type='text/javascript' ></script>
+        <script src='http://connect.facebook.net/en_US/all.js#xfbml=1? ' type='text/javascript' ></script>-->
 
         <!-- bắt đầu di chuột lên đầu trang-->
         <a href="#code1k-totop" id="toppage1k"><img src="${contextPath}/layout/frontend/images/up.png"></a>
