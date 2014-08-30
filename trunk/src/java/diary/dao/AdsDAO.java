@@ -34,14 +34,14 @@ public class AdsDAO extends HibernateDAO{
         }
         return null;
     }
-        public static void main(String args[]) {
-        AdsDAO obj = new AdsDAO();
-        List<AdsBO> persons = obj.getList();
-        for (int i = 0; i < persons.size(); i++) {
-            AdsBO person = (AdsBO) persons.get(i);
-            System.out.println("sinhVien " + person.getName());
-
-        }
+//        public static void main(String args[]) {
+//        AdsDAO obj = new AdsDAO();
+//        List<AdsBO> persons = obj.getList();
+//        for (int i = 0; i < persons.size(); i++) {
+//            AdsBO person = (AdsBO) persons.get(i);
+//            System.out.println("sinhVien " + person.getName());
+//
+//        }
         
 //        UserBO user = obj.getDataById(1);
 //        System.out.println(user.getName());
@@ -49,5 +49,5 @@ public class AdsDAO extends HibernateDAO{
 //        user.setAddress("Ha Noi");
 //        Integer id = obj.save(user);
 //        System.out.println(id);
-    }
+//    }
 }

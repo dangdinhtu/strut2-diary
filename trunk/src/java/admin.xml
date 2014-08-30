@@ -41,6 +41,14 @@
             <result name="success" type="tiles">/listDlg.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
+        <action name="AdminRDCController" class="diary.controller.AdminRDCController">
+            <result name="success" type="tiles">/listResultsDivinationCouples.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
+        <action name="AdminResourceController" class="diary.controller.AdminResourceController">
+            <result name="success" type="tiles">/listResource.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
     </package>
 </struts>
 

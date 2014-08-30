@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="diary.bo.ResultsDivinationCouplesBO" table="RESULTS_DIVINATION_COUPLES">
+        <id name="rdcId">
+            <column name="RDC_ID"/>
+            <generator class="identity"/>
+          </id>
+          <property name="scoreMin">
+            <column name="SCORE_MIN"/>
+          </property>
+          <property name="scoreMax">
+            <column name="SCORE_MAX"/>
+          </property>
+          <property name="coupleZodiac">
+            <column name="COUPLES_ZODIAC"/>
+          </property>
+          <property name="resultContent">
+            <column name="RESULT_CONTENT"/>
+          </property>
+          <property name="divinationId">
+            <column name="DIVINATION_ID"/>
+          </property>
+    </class>
+</hibernate-mapping>

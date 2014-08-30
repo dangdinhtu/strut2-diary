@@ -25,89 +25,49 @@
                 <a href="#"><i class="glyphicon glyphicon-user"></i>  Người dùng<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="AdminUserController">Thông tin người dùng</a>
-                    </li>
-                    
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
-
-            <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i> Bài viết<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="flot.html">Danh sách bài viết</a>
+                        <a href="AdminUserController">Quản trị người dùng</a>
                     </li>
                     <li>
-                        <a href="flot.html">Dach sách từ khóa</a>
+                        <a href="#">Phân quyền người dùng</a>
                     </li>
                     <li>
-                        <a href="morris.html">Danh sách liên kết</a>
-                    </li>
-                    <li>
-                        <a href="morris.html">Cấu hình yêu cầu bài viết</a>
-                    </li>
-                    <li>
-                        <a href="morris.html">Thể loại bài viết</a>
+                        <a href="#">Thông tin chức vụ</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="tables.html"><i class="glyphicon glyphicon-list-alt"></i> Lịch sử thanh toán <span class="fa arrow"></span></a>
+                <a href="#"><i class="glyphicon glyphicon-user"></i>Nhật kí<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="flot.html">Yêu cầu thanh toán</a>
+                        <a href="AdminCategoryController">Thể loại</a>
                     </li>
                     <li>
-                        <a href="flot.html">Đã thanh toán</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="forms.html"><i class="glyphicon glyphicon-file"></i> Thông tin chung</a>
-            </li>
-            <li>
-                <a href="forms.html"><i class="glyphicon glyphicon-tree-deciduous"></i> Tài nguyên</a>
-            </li>
-            <li>
-                <a href="#"><i class="glyphicon glyphicon-usd"></i> Quản lý thu chi<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="panels-wells.html">Quản lý nhóm</a>
-                    </li>
-                    <li>
-                        <a href="buttons.html">Phân loại thu chi</a>
-                    </li>
-                    <li>
-                        <a href="notifications.html">Thu chi</a>
-                    </li>
-                    <li>
-                        <a href="typography.html">Phân loại kế hoạch</a>
-                    </li>
-                    <li>
-                        <a href="grid.html">Dach sách tên miền</a>
-                    </li>
-                    <li>
-                        <a href="grid.html">Cảnh báo tên miền hết hạn</a>
+                        <a href="AdminDBCController">Danh sách nhật kí</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="glyphicon glyphicon-globe"></i> Trỏ lĩnh vực site vệ tinh<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Giải trí<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="blank.html">Danh sách tên miền</a>
+                        <a href="AdminDivinationFastController">Trắc nghiệm nhanh</a>
                     </li>
                     <li>
-                        <a href="login.html">Danh sách lĩnh vực</a>
+                        <a href="AdminDiLongController">Trắc nghiệm dài</a>
                     </li>
                     <li>
-                        <a href="login.html">Trỏ lĩnh vực vào tên miền</a>
+                        <a href="AdminRDCController">Cặp đôi ăn ý</a>
+                    </li>
+                    <li>
+                        <a href="#">Tạo ảnh ngộ nghĩnh</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="AdminResourceController"><i class="glyphicon glyphicon-list-alt"></i> Quản trị tài nguyên<span class="fa arrow"></span></a>
             </li>
         </ul>
         <!-- /#side-menu -->

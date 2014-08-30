@@ -4,10 +4,7 @@
  */
 package diary.dao;
 
-import diary.bo.DivinationBO;
-import diary.bo.DivinationFastBO;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import org.hibernate.Session;
 
@@ -15,17 +12,16 @@ import org.hibernate.Session;
  *
  * @author ThuTrang
  */
-public class DivinationFastDAO extends HibernateDAO{
+public class ResourceDAO extends HibernateDAO{
     public List getList() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         try {
-            List<DivinationFastBO> df = new LinkedList<DivinationFastBO>();
+            List listOfUsers = new ArrayList();
             StringBuffer sb = new StringBuffer();
-            sb.append(" FROM DivinationFastBO ");
-            sb.append(" ORDER BY dfnId DESC  ");
+            sb.append(" FROM ResourceBO ");
             org.hibernate.Query query = session.createQuery(sb.toString());
-            df = query.list();
-            return df;
+            listOfUsers = query.list();
+            return listOfUsers;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
@@ -35,13 +31,4 @@ public class DivinationFastDAO extends HibernateDAO{
         }
         return null;
     }
-    
-//    public static void main(String abc[]){
-////        
-//        DivinationFastDAO d = new DivinationFastDAO();
-//        List<DivinationBO> df = new LinkedList<DivinationBO>();
-//        df = d.getList(); 
-//        if(df.size() > 0)
-//            System.out.println(df.get(0).getName());
-//    }
 }

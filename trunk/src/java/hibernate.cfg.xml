@@ -27,5 +27,7 @@
     <mapping resource="diary/hbm/DivinationCategory.hbm.xml"/>
     <mapping resource="diary/hbm/DivinationFast.hbm.xml"/>
     <mapping resource="diary/hbm/DivinationLong.hbm.xml"/>
+    <mapping resource="diary/hbm/ResultsDivinationCouples.hbm.xml"/>
+    <mapping resource="diary/hbm/Resource.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

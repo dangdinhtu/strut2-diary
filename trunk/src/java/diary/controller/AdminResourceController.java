@@ -7,9 +7,9 @@ package diary.controller;
 import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import diary.bo.DivinationLongBO;
+import diary.bo.ResourceBO;
 import diary.common.Message;
-import diary.dao.DivinationLongDAO;
+import diary.dao.ResourceDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,12 +19,10 @@ import org.apache.struts2.ServletActionContext;
  *
  * @author ThuTrang
  */
-public class AdminDiLongController extends ActionSupport {
-    
-     private List<DivinationLongBO> dlgBO;
-    private DivinationLongBO dlg;
-    DivinationLongDAO dlgDAO = new DivinationLongDAO();
-    private List<DivinationLongBO> listDlg;
+public class AdminResourceController extends ActionSupport {
+    private ResourceBO resource;
+    ResourceDAO resourceDAO = new ResourceDAO();
+    private List<ResourceBO> listResource;
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();
@@ -32,11 +30,11 @@ public class AdminDiLongController extends ActionSupport {
         String result = "";
         
         if ("addOrUpdate".equals(action)) {
-            Integer dlgId =  dlg.getDlgId();
-            boolean flag = dlgDAO.saveOrUpdate(dlgId, dlg);
-            if(dlgId == null && flag)
+            String resourceKey =  resource.getResourceKey();
+            boolean flag = resourceDAO.saveOrUpdate(resourceKey, resource);
+            if(resourceKey == null && flag)
                 result = Message.getMessage("Thêm mới bản ghi thành công", "success");
-            else if(dlgId != 0 || dlgId != null && flag)
+            else if(resourceKey != null && flag)
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success");
             else
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
@@ -45,59 +43,50 @@ public class AdminDiLongController extends ActionSupport {
             return INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
-            dlg = dlgDAO.get(DivinationLongBO.class, id);
+            resource = resourceDAO.get(ResourceBO.class, id);
             return INPUT;
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
-            DivinationLongBO dlgBO = dlgDAO.get(DivinationLongBO.class, id);
-            boolean check = dlgDAO.delete(dlgBO);
+            ResourceBO resourceBO = resourceDAO.get(ResourceBO.class, id);
+            boolean check = resourceDAO.delete(resourceBO);
             if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDiLongController");
+                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminResourceController");
             else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDiLongController");
+                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminResourceController");
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
-        listDlg = dlgDAO.getList();
+        listResource = resourceDAO.getList();
         req.setAttribute("keyword", keyword);
         return SUCCESS;
      
      }
 
-    public List<DivinationLongBO> getDlgBO() {
-        return dlgBO;
+    public ResourceBO getResource() {
+        return resource;
     }
 
-    public void setDlgBO(List<DivinationLongBO> dlgBO) {
-        this.dlgBO = dlgBO;
+    public void setResource(ResourceBO resource) {
+        this.resource = resource;
     }
 
-    public DivinationLongBO getDlg() {
-        return dlg;
+    public ResourceDAO getResourceDAO() {
+        return resourceDAO;
     }
 
-    public void setDlg(DivinationLongBO dlg) {
-        this.dlg = dlg;
+    public void setResourceDAO(ResourceDAO resourceDAO) {
+        this.resourceDAO = resourceDAO;
     }
 
-    public DivinationLongDAO getDlgDAO() {
-        return dlgDAO;
+    public List<ResourceBO> getListResource() {
+        return listResource;
     }
 
-    public void setDlgDAO(DivinationLongDAO dlgDAO) {
-        this.dlgDAO = dlgDAO;
+    public void setListResource(List<ResourceBO> listResource) {
+        this.listResource = listResource;
     }
-
-    public List<DivinationLongBO> getListDlg() {
-        return listDlg;
-    }
-
-    public void setListDlg(List<DivinationLongBO> listDlg) {
-        this.listDlg = listDlg;
-    }
-     
      
 }

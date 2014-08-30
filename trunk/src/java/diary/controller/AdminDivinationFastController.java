@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.DivinationFastBO;
 import diary.common.Message;
 import diary.dao.DivinationFastDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +22,10 @@ import org.apache.struts2.ServletActionContext;
  */
 public class AdminDivinationFastController extends ActionSupport {
     
-    private List<DivinationFastBO> divinationFastBO;
-    private DivinationFastBO divinationFast;
+    private DivinationFastBO divinationFastBO;
     DivinationFastDAO divinationFastDAO = new DivinationFastDAO();
     private List<DivinationFastBO> listDivinationFast;
+    private List lst = new ArrayList();
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();
@@ -32,8 +33,8 @@ public class AdminDivinationFastController extends ActionSupport {
         String result = "";
         
         if ("addOrUpdate".equals(action)) {
-            Integer divinationFastId =  divinationFast.getDfnId();
-            boolean flag = divinationFastDAO.saveOrUpdate(divinationFastId, divinationFast);
+            Integer divinationFastId =  divinationFastBO.getDfnId();
+            boolean flag = divinationFastDAO.saveOrUpdate(divinationFastId, divinationFastBO);
             if(divinationFastId == null && flag)
                 result = Message.getMessage("Thêm mới bản ghi thành công", "success");
             else if(divinationFastId != 0 || divinationFastId != null && flag)
@@ -45,7 +46,7 @@ public class AdminDivinationFastController extends ActionSupport {
             return INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
-            divinationFast = divinationFastDAO.get(DivinationFastBO.class, id);
+            divinationFastBO = divinationFastDAO.get(DivinationFastBO.class, id);
             return INPUT;
         }else if("delete_all".equals(action)){
         
@@ -62,28 +63,20 @@ public class AdminDivinationFastController extends ActionSupport {
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
         listDivinationFast = divinationFastDAO.getList();
-         System.out.println(listDivinationFast.get(0).getName());
         req.setAttribute("keyword", keyword);
         return SUCCESS;
      
      }
 
-    public List<DivinationFastBO> getDivinationFastBO() {
+    public DivinationFastBO getDivinationFastBO() {
         return divinationFastBO;
     }
 
-    public void setDivinationFastBO(List<DivinationFastBO> divinationFastBO) {
+    public void setDivinationFastBO(DivinationFastBO divinationFastBO) {
         this.divinationFastBO = divinationFastBO;
     }
 
-    public DivinationFastBO getDivinationFast() {
-        return divinationFast;
-    }
-
-    public void setDivinationFast(DivinationFastBO divinationFast) {
-        this.divinationFast = divinationFast;
-    }
-
+    
     public DivinationFastDAO getDivinationFastDAO() {
         return divinationFastDAO;
     }

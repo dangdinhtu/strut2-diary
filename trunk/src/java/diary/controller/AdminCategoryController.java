@@ -63,7 +63,6 @@ public class AdminCategoryController extends ActionSupport{
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
         listCategory = categoryDAO.getList();
-         System.out.println(listCategory.get(0).getName());
         req.setAttribute("keyword", keyword);
         return SUCCESS;
      
