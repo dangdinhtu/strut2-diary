@@ -64,6 +64,17 @@ public class HibernateDAO {
         
         return flag;
     }
+    
+    public boolean saveOrUpdate(String key, BasicBO entity) {
+        boolean flag = false;
+        if (key == null)
+            flag = save(entity);
+         else 
+            flag = update(entity);
+        
+        return flag;
+    }
+    
     public <T> T get(Class<T> entityClass, Serializable id) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         return (T) session.get(entityClass, id);

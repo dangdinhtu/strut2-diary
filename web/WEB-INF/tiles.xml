@@ -15,19 +15,19 @@
 	</definition>
 
         <definition name="/listUser.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách User" />
+		<put-attribute name="title" value="Danh sách người dùng" />
 		<put-attribute name="body" value="/backend/user/list.jsp" />
 	</definition>
         <definition name="/listCategory.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách Category" />
+		<put-attribute name="title" value="Danh sách thể loại nhật ký" />
 		<put-attribute name="body" value="/backend/category/list.jsp" />
 	</definition>
         <definition name="/listDiaryBook.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách Diary Book" />
+		<put-attribute name="title" value="Danh sách nhật ký" />
 		<put-attribute name="body" value="/backend/diaryBook/list.jsp" />
 	</definition>
         <definition name="/listDBC.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách Nội dung nhật kí" />
+		<put-attribute name="title" value="Danh sách nội dung nhật kí" />
 		<put-attribute name="body" value="/backend/diaryBookContent/list.jsp" />
         </definition>
         <definition name="/listDivination.tiles" extends="baseLayout">
@@ -35,16 +35,24 @@
 		<put-attribute name="body" value="/backend/divination/list.jsp" />
 	</definition>
         <definition name="/listDCY.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách Divination Category" />
+		<put-attribute name="title" value="Danh sách thể loại giải trí" />
 		<put-attribute name="body" value="/backend/divinationCategory/list.jsp" />
 	</definition>
         <definition name="/listDivinationFast.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách Divination Fast" />
-		<put-attribute name="body" value="/backend/divinationCategory/list.jsp" />
+		<put-attribute name="title" value="Danh sách trắc nghiệm nhanh" />
+		<put-attribute name="body" value="/backend/divinationFast/list.jsp" />
 	</definition>
         <definition name="/listDlg.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách Divination Long" />
-		<put-attribute name="body" value="/backend/divinationCategory/list.jsp" />
+		<put-attribute name="title" value="Danh sách trắc nghiệm dài" />
+		<put-attribute name="body" value="/backend/divinationLong/list.jsp" />
+	</definition>
+        <definition name="/listResultsDivinationCouples.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Danh sách cặp cung hoàng đạo" />
+		<put-attribute name="body" value="/backend/resultsDivinationCouples/list.jsp" />
+	</definition>
+        <definition name="/listResource.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Quản lý tài nguyên" />
+		<put-attribute name="body" value="/backend/resource/list.jsp" />
 	</definition>
         
         <definition name="/form.tiles" extends="baseLayout">
