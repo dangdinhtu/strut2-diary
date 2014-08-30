@@ -37,6 +37,10 @@
             <result name="success" type="tiles">/listDivinationFast.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
+        <action name="AdminDiLongController" class="diary.controller.AdminDiLongController">
+            <result name="success" type="tiles">/listDlg.tiles</result> 
+            <result name="input" type="tiles">/form.tiles</result>   
+        </action>
     </package>
 </struts>
 

@@ -24,6 +24,7 @@ public class AdminUserController extends ActionSupport {
     private List<UserBO> listUser;
     private UserBO user;
     UserDAO userDAO = new UserDAO();
+   
     public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();

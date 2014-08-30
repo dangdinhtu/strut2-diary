@@ -25,17 +25,9 @@
                 <a href="#"><i class="glyphicon glyphicon-user"></i>  Người dùng<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="flot.html">Thông tin người dùng</a>
+                        <a href="AdminUserController">Thông tin người dùng</a>
                     </li>
-                    <li>
-                        <a href="flot.html">Thông tin chức vụ</a>
-                    </li>
-                    <li>
-                        <a href="flot.html">Tài nguyên cần bảo vệ</a>
-                    </li>
-                    <li>
-                        <a href="morris.html">Phân quyền người dùng</a>
-                    </li>
+                    
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
