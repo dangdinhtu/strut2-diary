@@ -55,9 +55,9 @@
 		<put-attribute name="body" value="/backend/resource/list.jsp" />
 	</definition>
         
-        <definition name="/form.tiles" extends="baseLayout">
+        <definition name="/formUser.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Thêm mới user" />
-		<put-attribute name="body" value="/backend/user/form.jsp" />
+		<put-attribute name="body" value="/backend/user/add.jsp" />
 	</definition>
        
         <!--==================layout cho frontend=========================-->

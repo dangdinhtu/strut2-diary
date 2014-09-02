@@ -5,6 +5,7 @@
 package diary.controller;
 
 import static com.opensymphony.xwork2.Action.INPUT;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.UserBO;
 import diary.common.Message;
@@ -29,7 +30,9 @@ public class AdminUserController extends ActionSupport {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();
         String action = req.getParameter("action");      
+        
         String result = "";
+        String a = SUCCESS;
         if ("addOrUpdate".equals(action)) {
             Integer userId =  user.getUserId();
             boolean flag = userDAO.saveOrUpdate(userId, user);
@@ -41,11 +44,11 @@ public class AdminUserController extends ActionSupport {
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
             
         } else if ("add".equals(action)) {
-            return INPUT;
+            a = INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
             user = userDAO.get(UserBO.class, id);
-            return INPUT;
+            a = INPUT;
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
@@ -56,13 +59,17 @@ public class AdminUserController extends ActionSupport {
                 result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminUserController");
             else
                 result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminUserController");
+        }else{
+            String keyword = req.getParameter("keyword");
+            keyword = keyword == null ? "" : keyword;
+            listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
+            req.setAttribute("keyword", keyword);
         }
+        
         req.setAttribute("result", result);
-        String keyword = req.getParameter("keyword");
-        keyword = keyword == null ? "" : keyword;
-        listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
-        req.setAttribute("keyword", keyword);
-        return SUCCESS;
+        return a;
+        
+        
     }
 
     public List<UserBO> getListUser() {
