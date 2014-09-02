@@ -49,7 +49,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i><span class="fa arrow"> Giải trí</span></a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i>Giải trí<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="AdminDivinationFastController">Trắc nghiệm nhanh</a>

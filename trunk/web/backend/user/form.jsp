@@ -1,8 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-
-
 <!--modal for form add user->
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -23,12 +21,18 @@
                     <s:textfield name="user.address" label="Địa chỉ" cssClass="form-control"/>
                     <s:textfield name="user.phone" label="Điện thoại" cssClass="form-control"/>
                     <s:textfield name="user.email" label="Email" cssClass="form-control"/>
-                    <s:select label="Giới tính" 
-                              headerKey="-1" headerValue="chọn ...."
-                              list="#{'1':'Nam', '0':'Nữ'}"  name="user.gender" cssClass="form-control"/>
+                   <s:select label="Giới tính"  headerKey="-1" headerValue="chọn ...." list="#@java.util.LinkedHashMap@{'1':'Nam', '0':'Nữ'}" name="user.gender" cssClass="form-control" required="true"/> 
                     <s:select label="Trạng thái" 
                               headerKey="-1" headerValue="chọn ...."
-                              list="#{'1':'Hoạt động', '0':'Ngưng hoạt động'}"  name="user.active" cssClass="form-control"/>
+                              list="#@java.util.LinkedHashMap@{'1':'Hoạt động', '0':'Ngưng hoạt động'}"  name="user.active" cssClass="form-control"/>->
+                    
+                    <select name="user.gender" id="resultAction_yourSearchEngine"> 
+                        <option value="-1">Select Search Engines</option> 
+                        <option value="google.com">google.com</option> 
+                        <option value="bing.com">bing.com</option> 
+                        <option value="yahoo.com">yahoo.com</option> 
+                        <option value="baidu.com">baidu.com</option> 
+                    </select> 
                     <s:submit value="Lưu lại " cssClass="js-add btn btn-primary" />
                     <s:reset value="Làm lại" id="resetFormId" cssClass="js-reset btn btn-warning" />
                 </s:form>

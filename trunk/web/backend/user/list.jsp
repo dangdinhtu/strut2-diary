@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách User</h1>
+        <h1 class="page-header">Danh sách Người dùng</h1>
     </div>
 </div>
 <div class="row">
