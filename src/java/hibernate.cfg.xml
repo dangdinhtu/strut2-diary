@@ -22,7 +22,6 @@
     <mapping resource="diary/hbm/Ads.hbm.xml"/>
     <mapping resource="diary/hbm/Category.hbm.xml"/>
     <mapping resource="diary/hbm/DiaryBook.hbm.xml"/>
-    <mapping resource="diary/hbm/DiaryBookContent.hbm.xml"/>
     <mapping resource="diary/hbm/Divination.hbm.xml"/>
     <mapping resource="diary/hbm/DivinationCategory.hbm.xml"/>
     <mapping resource="diary/hbm/DivinationFast.hbm.xml"/>

@@ -18,8 +18,7 @@ import org.apache.struts2.ServletActionContext;
  * @author ThuTrang
  */
 public class AdminDiaryBookController extends ActionSupport{
-    private List<DiaryBookBO> diaryBookBO;
-    private DiaryBookBO diaryBook;
+    private DiaryBookBO diaryBookBO;
     DiaryBookDAO diaryBookDAO = new DiaryBookDAO();
     private List<DiaryBookBO> listDiaryBook;
      public String execute() throws Exception {
@@ -29,8 +28,8 @@ public class AdminDiaryBookController extends ActionSupport{
         String result = "";
         
         if ("addOrUpdate".equals(action)) {
-            Integer diaryBookId =  diaryBook.getDbkId();
-            boolean flag = diaryBookDAO.saveOrUpdate( diaryBookId , diaryBook);
+            Integer diaryBookId =  diaryBookBO.getDbkId();
+            boolean flag = diaryBookDAO.saveOrUpdate( diaryBookId , diaryBookBO);
             if(diaryBookId == null && flag)
                 result = Message.getMessage("Thêm mới bản ghi thành công" , "success");
             else if(diaryBookId != 0 || diaryBookId != null && flag)
@@ -42,7 +41,7 @@ public class AdminDiaryBookController extends ActionSupport{
             return INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
-            diaryBook = diaryBookDAO.get(DiaryBookBO.class, id);
+            diaryBookBO = diaryBookDAO.get(DiaryBookBO.class, id);
             return INPUT;
         }else if("delete_all".equals(action)){
         
@@ -65,20 +64,12 @@ public class AdminDiaryBookController extends ActionSupport{
      
      }
 
-    public List<DiaryBookBO> getDiaryBookBO() {
+    public DiaryBookBO getDiaryBook() {
         return diaryBookBO;
     }
 
-    public void setDiaryBookBO(List<DiaryBookBO> diaryBookBO) {
-        this.diaryBookBO = diaryBookBO;
-    }
-
-    public DiaryBookBO getDiaryBook() {
-        return diaryBook;
-    }
-
     public void setDiaryBook(DiaryBookBO diaryBook) {
-        this.diaryBook = diaryBook;
+        this.diaryBookBO = diaryBook;
     }
 
     public DiaryBookDAO getDiaryBookDAO() {
