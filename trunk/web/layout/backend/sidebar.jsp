@@ -43,7 +43,7 @@
                         <a href="AdminCategoryController">Thể loại</a>
                     </li>
                     <li>
-                        <a href="AdminDBCController">Danh sách nhật kí</a>
+                        <a href="AdminDiaryBookController">Danh sách nhật kí</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
