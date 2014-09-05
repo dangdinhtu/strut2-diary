@@ -12,7 +12,7 @@ public class CategoryBO extends BasicBO{
     private Integer categoryId;
     private String name;
     private String descript;
-    private String active;
+    private Boolean active;
     private Integer[] listId;
 
     public Integer getCategoryId() {
@@ -39,14 +39,15 @@ public class CategoryBO extends BasicBO{
         this.descript = descript;
     }
 
-    public String getActive() {
+    public Boolean getActive() {
         return active;
     }
 
-    public void setActive(String active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
 
+    
     public Integer[] getListId() {
         return listId;
     }

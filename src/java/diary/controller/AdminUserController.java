@@ -32,7 +32,6 @@ public class AdminUserController extends ActionSupport {
         String action = req.getParameter("action");      
         
         String result = "";
-        String a = SUCCESS;
         if ("addOrUpdate".equals(action)) {
             Integer userId =  user.getUserId();
             boolean flag = userDAO.saveOrUpdate(userId, user);
@@ -44,11 +43,11 @@ public class AdminUserController extends ActionSupport {
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
             
         } else if ("add".equals(action)) {
-            a = INPUT;
+            return INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
             user = userDAO.get(UserBO.class, id);
-            a = INPUT;
+            return INPUT;
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
@@ -65,9 +64,12 @@ public class AdminUserController extends ActionSupport {
             listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
             req.setAttribute("keyword", keyword);
         }
-        
         req.setAttribute("result", result);
-        return a;
+        String keyword = req.getParameter("keyword");
+        keyword = keyword == null ? "" : keyword;
+        listUser = userDAO.getList();
+        req.setAttribute("keyword", keyword);
+        return SUCCESS;
         
         
     }

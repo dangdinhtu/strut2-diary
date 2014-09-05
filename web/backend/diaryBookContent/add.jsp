@@ -13,11 +13,11 @@
         <% 
              if("add".equals(action)) {  
         %>
-        <h1 class="page-header">Thêm người dùng</h1>
+        <h1 class="page-header">Thêm nhật kí</h1>
         <%
              } else{
         %>
-        <h1 class="page-header">Chỉnh sửa thông tin người dùng</h1>
+        <h1 class="page-header">Chỉnh sửa thông tin nhật kí</h1>
         <% } %>
     </div>
 </div>

@@ -3,22 +3,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
-<%
-        HttpServletRequest req = ServletActionContext.getRequest();
-        HttpServletResponse res = ServletActionContext.getResponse();
-        String action = req.getParameter("action");
-%>
+
 <div class="row">
     <div class="col-lg-12">
-        <% 
-             if("add".equals(action)) {  
-        %>
         <h1 class="page-header">Thêm người dùng</h1>
-        <%
-             } else{
-        %>
-        <h1 class="page-header">Chỉnh sửa thông tin người dùng</h1>
-        <% } %>
     </div>
 </div>
 <div class="row">
@@ -36,7 +24,7 @@
                             <s:textfield name="user.name" cssClass="form-control" label="Tên" />
                             <s:textfield name="user.username" label="Tên đăng nhập" cssClass="form-control"/>
                             <s:textfield name="user.password" label="Mật khẩu" cssClass="form-control"/>
-                            <s:textfield name="user.birthday" label="Ngày sinh" displayFormat="MM/dd/yyyy" cssClass="form-control"/>
+                            <s:textfield name="user.birthday" label="Ngày sinh" cssClass="form-control"/>
                             <s:textfield name="user.address" label="Địa chỉ" cssClass="form-control"/>
                             <s:textfield name="user.phone" label="Điện thoại" cssClass="form-control"/>
                             <s:textfield name="user.email" label="Email" cssClass="form-control"/>

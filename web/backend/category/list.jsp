@@ -29,7 +29,7 @@
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
+                                    <button class="btn btn-default" type="submit" >
                                         <i class="glyphicon glyphicon-search"></i>
                                     </button>
                                 </span>
@@ -50,7 +50,7 @@
                             <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
                         </display:column>
                         <display:column title="resource.key">
-                            <a href="AdminUserController?action=form-edit&id=${data.categoryId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="AdminCategoryController?action=form-edit&id=${data.categoryId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
                             <a href="#"  class="table-a-delete" data-redirect ="AdminCategoryController?action=delete&id=${data.categoryId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
