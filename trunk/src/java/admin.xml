@@ -11,11 +11,11 @@
         </result-types>             
         <action name="AdminUserController" class="diary.controller.AdminUserController">
             <result name="success" type="tiles">/listUser.tiles</result> 
-            <result name="input" type="tiles">/formUser.tiles</result>   
+            <result name="input" type="tiles">/formUser.tiles</result>  
         </action>
         <action name="AdminCategoryController" class="diary.controller.AdminCategoryController">
             <result name="success" type="tiles">/listCategory.tiles</result> 
-            <result name="input" type="tiles">/form.tiles</result>   
+            <result name="input" type="tiles">/formCategory.tiles</result>   
         </action>
         <action name="AdminDiaryBookController" class="diary.controller.AdminDiaryBookController">
             <result name="success" type="tiles">/listDiaryBook.tiles</result> 
