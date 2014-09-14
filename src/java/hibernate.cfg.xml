@@ -28,5 +28,7 @@
     <mapping resource="diary/hbm/DivinationLong.hbm.xml"/>
     <mapping resource="diary/hbm/ResultsDivinationCouples.hbm.xml"/>
     <mapping resource="diary/hbm/Resource.hbm.xml"/>
+    <mapping resource="diary/hbm/DiaryBookContent.hbm.xml"/>
+    <mapping resource="diary/hbm/ViewDiaryBook.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

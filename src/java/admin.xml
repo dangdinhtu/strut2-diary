@@ -19,7 +19,6 @@
         </action>
         <action name="AdminDiaryBookController" class="diary.controller.AdminDiaryBookController">
             <result name="success" type="tiles">/listDiaryBook.tiles</result> 
-            <result name="input" type="tiles">/formDiaryBook.tiles</result>   
         </action>
         <action name="AdminDivinationController" class="diary.controller.AdminDivinationController">
             <result name="success" type="tiles">/listDivination.tiles</result> 

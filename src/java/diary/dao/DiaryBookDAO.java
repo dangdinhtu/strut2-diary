@@ -7,6 +7,7 @@ package diary.dao;
 import diary.bo.DiaryBookBO;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -33,6 +34,8 @@ public class DiaryBookDAO extends HibernateDAO{
         }
         return null;
     }
+    
+  
 //        public static void main(String args[]) {
 //            DiaryBookDAO obj = new DiaryBookDAO();
 //            List<DiaryBookBO> persons = obj.getList();

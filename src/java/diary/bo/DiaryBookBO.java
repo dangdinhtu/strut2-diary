@@ -19,7 +19,7 @@ public class DiaryBookBO extends BasicBO{
     private String backgroundImages;
     private String backgroundAudio;
     private Boolean audioAutoPlay;
-
+    
     public DiaryBookBO() {
     }
 

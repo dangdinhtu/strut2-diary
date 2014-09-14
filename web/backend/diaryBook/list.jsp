@@ -21,8 +21,7 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminDiaryBookController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDiaryBookController?action=delete&id=" value="Xóa">
+                   
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminDiaryBookController" method="get">
@@ -45,16 +44,10 @@
                             <input type="checkbox" name="diaryBook.listId[]" class="checkbox-selection " value="${data.dbkId}">
                         </display:column>
                         <display:column property="name" title="Tên" sortable="true"/>
-                        <display:column property="dateCreate" title="Mô tả"/>
-                        <display:column property="coverPhoto" title="Ảnh"/>
-                        <display:column property="backgroundImages" title="Ảnh bìa"/>
-                        <display:column property="backgroundAudio" title="Nhạc nền"/>
-                        <display:column property="audioAutoPlay" title="Video"/>
-                        <display:column property="categoryId" title="Thể loại"/>
-                        <display:column title="resource.key">
-                            <a href="AdminDiaryBookController?action=form-edit&id=${data.dbkId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminDiaryBookController?action=delete&id=${data.dbkId}"><i class="glyphicon glyphicon-trash"></i></a>
-                        </display:column>
+                        <display:column property="username" title="Chủ sở hữu"/>
+                        <display:column property="dateCreate" title="Ngày tạo"/>
+                        <display:column property="category" title="Thể loại"/>
+                        <display:column property="page" title="Số trang"/>
                     </display:table>
                 </div>						
                 <div><script>${result}</script></div>
