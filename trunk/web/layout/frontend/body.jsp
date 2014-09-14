@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script>
+    ${result}
+    </script>
 <div class="row">
     <div class="col-md-10 col-xs-12 col-md-offset-1">
         <div class="col-md-4 col-sm-4 col-xs-12 what-we-do">

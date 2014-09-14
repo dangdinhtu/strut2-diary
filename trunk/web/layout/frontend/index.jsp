@@ -14,11 +14,14 @@
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/layout.css">
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom-mobile.css">
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom.css">
-
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/table.css">
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/default.css" />
         <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/component.css" />
+        <link href="${contextPath }/layout/backend/css/sb-admin.css" rel="stylesheet">
+        <link href="${contextPath }/layout/backend/css/jquery.toastmessage.css" rel="stylesheet" >
         <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/jquery-1.9.js"></script>
         <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/bootstrap.min.js"></script>
+        <script src= "${contextPath }/layout/backend/js/jquery.toastmessage.js"></script>
         <!-- slide-->
         <link rel="stylesheet" href="${contextPath}/layout/frontend/css/home.css">
         <!-- CSS==================================== -->
@@ -29,14 +32,15 @@
         <![endif]-->
 
         <!-- Favicons================================ -->
-        <link rel="shortcut icon" href="images/favicon.ico">
+<!--        <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
         <script src="${contextPath}/layout/frontend/js/jquery.cycle2.min.js"></script>
-
-
-
+        <script src="${contextPath}/layout/frontend/js/custom-main.js"></script>
+        <script src="${contextPath}/layout/frontend/js/custom-click-button.js"></script>
+        
+        <script src="${contextPath}/layout/frontend/js/checkForm.js"></script>
     </head>
     <body>
         <div class="container dev-main">

@@ -307,6 +307,7 @@ footer .social a.pinterest {
 
 .top-grid img {
     display: inline-block;
+    height: 182px;
 }
 
 img {
@@ -392,4 +393,8 @@ img {
 }
 .content_left img{
     margin-top: 22px;
+}
+
+.modal fade input[type=text]{
+    width: 200px!important;
 }
