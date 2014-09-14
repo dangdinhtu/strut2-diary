@@ -64,10 +64,6 @@
 		<put-attribute name="title" value="Thêm mới thể loại" />
 		<put-attribute name="body" value="/backend/category/add.jsp" />
 	</definition>
-       <definition name="/formDiaryBook.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Thêm mới nhật kí" />
-		<put-attribute name="body" value="/backend/diaryBook/add.jsp" />
-	</definition>
         <!--==================layout cho frontend=========================-->
 	<definition name="layout-frontend" template="/layout/frontend/index.jsp">
             <put-attribute name="title" value="" />

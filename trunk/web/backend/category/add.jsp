@@ -34,10 +34,10 @@
                            <s:hidden name="action" value="addOrUpdate" cssClass="form-control"/>
                             <s:hidden name="category.categoryId" cssClass="form-control"/>
                             <s:textfield name="category.name" cssClass="form-control" label="Tên thể loại" />
-                            <s:text name="category.descript" label="Mô tả " cssClass="form-control"/>
+                            <s:textarea name="category.descript" label="Mô tả " cssClass="form-control"/>
                             <s:select label="Trạng thái" 
                                       headerKey="-1" headerValue="chọn ...."
-                                      list="#@java.util.LinkedHashMap@{'1':'Hoạt động', '0':'Ngưng hoạt động'}"  name="category.active" cssClass="form-control"/>->
+                                      list="#@java.util.LinkedHashMap@{'1':'Hoạt động', '0':'Ngưng hoạt động'}"  name="category.active" cssClass="form-control"/>
 
                            
                    </div>
