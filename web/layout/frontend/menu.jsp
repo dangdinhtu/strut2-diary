@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="col-md-10 col-xs-12 col-md-offset-1">
     <!--======== start header===========-->
     <nav class="navbar navbar-default nav-menu" role="navigation">
@@ -33,8 +34,10 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="js-signin">Đăng kí</a></li>
+                    <li><a href="#" class="js-login">Đăng nhập</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào Admin <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào ${sessionScope.userName} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Thiết lập</a></li>
                             <li><a href="#">Đổi mật khẩu</a></li>
