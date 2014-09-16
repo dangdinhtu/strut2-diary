@@ -3,12 +3,15 @@
  * VIETTEL PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
 package diary.bo;
+
+import java.util.Date;
+
 public class UserBO extends BasicBO {
 
 	private Integer userId;
 	private String name;
 	private String username;
-        private String birthday;
+        private Date birthday;
         private String avartar;
         private String address;
         private String phone;
@@ -17,6 +20,16 @@ public class UserBO extends BasicBO {
         private Boolean gender;
         private Boolean active;
         private Integer[] listId;
+
+    public String getRePassword() {
+        return rePassword;
+    }
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
+    }
+        private String rePassword;
+        
 
     public Integer[] getListId() {
         return listId;
@@ -51,11 +64,11 @@ public class UserBO extends BasicBO {
         this.username = username;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 

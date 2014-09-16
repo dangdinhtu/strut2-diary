@@ -135,7 +135,7 @@ body{
 
 .header-search{
     width: 300px;
-    margin: 10px 0 5px 0;
+    margin: -44px 0 5px 0;
 }
 
 .btn-search{
@@ -144,7 +144,7 @@ body{
 
 .choose-language{
     width: 150px;
-    margin: 10px 0 5px 0;
+    margin: -19px 0 5px 0;
 }
 
 .choose-language select option{
