@@ -32,21 +32,20 @@
                         </ul>
                     </li>
                 </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="js-signin">Đăng kí</a></li>
-                    <li><a href="#" class="js-login">Đăng nhập</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào ${sessionScope.userName} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Thiết lập</a></li>
-                            <li><a href="#">Đổi mật khẩu</a></li>
-                            <li><s:a href="AdminUserController"> Trang Admin</s:a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Thoát</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <c:if test="${sessionScope.userName != null}">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào ${sessionScope.userName} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Thiết lập</a></li>
+                                <li><a href="#">Đổi mật khẩu</a></li>
+                                <li><s:a href="AdminUserController"> Trang Admin</s:a></li>
+                                <li class="divider"></li>
+                                <li><a href="acount?action=logout">Thoát</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </c:if>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

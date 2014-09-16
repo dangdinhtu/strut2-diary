@@ -81,6 +81,8 @@
 	</definition>
         
         
+        
+        <!--=================layout cho xử lý các trang chính================================-->
         <definition name="/index.tiles" extends="layout-frontend">
 		<put-attribute name="title" value="Trang chủ" />
 		<put-attribute name="body" value="/layout/frontend/body.jsp" />
@@ -100,5 +102,15 @@
         <definition name="/write-diary.tiles" extends="layout-user">
 		<put-attribute name="title" value="viết nhật kí" />
 		<put-attribute name="body" value="/frontend/diary/write.jsp" />
+	</definition>
+        
+        <!--=====quản lý tài khoản==========-->
+        <definition name="/sign_in.tiles" extends="layout-frontend">
+		<put-attribute name="title" value="Đăng kí tài khoản" />
+		<put-attribute name="body" value="/layout/frontend/body.jsp" />
+	</definition>
+        <definition name="/login.tiles" extends="layout-frontend">
+		<put-attribute name="title" value="Đăng nhập" />
+		<put-attribute name="body" value="/layout/frontend/body.jsp" />
 	</definition>
 </tiles-definitions>

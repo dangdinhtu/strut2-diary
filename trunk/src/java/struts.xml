@@ -20,5 +20,11 @@
             <result name="create-diary" type="tiles">/create-diary.tiles</result> 
             <result name="write-diary" type="tiles">/write-diary.tiles</result>
         </action> 
+        
+        <action name="acount" class="diary.controller.AcountController">
+            <result name="sign_in" type="tiles">/sign_in.tiles</result> 
+            <result name="login" type="tiles">/login.tiles</result>
+            <result name="input" type="tiles">/sign_in.tiles</result> 
+        </action>
     </package>
 </struts>

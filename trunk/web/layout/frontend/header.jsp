@@ -5,12 +5,22 @@
         <div class="pull-left choose-language">
 
             <img src='${contextPath}/layout/frontend/images/logo.png'>
+    </div>
+    <div class="input-group header-search pull-right">
+        <!----start-social-icons----->
+        <div class="">
+           
         </div>
-        <div class="input-group header-search pull-right">
-            <!----start-social-icons----->
-            <div class="social-icons">
-                <ul>
-                    <li><a href="#"><img src="${contextPath}/layout/frontend/images/facebook.png" title="facebook" /></a></li>
+        <div class="social-icons">
+            <ul style="min-height: 20px">
+                <c:if test="${sessionScope.userName == null}">
+                    <li><a href="#" class="js-signin">[Đăng kí]</a> | </li>
+                    <li><a href="#" class="js-login">[Đăng nhập]</a></li>
+                </c:if>
+                
+            </ul>
+            <ul>
+                <li><a href="#"><img src="${contextPath}/layout/frontend/images/facebook.png" title="facebook" /></a></li>
                 <li><a href="#"><img src="${contextPath}/layout/frontend/images/twitter.png" title="twitter" /></a></li>
                 <li><a href="#"><img src="${contextPath}/layout/frontend/images/google.png" title="google pluse" /></a></li>
             </ul>
