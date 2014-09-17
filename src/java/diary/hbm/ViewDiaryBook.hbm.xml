@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class  name="diary.bo.ViewDiaryBookBO" view="VIEW_DIARYBOOK"/>
+  <id name="dbkId">
+    <column name="DBK_ID"/>
+  </id>
+  <property name="name">
+    <column name="NAME"/>
+  </property>
+  <property name="username">
+    <column name="USERNAME"/>
+  </property>
+  <property name="dateCreate">
+    <column name="DATE_CREATE"/>
+  </property>
+  <property name="page">
+    <column name="PAGE"/>
+  </property>
+  <property name="category">
+    <column name="CATEGORY"/>
+  </property>
+</hibernate-mapping>
