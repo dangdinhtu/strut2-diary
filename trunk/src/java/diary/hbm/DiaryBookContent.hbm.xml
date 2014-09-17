@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class table="DIARY_BOOK_CONTENT" name="diary.bo.DiaryBookContentBO" />
-  <id name="dbcId">
-      <column name="DBC_ID"/>
-      <generator class="identity"/>
-    </id>
-    <property name="title">
-      <column name="TITLE"/>
-    </property>
-    <property name="content">
-      <column name="CONTENT"/>
-    </property>
-    <property name="dateWrite">
-      <column name="DATE_WRITTEN"/>
-    </property>
-    <property name="page">
-      <column name="PAGE"/>
-    </property>
-    <property name="dbkId">
-      <column name="DBK_ID"/>
-    </property>
-   
+    <class table="DIARY_BOOK_CONTENT" name="diary.bo.DiaryBookContentBO" >
+        <id name="dbcId">
+            <column name="DBC_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="title">
+            <column name="TITLE"/>
+        </property>
+        <property name="content">
+            <column name="CONTENT"/>
+        </property>
+        <property name="dateWrite">
+            <column name="DATE_WRITTEN"/>
+        </property>
+        <property name="page">
+            <column name="PAGE"/>
+        </property>
+        <property name="dbkId">
+            <column name="DBK_ID"/>
+        </property>
+    </class>
 </hibernate-mapping>
