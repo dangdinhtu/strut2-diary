@@ -27,7 +27,7 @@ import org.hibernate.criterion.Restrictions;
  * @author DinhTu
  */
 public class HibernateDAO {
-
+    public static final ThreadLocal<Session> threadLocal = new ThreadLocal();
     public boolean save(BasicBO objectToSave) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction transaction = null;
@@ -123,6 +123,14 @@ public class HibernateDAO {
             e.printStackTrace();
         }
         return flag;
+    }
+    public void deleteByIds(Object[] arrId, Class className, String idColumn) {
+        if ((arrId != null) && (arrId.length > 0)) {
+            String hql = " DELETE FROM " + className.getName() + " t WHERE t." + idColumn + " IN (:arrId) ";
+            Query query = createQuery(hql);
+            query.setParameterList("arrId", arrId);
+            query.executeUpdate();
+        }
     }
     
     public List getList(String nameBO, String col1, String col2, String col3, String key, String order) {
@@ -299,5 +307,26 @@ public class HibernateDAO {
     public SQLQuery createSQLQuery(String sql) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         return session.createSQLQuery(sql);
+    }
+    public void rollbackTransaction() {
+        // Rollback when error occurs
+        Session session = getSession();
+        if (session != null && session.isOpen() && session.getTransaction().isActive()) {
+            session.getTransaction().rollback();
+            session.clear();
+        }
+
+        // No matter what close session too..
+        closeSession();
+    }
+    public Session getSession() throws HibernateException {
+        return (Session) threadLocal.get();
+    }
+    public void closeSession() throws HibernateException {
+        Session session = (Session) threadLocal.get();
+        threadLocal.set(null);
+        if (session != null && session.isOpen()) {
+            session.close();
+        }
     }
 }

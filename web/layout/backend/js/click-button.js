@@ -23,10 +23,15 @@
                 $(".checkbox-selection:checked").each(function(i){
                     arr[i] = $(this).val();
                 });
-                $('#js-question-delete').modal({keyboard: true, backdrop : "static"});
-                var href = $(this).data("delete-all");
-                var strId = arr.join(",");
-                $(".js-delete-ok").attr("href", href + strId);
+                if(arr.length > 0){
+                   $('#js-question-delete').modal({keyboard: true, backdrop : "static"});
+                    var href = $(this).data("delete-all");
+                    var strId = arr.join(",");
+                    $(".js-delete-ok").attr("href", href + strId); 
+                }else{
+                    $('#js-alert-selection').modal({keyboard: true, backdrop : "static"});
+                }
+                
             });
         },
         processAdd : function(){		

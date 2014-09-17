@@ -5,6 +5,7 @@
 <c:set  var="contextPath" scope="request">${pageContext.request.contextPath}</c:set>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Danh sách Người dùng</h1>
@@ -52,7 +53,9 @@
                         <display:column title="Giới tính">
                             <c:out value="${data.gender eq true ? 'Nam': 'Nữ'}"/>
                         </display:column>
-                        <display:column property="birthday" title="Ngày sinh" sortable="true"/>
+                        <display:column  title="Ngày sinh" sortable="true">
+                            <fmt:formatDate pattern="dd-MM-yyyy" value="${data.birthday}" />
+                        </display:column>
                         <display:column property="email" title="Email" sortable="true"/>
                         <display:column title="Trạng thái">
                             <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
