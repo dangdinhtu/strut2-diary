@@ -50,8 +50,8 @@ public class AdminRoleController extends ActionSupport{
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
             
         }else if ("add".equals(action)) {
-            listFunction = functionDAO.getList();
-            listPermission = permissionDAO.getListBySql(PermissionBO.class, "PERMISSION");
+            listFunction = functionDAO.getListFunctionBySql();
+            listPermission = permissionDAO.getListBySql();
             //req.setAttribute("listPermission", res);
             return INPUT;
         }else if("form-edit".equals(action)){

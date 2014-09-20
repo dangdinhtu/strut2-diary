@@ -34,6 +34,13 @@ public class PermissionDAO extends HibernateDAO{
         }
         return null;
     }
-    
+     public  <T> List<T> getListBySql(){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        List list = new ArrayList();
+        String sql = "SELECT * FROM  PERMISSION" ;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(PermissionBO.class);
+        return query.list();
+    }
     
 }

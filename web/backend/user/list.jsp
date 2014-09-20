@@ -45,23 +45,19 @@
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
                             <input type="checkbox" name="user.listId[]" class="checkbox-selection " value="${data.userId}">
                         </display:column>
-                        <display:column title="Avatar">
-                            <img src="${contextPath}/images/${data.avartar}" width="70px">
-                        </display:column>
                         <display:column property="username" title="Tên đăng nhập" headerClass="sortable" sortable="true"/>
                         <display:column property="name" title="Tên" sortable="true"/>
                         <display:column title="Giới tính">
                             <c:out value="${data.gender eq true ? 'Nam': 'Nữ'}"/>
-                            
                         </display:column>
                         <display:column  title="Ngày sinh" sortable="true">
                             <fmt:formatDate pattern="dd-MM-yyyy" value="${data.birthday}" />
                         </display:column>
                         <display:column property="email" title="Email" sortable="true"/>
                         <display:column title="Trạng thái">
-                            <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
+                            <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngưng hoạt động'}"/>
                         </display:column>
-                        <display:column title="resource.key">
+                        <display:column title="Hành động">
                             <a href="AdminUserController?action=form-edit&id=${data.userId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
                             <a href="#"  class="table-a-delete" data-redirect ="AdminUserController?action=delete&id=${data.userId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
