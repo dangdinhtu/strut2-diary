@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.UserBO;
 import diary.common.Message;
 import diary.dao.UserDAO;
+import java.sql.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +34,24 @@ public class AdminUserController extends ActionSupport {
         
         String result = "";
         if ("addOrUpdate".equals(action)) {
-            Integer userId =  user.getUserId();
+            String id = req.getParameter("userId");
+            if(id.equals(""))
+                id = "0";
+            Integer userId =  Integer.parseInt(id);
+            String active = req.getParameter("active");
+            if(!action.equals(""))
+                user.setActive(Boolean.parseBoolean(active));
+            
+            user.setAddress(req.getParameter("address"));
+            user.setBirthday(Date.valueOf(req.getParameter("address")));
+            user.setEmail(req.getParameter("email"));
+            user.setGender(Boolean.parseBoolean(req.getParameter("gender")));
+            user.setName(req.getParameter("name"));
+            user.setPhone(req.getParameter("phone"));
+            user.setUsername(req.getParameter("username"));
+            user.setUserId(userId);
             boolean flag = userDAO.saveOrUpdate(userId, user);
-            if(userId == null && flag)
+            if(userId == 0 && flag)
                 result = Message.getMessage("Thêm mới bản ghi thành công", "success", "AdminUserController");
             else if(userId != 0 || userId != null && flag)
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success", "AdminUserController");
@@ -102,4 +118,5 @@ public class AdminUserController extends ActionSupport {
     public void setUser(UserBO user) {
         this.user = user;
     }
+    
 }
