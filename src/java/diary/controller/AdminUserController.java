@@ -36,11 +36,11 @@ public class AdminUserController extends ActionSupport {
             Integer userId =  user.getUserId();
             boolean flag = userDAO.saveOrUpdate(userId, user);
             if(userId == null && flag)
-                result = Message.getMessage("Thêm mới bản ghi thành công", "success");
+                result = Message.getMessage("Thêm mới bản ghi thành công", "success", "AdminUserController");
             else if(userId != 0 || userId != null && flag)
-                result = Message.getMessage("Cập nhật bản ghi thành công", "success");
+                result = Message.getMessage("Cập nhật bản ghi thành công", "success", "AdminUserController");
             else
-                result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
+                result = Message.getMessage("Cập nhật bản ghi thất bại", "error", "AdminUserController");
             
         } else if ("add".equals(action)) {
             return INPUT;
