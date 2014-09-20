@@ -28,11 +28,9 @@
                         <a href="AdminUserController">Quản trị người dùng</a>
                     </li>
                     <li>
-                        <a href="AdminRoleController">Phân quyền người dùng</a>
+                        <a href="AdminRoleController">Thông tin chức vụ</a>
                     </li>
-                    <li>
-                        <a href="#">Thông tin chức vụ</a>
-                    </li>
+                    
                 </ul>
                 <!-- /.nav-second-level -->
             </li>

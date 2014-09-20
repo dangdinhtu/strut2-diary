@@ -329,4 +329,12 @@ public class HibernateDAO {
             session.close();
         }
     }
+    public  <T> List<T> getListBySql(Class<T> tableName, String table){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        List list = new ArrayList();
+        String sql = "SELECT * FROM " + table;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(tableName.getClass());
+        return query.list();
+    }
 }

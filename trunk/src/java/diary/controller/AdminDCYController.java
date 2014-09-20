@@ -49,13 +49,26 @@ public class AdminDCYController extends ActionSupport {
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
-            DivinationCategoryBO dcyBO = dcyDAO.get(DivinationCategoryBO.class, id);
-            boolean check = dcyDAO.delete(dcyBO);
-            if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDCYController");
-            else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDCYController");
+            String str = req.getParameter("id");
+            String arr[] = str.split(",");
+            Integer arrId[] = new Integer[arr.length];
+            for (int i = 0; i < arrId.length; i++) {
+                try {
+                    arrId[i] = Integer.parseInt(arr[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                boolean check = dcyDAO.multiDelete(arrId, DivinationCategoryBO.class, "dcyId");
+                if(check)
+                    result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDCYController");
+                else
+                    result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDCYController");
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = Message.getMessage("Xóa bản ghi thất bại", "error");
+            }
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");

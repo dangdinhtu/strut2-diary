@@ -51,13 +51,26 @@ public class AdminCategoryController extends ActionSupport{
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
-            CategoryBO categoryBO = categoryDAO.get(CategoryBO.class, id);
-            boolean check = categoryDAO.delete(categoryBO);
-            if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminCategoryController");
-            else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminCategoryController");
+            String str = req.getParameter("id");
+            String arr[] = str.split(",");
+            Integer arrId[] = new Integer[arr.length];
+            for (int i = 0; i < arrId.length; i++) {
+                try {
+                    arrId[i] = Integer.parseInt(arr[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                boolean check = categoryDAO.multiDelete(arrId, CategoryBO.class, "categoryId");
+                if(check)
+                    result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminCategoryController");
+                else
+                    result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminCategoryController");
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = Message.getMessage("Xóa bản ghi thất bại", "error");
+            }
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");

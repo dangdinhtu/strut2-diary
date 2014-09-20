@@ -5,8 +5,12 @@
 package diary.controller;
 
 import com.opensymphony.xwork2.ActionSupport;
+import diary.bo.FunctionBO;
+import diary.bo.PermissionBO;
 import diary.bo.RoleBO;
 import diary.common.Message;
+import diary.dao.FunctionDAO;
+import diary.dao.PermissionDAO;
 import diary.dao.RoleDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +25,14 @@ public class AdminRoleController extends ActionSupport{
     private RoleBO roleBO;
     RoleDAO roleDAO = new RoleDAO();
     private List<RoleBO> listRole;
+    
+    private FunctionBO functionBO;
+    FunctionDAO functionDAO = new FunctionDAO();
+    private List<FunctionBO> listFunction;
+    
+    private PermissionBO permissionBO;
+    PermissionDAO permissionDAO = new PermissionDAO();
+    private List<PermissionBO> listPermission;
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();
@@ -38,6 +50,9 @@ public class AdminRoleController extends ActionSupport{
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
             
         }else if ("add".equals(action)) {
+            listFunction = functionDAO.getList();
+            listPermission = permissionDAO.getListBySql(PermissionBO.class, "PERMISSION");
+            //req.setAttribute("listPermission", res);
             return INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
@@ -46,13 +61,26 @@ public class AdminRoleController extends ActionSupport{
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
-            RoleBO roleBO = roleDAO.get(RoleBO.class, id);
-            boolean check = roleDAO.delete(roleBO);
-            if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminRoleController");
-            else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminRoleController");
+            String str = req.getParameter("id");
+            String arr[] = str.split(",");
+            Integer arrId[] = new Integer[arr.length];
+            for (int i = 0; i < arrId.length; i++) {
+                try {
+                    arrId[i] = Integer.parseInt(arr[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                boolean check = roleDAO.multiDelete(arrId, RoleBO.class, "roleId");
+                if(check)
+                    result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminRoleController");
+                else
+                    result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminRoleController");
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = Message.getMessage("Xóa bản ghi thất bại", "error");
+            }
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
@@ -85,6 +113,54 @@ public class AdminRoleController extends ActionSupport{
 
     public void setListRole(List<RoleBO> listRole) {
         this.listRole = listRole;
+    }
+
+    public FunctionBO getFunctionBO() {
+        return functionBO;
+    }
+
+    public void setFunctionBO(FunctionBO functionBO) {
+        this.functionBO = functionBO;
+    }
+
+    public FunctionDAO getFunctionDAO() {
+        return functionDAO;
+    }
+
+    public void setFunctionDAO(FunctionDAO functionDAO) {
+        this.functionDAO = functionDAO;
+    }
+
+    public List<FunctionBO> getListFunction() {
+        return listFunction;
+    }
+
+    public void setListFunction(List<FunctionBO> listFunction) {
+        this.listFunction = listFunction;
+    }
+
+    public PermissionBO getPermissionBO() {
+        return permissionBO;
+    }
+
+    public void setPermissionBO(PermissionBO permissionBO) {
+        this.permissionBO = permissionBO;
+    }
+
+    public PermissionDAO getPermissionDAO() {
+        return permissionDAO;
+    }
+
+    public void setPermissionDAO(PermissionDAO permissionDAO) {
+        this.permissionDAO = permissionDAO;
+    }
+
+    public List<PermissionBO> getListPermission() {
+        return listPermission;
+    }
+
+    public void setListPermission(List<PermissionBO> listPermission) {
+        this.listPermission = listPermission;
     }
      
      
