@@ -30,5 +30,7 @@
     <mapping resource="diary/hbm/Resource.hbm.xml"/>
     <mapping resource="diary/hbm/DiaryBookContent.hbm.xml"/>
     <mapping resource="diary/hbm/ViewDiaryBook.hbm.xml"/>
+    <mapping resource="diary/hbm/Role.hbm.xml"/>
+    <mapping resource="diary/hbm/Permission.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

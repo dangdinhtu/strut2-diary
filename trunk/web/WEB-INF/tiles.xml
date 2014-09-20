@@ -54,6 +54,10 @@
 		<put-attribute name="title" value="Quản lý tài nguyên" />
 		<put-attribute name="body" value="/backend/resource/list.jsp" />
 	</definition>
+        <definition name="/listRole.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Phân quyền người dùng" />
+		<put-attribute name="body" value="/backend/role/list.jsp" />
+	</definition>
         
         
         <definition name="/formUser.tiles" extends="baseLayout">
@@ -63,6 +67,10 @@
         <definition name="/formCategory.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Thêm mới thể loại" />
 		<put-attribute name="body" value="/backend/category/add.jsp" />
+	</definition>
+        <definition name="/formRole.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Thêm mới thể loại" />
+		<put-attribute name="body" value="/backend/role/add.jsp" />
 	</definition>
         <!--==================layout cho frontend=========================-->
 	<definition name="layout-frontend" template="/layout/frontend/index.jsp">
