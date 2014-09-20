@@ -4,8 +4,11 @@
  */
 package diary.dao;
 
+import diary.bo.PermissionBO;
+import diary.bo.RoleBO;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 /**
@@ -31,5 +34,13 @@ public class RoleDAO extends HibernateDAO{
             session.close();
         }
         return null;
+    }
+    public  <T> List<T> getListBySql(){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        List list = new ArrayList();
+        String sql = "SELECT * FROM ROLE WHERE 1 = 1 ORDER BY ROLE_ID DESC" ;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(RoleBO.class);
+        return query.list();
     }
 }

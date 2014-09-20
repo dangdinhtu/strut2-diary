@@ -11,8 +11,17 @@ package diary.bo;
 public class FunctionBO extends BasicBO{
     private Integer functionId;
     private String name;
-    private String descript;
     private Boolean status;
+    private String note;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+    
 
     public FunctionBO() {
     }
@@ -20,7 +29,6 @@ public class FunctionBO extends BasicBO{
     public FunctionBO(Integer functionId, String name, String descript, Boolean status) {
         this.functionId = functionId;
         this.name = name;
-        this.descript = descript;
         this.status = status;
     }
 
@@ -38,14 +46,6 @@ public class FunctionBO extends BasicBO{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescript() {
-        return descript;
-    }
-
-    public void setDescript(String descript) {
-        this.descript = descript;
     }
 
     public Boolean getStatus() {
