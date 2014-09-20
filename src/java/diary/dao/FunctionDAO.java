@@ -4,24 +4,22 @@
  */
 package diary.dao;
 
-import diary.bo.PermissionBO;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 /**
  *
  * @author DinhTu
  */
-public class PermissionDAO extends HibernateDAO{
-    public List getList() {
+public class FunctionDAO extends HibernateDAO{
+     public List getList() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         try {
             List listOfCategory = new ArrayList();
             StringBuffer sb = new StringBuffer();
-            sb.append(" FROM PermissionBO ");
-            sb.append(" ORDER BY permId DESC  ");
+            sb.append(" FROM FunctionBO ");
+            sb.append(" ORDER BY functionId DESC  ");
             org.hibernate.Query query = session.createQuery(sb.toString());
             listOfCategory = query.list();
             return listOfCategory;
@@ -34,6 +32,4 @@ public class PermissionDAO extends HibernateDAO{
         }
         return null;
     }
-    
-    
 }

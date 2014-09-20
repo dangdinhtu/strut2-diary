@@ -24,33 +24,51 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-             <form action="AdminRoleController" method="post">
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              
-
-                <div class="table-responsive">
-                   <div class="form-add">
-                           <s:hidden name="action" value="addOrUpdate" cssClass="form-control"/>
-                            <s:hidden name="roleBO.roleBOId" cssClass="form-control"/>
-                            <s:textfield name="roleBO.name" cssClass="form-control" label="Tên thể loại" />
-                            <s:textarea name="roleBO.descript" label="Mô tả " cssClass="form-control"/>
-                            <s:select label="Trạng thái" 
-                                      headerKey="-1" headerValue="chọn ...."
-                                      list="#@java.util.LinkedHashMap@{'1':'Hoạt động', '0':'Ngưng hoạt động'}"  name="roleBO.status" cssClass="form-control"/>
-
-                           
-                   </div>
-                </div>						
-                <div><script>${result}</script></div>
-            </div>
-            <!-- /.panel-body -->
-            <div class="panel-footer table-footer">
-                     <s:submit value="Lưu lại " cssClass="js-add btn btn-primary" />
-                    <s:reset value="Làm lại" id="resetFormId" cssClass="js-reset btn btn-warning" />
-
-            </div>
-                     </form>
+             <form class="form-horizontal" action="AdminRoleController?action=addOrUpdate" method="post">
+                    <div class="form-group">
+                      <label for="name" class="col-sm-2 control-label">Name</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="name" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="descripts" class="col-sm-2 control-label">Mô tả</label>
+                      <div class="col-sm-8">
+                        <textarea class="form-control" rows="5" id="descripts"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="status" class="col-sm-2 control-label">Trạng thái</label>
+                      <div class="col-sm-8">
+                        <label class="radio-inline">
+                            <input type="radio" name="status" id="inlineRadio1" value="1"> Hoạt động
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="status" id="inlineRadio2" value="0"> Ngừng hoạt động
+                          </label>
+                      </div>
+                    </div>
+                 <div class="form-group">
+                      <label for="permission" class="col-sm-2 control-label">Quyền hạn</label>
+                      <div class="col-sm-8">
+                       
+                      </div>
+                    </div>
+                 <div class="form-group">
+                        <label for="permission" class="col-sm-1 control-label"></label>
+                        <div class="col-sm-10">
+                            <c:forEach var="item" items="${listPermission}">
+                                <label><c:out value="${item.name}"/></label>
+                            </c:forEach>
+                            
+                         </div>
+                      </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Lưu lại</button>
+                      </div>
+                    </div>
+                  </form>
         </div>
         <!-- /.panel -->
     </div>
