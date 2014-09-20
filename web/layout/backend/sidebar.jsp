@@ -28,7 +28,7 @@
                         <a href="AdminUserController">Quản trị người dùng</a>
                     </li>
                     <li>
-                        <a href="#">Phân quyền người dùng</a>
+                        <a href="AdminRoleController">Phân quyền người dùng</a>
                     </li>
                     <li>
                         <a href="#">Thông tin chức vụ</a>

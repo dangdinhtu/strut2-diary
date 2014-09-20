@@ -44,6 +44,10 @@
             <result name="success" type="tiles">/listResource.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
+        <action name="AdminRoleController" class="diary.controller.AdminRoleController">
+            <result name="success" type="tiles">/listRole.tiles</result> 
+            <result name="input" type="tiles">/formRole.tiles</result>   
+        </action>
     </package>
 </struts>
 
