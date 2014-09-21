@@ -23,38 +23,42 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default" style="padding: 10px">
-            <form class="form-horizontal" style="margin-top: 20px" action="AdminRoleController?action=addOrUpdate" method="post">
+            <form class="form-horizontal" style="margin-top: 20px" action="AdminRoleController?action=addOrUpdate" method="get">
+                <s:hidden name="role.roleId" cssClass="form-control"/>
                 <div class="form-group">
                     <label for="name" class="col-sm-3 col-xs-12 control-label">Tên chức vụ</label>
                     <div class="col-sm-7 col-xs-12">
-                        <input type="text" class="form-control" id="name" >
+                        <s:textfield name="role.name" cssClass="form-control" id="name" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="descripts" class="col-sm-3 col-xs-12 control-label">Mô tả chức vụ</label>
                     <div class="col-sm-7 col-xs-12">
-                        <textarea class="form-control" rows="5" id="descripts"></textarea>
+                        <s:textarea name="role.descript"  cssClass="form-control" rows="5" id="descripts"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="status" class="col-sm-2 control-label">Trạng thái</label>
-                    <div class="col-sm-8">
+                    <label for="status" class="col-sm-3 control-label">Trạng thái</label>
+                    <div class="col-sm-7">
                         <label class="radio-inline">
-                            <input type="radio" name="status" id="inlineRadio1" value="1"> Hoạt động
+                            <input type="radio" name="role.status" id="inlineRadio1" value="1"> Hoạt động
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="status" id="inlineRadio2" value="0"> Ngừng hoạt động
+                            <input type="radio" name="role.status" id="inlineRadio2" value="0"> Ngừng hoạt động
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="permission" class="col-sm-2 control-label">Quyền hạn</label>
-                    <div class="col-sm-8">
+                    <label for="permission" class="col-sm-3 control-label">Quyền hạn</label>
+                    <div class="col-sm-7">
                         <c:forEach var="itemFunction" items="${listFunction}">
                             <span>${itemFunction.name} : </span><br>
                             <div style="margin-left: 20px">
                                 <c:forEach var="item" items="${listPermission}">
-                                    <span style="margin-left: 10px"><input type="checkbox" value="${item.name}"> ${item.name} </span>
+                                    <span style="margin-left: 10px">
+                                        <input type="checkbox" value="${item.permId}_${itemFunction.functionId}" name="listRolePerm"> ${item.name} 
+                                        <s:checkboxlist  list="listPost" value="1_2" name="list" />
+                                    </span>
                                 </c:forEach>
                             </div>
                         </c:forEach>
