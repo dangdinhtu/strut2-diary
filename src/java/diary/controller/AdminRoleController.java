@@ -8,10 +8,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.FunctionBO;
 import diary.bo.PermissionBO;
 import diary.bo.RoleBO;
+import diary.bo.RolePermBO;
 import diary.common.Message;
 import diary.dao.FunctionDAO;
 import diary.dao.PermissionDAO;
 import diary.dao.RoleDAO;
+import diary.dao.RolePermDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +35,13 @@ public class AdminRoleController extends ActionSupport{
     private PermissionBO permissionBO;
     PermissionDAO permissionDAO = new PermissionDAO();
     private List<PermissionBO> listPermission;
+    
+    private RolePermBO rolePermBO;
+    RolePermDAO rolePermDAO = new RolePermDAO();
+    private RolePermBO[] listRolePerm;
+    
+    public List<String> listPost;
+            
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();
@@ -41,7 +50,7 @@ public class AdminRoleController extends ActionSupport{
         
         if ("addOrUpdate".equals(action)) {
             Integer roleId =  roleBO.getRoleId();
-            boolean flag = roleDAO.saveOrUpdate(roleId, roleBO);
+            boolean flag = roleDAO.saveOrUpdateRole(roleId, roleBO, listRolePerm);
             if(roleId == null && flag)
                 result = Message.getMessage("Thêm mới bản ghi thành công", "success");
             else if(roleId != 0 || roleId != null && flag)
@@ -55,11 +64,11 @@ public class AdminRoleController extends ActionSupport{
             //req.setAttribute("listPermission", res);
             return INPUT;
         }else if("form-edit".equals(action)){
+            listFunction = functionDAO.getListFunctionBySql();
+            listPermission = permissionDAO.getListBySql();
             Integer id = Integer.parseInt(req.getParameter("id"));
             roleBO = roleDAO.get(RoleBO.class, id);
             return INPUT;
-        }else if("delete_all".equals(action)){
-        
         }else if("delete".equals(action)){
             String str = req.getParameter("id");
             String arr[] = str.split(",");
@@ -162,6 +171,31 @@ public class AdminRoleController extends ActionSupport{
     public void setListPermission(List<PermissionBO> listPermission) {
         this.listPermission = listPermission;
     }
-     
+
+    public RolePermBO getRolePermBO() {
+        return rolePermBO;
+    }
+
+    public void setRolePermBO(RolePermBO rolePermBO) {
+        this.rolePermBO = rolePermBO;
+    }
+
+    public RolePermDAO getRolePermDAO() {
+        return rolePermDAO;
+    }
+
+    public void setRolePermDAO(RolePermDAO rolePermDAO) {
+        this.rolePermDAO = rolePermDAO;
+    }
+
+    public RolePermBO[] getListRolePerm() {
+        return listRolePerm;
+    }
+
+    public void setListRolePerm(RolePermBO[] listRolePerm) {
+        this.listRolePerm = listRolePerm;
+    }
+
+  
      
 }

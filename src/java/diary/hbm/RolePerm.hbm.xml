@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="diary.bo.RolePermBO" table="ROLE_PERM">
+          <id name="rpmId">
+            <column name="RPM_ID"/>
+            <generator class="identity"/>
+          </id>
+          <property name="permId">
+            <column name="PERM_ID"/>
+          </property>
+          <property name="roleId">
+            <column name="ROLE_ID"/>
+          </property>
+          <property name="functionId">
+            <column name="FUNCTION_ID"/>
+          </property>
+    </class>
+</hibernate-mapping>
