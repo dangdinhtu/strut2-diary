@@ -15,6 +15,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
@@ -98,6 +99,7 @@ public class AcountController extends ActionSupport {
             HttpSession session = req.getSession();
             //String contextPath = req.getContextPath();
             session.setAttribute("userName", userBO.getUsername());
+            session.setMaxInactiveInterval(30*60);
             result = Message.getMessage("Đăng nhập thành công", "success", actionName);
         } else {
             result = Message.getMessage("Mật khẩu hoặc Tên đăng nhập chưa chính xác", "error", actionName);
