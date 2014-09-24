@@ -9,21 +9,21 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
             <title><tiles:insertAttribute name="title" ignore="true" /></title>
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/layout.css">
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom-mobile.css">
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom.css">
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/table.css">
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/default.css" />
-        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/component.css" />
-        <link href="${contextPath }/layout/backend/css/sb-admin.css" rel="stylesheet">
-        <link href="${contextPath }/layout/backend/css/jquery.toastmessage.css" rel="stylesheet" >
-        <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/jquery-1.9.js"></script>
-        <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/bootstrap.min.js"></script>
-        <script src= "${contextPath }/layout/backend/js/jquery.toastmessage.js"></script>
-        <!-- slide-->
-        <link rel="stylesheet" href="${contextPath}/layout/frontend/css/home.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap-theme.min.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/layout.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom-mobile.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/table.css">
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/default.css" />
+            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/component.css" />
+            <link href="${contextPath }/layout/backend/css/sb-admin.css" rel="stylesheet">
+            <link href="${contextPath }/layout/backend/css/jquery.toastmessage.css" rel="stylesheet" >
+            <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/jquery-1.9.js"></script>
+            <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/bootstrap.min.js"></script>
+            <script src= "${contextPath }/layout/backend/js/jquery.toastmessage.js"></script>
+            <!-- slide-->
+            <link rel="stylesheet" href="${contextPath}/layout/frontend/css/home.css">
         <!-- CSS==================================== -->
         <!--[if lt IE 9]>
                 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,14 +32,14 @@
         <![endif]-->
 
         <!-- Favicons================================ -->
-<!--        <link rel="shortcut icon" href="images/favicon.ico">
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
+        <!--        <link rel="shortcut icon" href="images/favicon.ico">
+                <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+                <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+                <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
         <script src="${contextPath}/layout/frontend/js/jquery.cycle2.min.js"></script>
         <script src="${contextPath}/layout/frontend/js/custom-main.js"></script>
         <script src="${contextPath}/layout/frontend/js/custom-click-button.js"></script>
-        
+
         <script src="${contextPath}/layout/frontend/js/checkForm.js"></script>
     </head>
     <body>
@@ -94,8 +94,8 @@
             })
         </script>
         <!-- like mạng xã hội-->
-<!--        <script src='https://apis.google.com/js/plusone.js' type='text/javascript' ></script>
-        <script src='http://connect.facebook.net/en_US/all.js#xfbml=1? ' type='text/javascript' ></script>-->
+        <!--        <script src='https://apis.google.com/js/plusone.js' type='text/javascript' ></script>
+                <script src='http://connect.facebook.net/en_US/all.js#xfbml=1? ' type='text/javascript' ></script>-->
 
         <!-- bắt đầu di chuột lên đầu trang-->
         <a href="#code1k-totop" id="toppage1k"><img src="${contextPath}/layout/frontend/images/up.png"></a>
