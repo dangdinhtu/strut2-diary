@@ -398,3 +398,25 @@ img {
 .modal fade input[type=text]{
     width: 200px!important;
 }
+
+.img-preview{
+    background: #ffffff;
+    -webkit-box-shadow: #444 0px 0px 7px;
+    -moz-box-shadow: #444 0px 0px 7px;
+    box-shadow: #444 0px 0px 7px;
+    padding: 5px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+.img-preview i{
+    display: none;
+}
+.img-preview i:hover{
+    cursor: pointer;
+}
+.img-preview:hover i {
+    margin-left: 120px;
+    margin-top: 5px;
+    display: block;
+    position: absolute
+}
