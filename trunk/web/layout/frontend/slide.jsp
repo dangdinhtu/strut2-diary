@@ -17,8 +17,6 @@
                 <% 
                     AdsDAO ads = new AdsDAO();
                     List<AdsBO> list = ads.getList();
-                    System.out.println(list.get(0).getName());
-                
                 %>
             <div class="pagers center">
                 <a class="prev slide_prev" href="#prev">Prev</a>
@@ -45,7 +43,7 @@
                     </div>
                 </li>
                 </c:forEach>
-                
+                <c:set var="itemAds" value="<%= list%>"/>
             </ul>
         </div>
         <div class="shadow_left"></div>

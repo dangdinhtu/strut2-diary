@@ -30,6 +30,14 @@ public class Common {
         }
     }
 
+    public static String convertDateToString(Date date, String format) {
+        if (date == null) {
+            return "";
+        } else {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+            return dateFormat.format(date);
+        }
+    }
     public static String convertDateToString(Date date) {
         if (date == null) {
             return "";
