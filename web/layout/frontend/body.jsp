@@ -52,7 +52,6 @@
         </div>
     </div>
 </div><br><br>
-</div>
 <div class="container main_btm">
     <div class="row ">
         <div class="col-md-10 col-xs-12 col-md-offset-1">
@@ -66,3 +65,4 @@
             </div>
         </div>
     </div>
+</div>
