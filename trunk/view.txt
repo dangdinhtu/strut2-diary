@@ -1,0 +1,13 @@
+create view VIEW_DIARY_BOOK
+as
+SELECT diary_book.DBK_ID, diary_book.NAME, diary_book.DATE_CREATE, (
+
+SELECT COUNT( * ) AS 
+PAGE FROM diary_book_content
+) AS 
+PAGE , category.NAME AS CATEGORY, user.USERNAME AS USERNAME
+FROM diary_book
+JOIN user ON diary_book.USER_ID = user.USER_ID
+JOIN diary_book_content ON diary_book.DBK_ID = diary_book_content.DBK_ID
+JOIN category ON category.CATEGORY_ID = diary_book.CATEGORY_ID
+GROUP BY diary_book.DBK_ID
