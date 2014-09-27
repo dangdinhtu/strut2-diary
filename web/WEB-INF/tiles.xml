@@ -84,7 +84,7 @@
         <!--==================layout cho trang cá nhân của người viết nhật kí=========================-->
         <definition name="layout-user" template="/layout/layout-user/index.jsp">
             <put-attribute name="title" value="" />
-            <put-attribute name="menu" value="/layout/layout-user/menu.jsp" />
+            <put-attribute name="menu" value="/layout/frontend/menu.jsp" />
             <put-attribute name="body" value="" />
 	</definition>
         
@@ -99,6 +99,7 @@
 		<put-attribute name="title" value="Trắc nghiệm" />
 		<put-attribute name="body" value="/frontend/quiz.jsp" />
 	</definition>
+        <!-- ====khu vuc xu ly trang nhat ki ====-->
         <definition name="/create-diary.tiles" extends="layout-frontend">
 		<put-attribute name="title" value="tạo nhật kí" />
 		<put-attribute name="body" value="/frontend/diary/create.jsp" />
@@ -107,11 +108,18 @@
 		<put-attribute name="title" value="nhật kí" />
 		<put-attribute name="body" value="/frontend/diary/create.jsp" />
 	</definition>
+        <definition name="/reviewDiary.tiles" extends="layout-frontend">
+		<put-attribute name="title" value="Nhật kí của tôi" />
+		<put-attribute name="body" value="/frontend/diary/review.jsp" />
+	</definition>
         <definition name="/write-diary.tiles" extends="layout-user">
 		<put-attribute name="title" value="viết nhật kí" />
 		<put-attribute name="body" value="/frontend/diary/write.jsp" />
 	</definition>
-        
+        <definition name="/read.tiles" extends="layout-frontend">
+		<put-attribute name="title" value="đọc nhật kí" />
+		<put-attribute name="body" value="/frontend/diary/read.jsp" />
+	</definition>
         <!--=====quản lý tài khoản==========-->
         <definition name="/sign_in.tiles" extends="layout-frontend">
 		<put-attribute name="title" value="Đăng kí tài khoản" />

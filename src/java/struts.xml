@@ -19,6 +19,8 @@
             <result name="success" type="tiles">/diary.tiles</result> 
             <result name="create-diary" type="tiles">/create-diary.tiles</result> 
             <result name="write-diary" type="tiles">/write-diary.tiles</result>
+            <result name="reviewDiary" type="tiles">/reviewDiary.tiles</result>
+            <result name="read" type="tiles">/read.tiles</result>
         </action> 
         
         <action name="acount" class="diary.controller.AcountController">

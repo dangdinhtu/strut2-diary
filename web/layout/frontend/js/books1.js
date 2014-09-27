@@ -10,10 +10,10 @@ var Books = (function() {
 				$other = $books.not( $book ),
 				$parent = $book.parent(),
 				$page = $book.children( 'div.bk-page' ),
-				$bookview = $parent.find( 'button.bk-bookview' ),
+				$bookview = $parent.find( '.bk-bookview' ),
 				$content = $page.children( 'div.bk-content' ), current = 0;
 
-			$parent.find( 'button.bk-bookback' ).on( 'click', function() {				
+			$parent.find( '.bk-bookback' ).on( 'click', function() {				
 				
 				$bookview.removeClass( 'bk-active' );
 
@@ -34,7 +34,7 @@ var Books = (function() {
 
 				var $this = $( this );			
 				
-				$other.data( 'opened', false ).removeClass( 'bk-viewinside' ).parent().css( 'z-index', 0 ).find( 'button.bk-bookview' ).removeClass( 'bk-active' );
+				$other.data( 'opened', false ).removeClass( 'bk-viewinside' ).parent().css( 'z-index', 0 ).find( '.bk-bookview' ).removeClass( 'bk-active' );
 				if( !$other.hasClass( 'bk-viewback' ) ) {
 					$other.addClass( 'bk-bookdefault' );
 				}
