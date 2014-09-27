@@ -13,19 +13,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <li class="active active-icon-home"><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> </a></li>
+                <li class="<c:out value="${requestScope['javax.servlet.forward.servlet_path'] eq '/Index' ? 'active-icon-home' : ''} "/>" style="list-style:none"><a class="navbar-brand" href="Index"><span class="glyphicon glyphicon-home"></span> </a></li>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="QuizController">Trắc nghiệm</a></li>
+                    <li class='<c:out value="${requestScope['javax.servlet.forward.servlet_path'] eq '/QuizController' ? 'active' : ''} "/>'><a href="QuizController">Trắc nghiệm</a></li>
                     <li><a href="#">Xem bói</a></li>
                     <li><a href="#">Tạo ảnh</a></li>
-                    <li class="dropdown">
+                    <li class="dropdown <c:out value="${requestScope['javax.servlet.forward.servlet_path'] eq '/diary' ? 'active' : ''} "/>">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhật kí <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="read-diary.html">Đọc nhật kí</a></li>
+                            <li><a href="diary?action=review-diary">Nhật kí của tôi</a></li>
                             <li><a href="diary?action=write-diary">Viết nhật kí</a></li>
                             <li class="divider"></li>
                             <li><a href="diary?action=create-diary">Tạo mới nhật kí</a></li>

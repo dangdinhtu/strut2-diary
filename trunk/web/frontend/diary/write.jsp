@@ -10,7 +10,7 @@
 <div class="content">
     <div class="icon-bar">
         <a href="#" title="New Enty"><img src="${contextPath}/layout/layout-user/images/add.gif" /></a>
-        <a href="#" title="Save"><img src="${contextPath}/layout/layout-user/images/save.gif" /></a>
+        <a href="diary?sction=save" title="Save"><img src="${contextPath}/layout/layout-user/images/save.gif" /></a>
         <a href="#" title="Print"><img src="${contextPath}/layout/layout-user/images/print.gif" /></a>
         <a href="#" title="Insert Photo"><img src="${contextPath}/layout/layout-user/images/photo.gif" /></a>
         <a href="#" title="Format"><img src="${contextPath}/layout/layout-user/images/format.gif" /></a>
@@ -38,7 +38,7 @@
         <div class="r-main">
             <textarea id="text-here" row="40" cols="60">
                             write content here!
-            s</textarea>
+            </textarea>
         </div>
         <div class="r-bot"></div>
     </div>

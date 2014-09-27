@@ -99,6 +99,7 @@ public class AcountController extends ActionSupport {
             HttpSession session = req.getSession();
             //String contextPath = req.getContextPath();
             session.setAttribute("userName", userBO.getUsername());
+            session.setAttribute("userId", userBO.getUserId());
             session.setMaxInactiveInterval(30*60);
             result = Message.getMessage("Đăng nhập thành công", "success", actionName);
         } else {
