@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Thêm người dùng</h1>
+        <h1 class="page-header">Thêm người dùng </h1>
     </div>
 </div>
 <div class="row">
@@ -73,7 +73,14 @@
                             <div class="col-sm-8">
                                 <div class="checkbox">
                                     <c:forEach var="item" items="${lstRole}">
-                                        <label><input type="checkbox" name="" value="${item.roleId}" value="1"> ${item.name} </label><br>
+                                        <label>
+                                            <input type="checkbox" name="lstRoleId" 
+                                                      value="${item.roleId}"
+                                                      <c:forEach var="itemRoleUser" items="${lstRoleUser}">
+                                                          <c:if test="${itemRoleUser.roleId eq item.roleId}">checked</c:if>
+                                                      </c:forEach>
+                                                      > ${item.name}
+                                        </label><br>
                                     </c:forEach>
                                 </div>
                             </div>

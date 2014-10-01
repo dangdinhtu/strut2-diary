@@ -7,11 +7,14 @@ package diary.controller;
 import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
+import diary.bo.RoleBO;
 import diary.bo.UserBO;
+import diary.bo.UserRoleBO;
 import diary.common.Common;
 import diary.common.Message;
 import diary.dao.RoleDAO;
 import diary.dao.UserDAO;
+import diary.dao.UserRoleDAO;
 import java.sql.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -27,6 +30,7 @@ public class AdminUserController extends ActionSupport {
 
     private List<UserBO> listUser;
     private UserBO user;
+    private Integer lstRoleId[];
     UserDAO userDAO = new UserDAO();
     RoleDAO roleDAO = new RoleDAO();
     public String execute() throws Exception {
@@ -68,14 +72,25 @@ public class AdminUserController extends ActionSupport {
             }
             if (lstUser.size() > size || lstByEmail.size() > size) {
                 
-                if(userId != null)
-                    //url = "AdminUserController?action=form-edit";
-                result = Message.getMessage("Email hoặc username đã tồn tại", "error", url);
+//                if(userId != null)
+//                    //url = "AdminUserController?action=form-edit";
+                result = Message.getMessage("Email hoặc username đã tồn tại", "error");
             } else {
-                Boolean flag = userDAO.saveOrUpdate(userId, user);
-                if (userId == null && flag) {
+                Integer id = userDAO.saveOrUpdateUser(userId, user);
+                Boolean check = null;
+                UserRoleDAO userRoleDAO = new UserRoleDAO();
+                userRoleDAO.deleteByUserId(id);
+                for (int i = 0; i < lstRoleId.length; i++) {
+                    Integer roleId = lstRoleId[i];
+                    UserRoleBO userRoleBO = new UserRoleBO();
+                    userRoleBO.setRoleId(roleId);
+                    userRoleBO.setStatus(true);
+                    userRoleBO.setUserId(id);
+                    check = userRoleDAO.save(userRoleBO);
+                }
+                if (userId == null && check) {
                     result = Message.getMessage("Thêm mới bản ghi thành công", "success", "AdminUserController");
-                } else if (userId != null && flag) {
+                } else if (userId != null && check) {
                     result = Message.getMessage("Cập nhật bản ghi thành công", "success", "AdminUserController");
                 } else {
                     result = Message.getMessage("Cập nhật bản ghi thất bại", "error", "AdminUserController");
@@ -89,6 +104,9 @@ public class AdminUserController extends ActionSupport {
             user = userDAO.get(UserBO.class, id);
             req.setAttribute("user", user);
             req.setAttribute("lstRole", roleDAO.getListBySql());
+            UserRoleDAO userRoleDAO = new UserRoleDAO();
+            List<UserRoleBO> lstUserRole = userRoleDAO.findByProperty(UserRoleBO.class, "userId", id, "");
+            req.setAttribute("lstRoleUser", lstUserRole);
             return INPUT;
         } else if ("delete".equals(action)) {
             String str = req.getParameter("id");
@@ -129,4 +147,13 @@ public class AdminUserController extends ActionSupport {
     public void setListUser(List<UserBO> listUser) {
         this.listUser = listUser;
     }
+
+    public Integer[] getLstRoleId() {
+        return lstRoleId;
+    }
+
+    public void setLstRoleId(Integer[] lstRoleId) {
+        this.lstRoleId = lstRoleId;
+    }
+    
 }

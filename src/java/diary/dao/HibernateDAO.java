@@ -71,6 +71,23 @@ public class HibernateDAO {
         
         return flag;
     }
+    public Integer saveGetId(BasicBO objectToSave) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        Transaction transaction = null;
+        Integer  id = 0;
+        try {
+            transaction = session.beginTransaction();
+            id = (Integer) session.save(objectToSave);
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+            id = 0;
+        } finally {
+            session.close();
+        }
+        return id;
+    }
     
     public boolean saveOrUpdate(String key, BasicBO entity) {
         boolean flag = false;

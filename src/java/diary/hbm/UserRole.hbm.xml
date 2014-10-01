@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="diary.bo.UserRoleBO" table="USER_ROLE">
+    <id name="ureId">
+      <column name="ERE_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="roleId">
+      <column name="ROLE_ID"/>
+    </property>
+    <property name="userId">
+      <column name="USER_ID"/>
+    </property>
+    <property name="status">
+      <column name="STATUS"/>
+    </property>
+  </class>
+</hibernate-mapping>

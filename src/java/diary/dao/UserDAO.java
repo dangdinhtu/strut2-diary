@@ -4,6 +4,7 @@
  */
 package diary.dao;
 
+import diary.bo.BasicBO;
 import diary.bo.UserBO;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,16 @@ public class UserDAO extends HibernateDAO{
             session.close();
         }
         return null;
+    }
+    public Integer saveOrUpdateUser(Object id, BasicBO entity) {
+        Integer idUser = 0;
+        if (id == null || (Integer) id == 0)
+            idUser = saveGetId(entity);
+         else {
+            update(entity);
+            idUser = (Integer) id;
+        }
+        return idUser;
     }
     public static void main(String args[]) {
         UserDAO obj = new UserDAO();
