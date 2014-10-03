@@ -38,9 +38,6 @@ public class AdminRoleController extends ActionSupport{
     
     private RolePermBO rolePermBO;
     RolePermDAO rolePermDAO = new RolePermDAO();
-    private RolePermBO[] listRolePerm;
-    
-    public List<String> listPost;
             
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
@@ -50,10 +47,27 @@ public class AdminRoleController extends ActionSupport{
         
         if ("addOrUpdate".equals(action)) {
             Integer roleId =  roleBO.getRoleId();
-            boolean flag = roleDAO.saveOrUpdateRole(roleId, roleBO, listRolePerm);
-            if(roleId == null && flag)
-                result = Message.getMessage("Thêm mới bản ghi thành công", "success");
-            else if(roleId != 0 || roleId != null && flag)
+            String[] arr = roleBO.getListPerm();
+            boolean check = true;
+            int lastId = roleDAO.saveOrUpdateRole(roleId, roleBO);
+            if(roleBO.getListPerm().length > 0){
+                for(int i = 0; i < roleBO.getListPerm().length; i++){
+                    String[] tmpStr = arr[i].split("_");
+                    int[] arrRelation = new int[tmpStr.length];
+                    for (int j = 0; j < tmpStr.length; j++){
+                        arrRelation[j] = Integer.parseInt(tmpStr[j]);
+                    }
+                    roleBO.setPermId(arrRelation[0]);
+                    roleBO.setFunctionId(arrRelation[1]);
+                    req.setAttribute(roleBO.getListPerm()[i], "checked");  
+                    check = roleDAO.addRelation(roleBO);
+                    if(check == false){
+                        break;
+                    }
+                }
+            }
+            
+            if(lastId != 0 || roleId != null  && check)
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success");
             else
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
@@ -91,6 +105,7 @@ public class AdminRoleController extends ActionSupport{
                 result = Message.getMessage("Xóa bản ghi thất bại", "error");
             }
         }
+        action = null;
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
@@ -187,15 +202,5 @@ public class AdminRoleController extends ActionSupport{
     public void setRolePermDAO(RolePermDAO rolePermDAO) {
         this.rolePermDAO = rolePermDAO;
     }
-
-    public RolePermBO[] getListRolePerm() {
-        return listRolePerm;
-    }
-
-    public void setListRolePerm(RolePermBO[] listRolePerm) {
-        this.listRolePerm = listRolePerm;
-    }
-
-  
      
 }

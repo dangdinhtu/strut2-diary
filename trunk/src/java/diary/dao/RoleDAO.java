@@ -11,6 +11,7 @@ import diary.bo.RolePermBO;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -49,62 +50,63 @@ public class RoleDAO extends HibernateDAO{
         return query.list();
     }
     
-    public boolean addRole(RoleBO roleBO, RolePermBO[] lisRolePerm) {
+
+    
+    public int addRole(RoleBO roleBO) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction transaction = null;
-        boolean flag = true;
+        Integer lastId = null;
         try {
             transaction = session.beginTransaction();
+//            String sql = "INSERT INTO `ROLE`(NAME, DESCRIPT, STATUS) VALUES ("+ roleBO.getName() +","+ roleBO.getDescript() +","+ roleBO.getStatus()+")" ;
+//            SQLQuery query = session.createSQLQuery(sql);
+//            query.executeUpdate();System.out.println("truoc khi flush");
             session.save(roleBO);
-            for(int i = 0; i < lisRolePerm.length; i++){
-                session.save(lisRolePerm[i]);
-            }
+            session.flush(); 
+            lastId = roleBO.getRoleId();
             transaction.commit();
         } catch (HibernateException e) {
             transaction.rollback();
             e.printStackTrace();
-            flag = false;
         } finally {
             session.close();
         }
-        return flag;
+        return lastId;
     }
-    
-    public boolean editRole(RoleBO roleBO, RolePermBO[] lisRolePerm) {
+    public boolean addRelation(RoleBO roleBO){
+        boolean flag = true;
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction transaction = null;
-        rolePermDAO = new RolePermDAO();
-        Integer[] arrId = null ;
-        for (int i = 0; i < lisRolePerm.length; i++) {
-            arrId[i] = lisRolePerm[i].getRpmId();
+        try {
+            transaction = session.beginTransaction();
             
-        }
-        boolean flag = true;
-        try {
-            transaction = session.beginTransaction();
-            rolePermDAO.multiDelete(arrId, RolePermBO.class, "rpmId");
-            session.save(roleBO);
-            for(int i = 0; i < lisRolePerm.length; i++){
-                session.save(lisRolePerm[i]);
-            }
-            transaction.commit();
+                String sql = "INSERT INTO `role_perm`(`PERM_ID`, `ROLE_ID`, `FUNCTION_ID`) VALUES ("+ roleBO.getPermId() +","+ roleBO.getRoleId() +","+ roleBO.getFunctionId()+")" ;
+                SQLQuery query = session.createSQLQuery(sql);
+                query.executeUpdate();
+                transaction.commit();
         } catch (HibernateException e) {
+            flag = false;
             transaction.rollback();
             e.printStackTrace();
-            flag = false;
-        } finally {
+        }finally {
             session.close();
         }
         return flag;
+        
     }
     
-    public boolean saveOrUpdateRole(Object idRole, RoleBO roleBO, RolePermBO[] lisRolePerm) {
+    
+    public int saveOrUpdateRole(Object idRole, RoleBO roleBO) {
         boolean flag = false;
-        if (idRole == null || (Integer) idRole == 0)
-            flag = addRole(roleBO, lisRolePerm);
-        else 
-            flag = editRole(roleBO, lisRolePerm);
-        return flag;
+        Integer id = null;
+        if (idRole == null || (Integer) idRole == 0){
+            id = addRole(roleBO);
+            flag = true;
+        }else{
+            flag = update(roleBO);
+            id = roleBO.getRoleId();
+        }
+        return id;
     }
     
 }

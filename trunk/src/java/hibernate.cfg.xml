@@ -34,6 +34,7 @@
     <mapping resource="diary/hbm/Permission.hbm.xml"/>
     <mapping resource="diary/hbm/Function.hbm.xml"/>
     <mapping resource="diary/hbm/RolePerm.hbm.xml"/>
+    <mapping resource="diary/hbm/ResultsDivinationFast.hbm.xml"/>
     <mapping resource="diary/hbm/UserRole.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

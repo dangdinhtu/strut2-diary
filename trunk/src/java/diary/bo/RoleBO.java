@@ -4,6 +4,8 @@
  */
 package diary.bo;
 
+import java.util.List;
+
 /**
  *
  * @author DinhTu
@@ -13,16 +15,58 @@ public class RoleBO extends BasicBO{
     private String name;
     private String descript;
     private Boolean status;
+    private String[] listPerm;
+    private List<Boolean> ckeckedRole;
+    private Integer permId;
+    private Integer functionId;
 
     public RoleBO() {
     }
 
-    public RoleBO(Integer roleId, String name, String descript, Boolean status) {
+    public RoleBO(Integer roleId, String name, String descript, Boolean status, String[] listPerm, Integer permId, Integer functionId) {
         this.roleId = roleId;
         this.name = name;
         this.descript = descript;
         this.status = status;
+        this.listPerm = listPerm;
+        this.permId = permId;
+        this.functionId = functionId;
     }
+
+    public List<Boolean> getCkeckedRole() {
+        return ckeckedRole;
+    }
+
+    public void setCkeckedRole(List<Boolean> ckeckedRole) {
+        this.ckeckedRole = ckeckedRole;
+    }
+
+    public String[] getListPerm() {
+        return listPerm;
+    }
+
+    public void setListPerm(String[] listPerm) {
+        this.listPerm = listPerm;
+    }
+
+    public Integer getPermId() {
+        return permId;
+    }
+
+    public void setPermId(Integer permId) {
+        this.permId = permId;
+    }
+
+    public Integer getFunctionId() {
+        return functionId;
+    }
+
+    public void setFunctionId(Integer functionId) {
+        this.functionId = functionId;
+    }
+
+   
+    
 
     public Integer getRoleId() {
         return roleId;
