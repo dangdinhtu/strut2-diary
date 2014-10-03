@@ -72,6 +72,10 @@
 		<put-attribute name="title" value="Thêm mới thể loại" />
 		<put-attribute name="body" value="/backend/role/add.jsp" />
 	</definition>
+        <definition name="/formDFC.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Trắc nghiệm nhanh"/>
+		<put-attribute name="body" value="/backend/divinationFast/add.jsp" />
+	</definition>
         <!--==================layout cho frontend=========================-->
 	<definition name="layout-frontend" template="/layout/frontend/index.jsp">
             <put-attribute name="title" value="" />

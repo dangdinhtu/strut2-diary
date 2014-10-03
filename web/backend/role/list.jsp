@@ -14,7 +14,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                DataTables Advanced Tables 
+                DataTables Advanced Tables ${haha}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -25,7 +25,7 @@
                         <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminRoleController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
-                        <form action="AdminRoleController" method="get">
+                        <form action="AdminRoleController" method="post">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
                                 <span class="input-group-btn">

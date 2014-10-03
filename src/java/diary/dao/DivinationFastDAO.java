@@ -9,7 +9,9 @@ import diary.bo.DivinationFastBO;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -35,13 +37,53 @@ public class DivinationFastDAO extends HibernateDAO{
         }
         return null;
     }
+    public int addDivination(DivinationFastBO roleBO) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        Transaction transaction = null;
+        Integer lastId = null;
+        try {
+            transaction = session.beginTransaction();
+            session.save(roleBO);
+            session.flush(); 
+            lastId = roleBO.getDfnId();
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return lastId;
+    }
     
+    public int saveOrUpdateDivinationFast(Object idDFast, DivinationFastBO divinationFastBO) {
+        boolean flag = false;
+        Integer id = null;
+        if (idDFast == null || (Integer) idDFast == 0){
+            id = addDivination(divinationFastBO);
+            flag = true;
+        }else{
+            flag = update(divinationFastBO);
+            id = divinationFastBO.getDfnId();
+        }
+        return id;
+    }
 //    public static void main(String abc[]){
-////        
+//       
 //        DivinationFastDAO d = new DivinationFastDAO();
-//        List<DivinationBO> df = new LinkedList<DivinationBO>();
-//        df = d.getList(); 
-//        if(df.size() > 0)
-//            System.out.println(df.get(0).getName());
+////        List<DivinationBO> df = new LinkedList<DivinationBO>();
+////        df = d.getList(); 
+////        if(df.size() > 0)
+////            System.out.println(df.get(0).getName());
+//        
+//        DivinationFastBO b = new DivinationFastBO( 3,"cfffffffffff", "b", 1);
+//        Object id = 3;
+//        Integer check = d.saveOrUpdateDivinationFast(id, b);
+//        if (check > 0 || check != null ) {
+//            System.out.println("hahahaa thành công rồi" + check );
+//        }else{
+//            System.out.println("thốn vồn");
+//        }
+//            
 //    }
 }

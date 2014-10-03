@@ -29,8 +29,11 @@
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
         <action name="AdminDivinationFastController" class="diary.controller.AdminDivinationFastController">
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpeg,image/gif</param>
+            </interceptor-ref>
             <result name="success" type="tiles">/listDivinationFast.tiles</result> 
-            <result name="input" type="tiles">/form.tiles</result>   
+            <result name="input" type="tiles">/formDFC.tiles</result>   
         </action>
         <action name="AdminDiLongController" class="diary.controller.AdminDiLongController">
             <result name="success" type="tiles">/listDlg.tiles</result> 

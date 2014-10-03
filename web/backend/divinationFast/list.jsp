@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách Divination Fast</h1>
+        <h1 class="page-header">Danh sách Trắc nghiệm nhanh</h1>
     </div>
 </div>
 <div class="row">
@@ -40,13 +40,12 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listDCY" requestURI="/AdminDivinationFastController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                    <display:table id="data"  export="true" name="listDivinationFast" requestURI="/AdminDivinationFastController" pagesize="10" class="table table-striped table-bordered table-hover" >
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
-                            <input type="checkbox" name="divinationFast.listId[]" class="checkbox-selection " value="${data.dfnId}">
+                            <input type="checkbox" name="divinationFastBO.listId[]" class="checkbox-selection " value="${data.dfnId}">
                         </display:column>
                         <display:column property="name" title="Tên" sortable="true"/>
                         <display:column property="descript" title="Mô Tả"/>
-                        <display:column property="divinationId" title="divinationId"/>
                         <display:column title="resource.key">
                             <a href="AdminDivinationFastController?action=form-edit&id=${data.dfnId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
                             <a href="#"  class="table-a-delete" data-redirect ="AdminDivinationFastController?action=delete&id=${data.dfnId}"><i class="glyphicon glyphicon-trash"></i></a>

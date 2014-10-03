@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="diary.bo.ResultsDivinationFastBO" table="RESULTS_DIVINATION_FAST">
+        <id name="rdfId">
+            <column name="RDF_ID"/>
+            <generator class="identity"/>
+          </id>
+          <property name="images">
+            <column name="IMAGES"/>
+          </property>
+          <property name="answer">
+            <column name="ANSWER"/>
+          </property>
+          <property name="result">
+            <column name="RESULT"/>
+          </property>
+          <property name="dfnId">
+            <column name="DFN_ID"/>
+          </property>
+    </class>
+</hibernate-mapping>
