@@ -13,6 +13,9 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.transform.Transformers;
+import org.hibernate.type.DateType;
+import org.hibernate.type.LongType;
+import org.hibernate.type.StringType;
 
 /**
  *
@@ -46,20 +49,19 @@ public class DiaryBookDAO extends HibernateDAO {
     }
 
     public List<BeanDiaryBook> getDiaryBookByUser(Integer userId) {
-        List<BeanDiaryBook> listOfDbc = new ArrayList();
         try {
-//            SQLQuery query = session.createSQLQuery("SELECT DBK.NAME, DBK.COVER_PHOTO, BACKGROUND_IMAGES, UDB.USER_ID "
-//                    + " FROM USER_DIARY_BOOK AS UDB INNER JOIN DIARY_BOOK AS DBK ON DBK.DBK_ID = UDB.DBK_ID "
-//                    + "WHERE UDB.USER_ID = 1");
-//            //query.setParameter(0, userId);
-//            return query.list();
-            
-            StringBuffer sb = new StringBuffer();
-            sb.append("FROM USER_DIARY_BOOK AS UDB INNER JOIN DIARY_BOOK AS DBK ");
-            sb.append("ON DBK.DBK_ID = UDB.DBK_ID ");
-            org.hibernate.Query query = session.createQuery(sb.toString());
-            listOfDbc = query.list();
-                    
+            SQLQuery query = session.createSQLQuery("SELECT udb.user_id, udb.dbk_id, dbk.name, dbk.date_create, dbk.cover_photo, "
+                    + "dbk.background_images FROM user_diary_book as udb inner join diary_book as dbk on udb.dbk_id = dbk.dbk_id "
+                    + " WHERE  udb.user_id = :userId");
+            query.setParameter("userId", userId);
+            query.addScalar("userId", new LongType());
+            query.addScalar("dbkId", new LongType());
+            query.addScalar("name", new StringType());
+            query.addScalar("dateCreate", new DateType());
+            query.addScalar("coverPhoto", new StringType());
+            query.addScalar("backgroundImages", new StringType());
+            query.setResultTransformer(Transformers.aliasToBean(BeanDiaryBook.class));
+            return query.list();                    
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
@@ -67,8 +69,7 @@ public class DiaryBookDAO extends HibernateDAO {
             session.clear();
             session.close();
         }
-        return listOfDbc;
-
+        return null;
     }
 
     public static void main(String args[]) {

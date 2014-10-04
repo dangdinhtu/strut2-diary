@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import diarry.bean.BeanDiaryBook;
 import diary.bo.CategoryBO;
 import diary.bo.DiaryBookBO;
+import diary.bo.DiaryBookContentBO;
 import diary.common.Constans;
 import diary.common.Message;
 import diary.dao.CategoryDAO;
@@ -68,13 +69,27 @@ public class DiaryController extends ActionSupport implements ServletRequestAwar
             }
             req.setAttribute("result", result);
         }else if("review-diary".equals(action)){
+            // lấy các cuốn nhật kí mà người dùng đã viết
             HttpSession session = req.getSession();
             Integer userId = (Integer) session.getAttribute("userId");
-            //lstDiaryBook = diaryBookDAO.getDiaryBookByUser(userId);
-            
+            if(userId != null){
+                beanDiaryBook = diaryBookDAO.getDiaryBookByUser(userId);
+            }
             return "reviewDiary";
         }else if("save".equals(action)){
-            return "reviewDiary";
+            String result = "";
+            try {
+                Date date = new Date();
+                bookContent.setDateWrite(date);
+                
+                diaryBookDAO.save(bookContent);
+                result = Message.getMessage("Đăng kí tài khoản thành công", "success", "diary");
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = Message.getMessage("Đăng kí tài khoản thành công", "error");
+            }
+            req.setAttribute("result", result);
+            //return "reviewDiary";
         }
         return SUCCESS;
     }
@@ -84,7 +99,33 @@ public class DiaryController extends ActionSupport implements ServletRequestAwar
     private List<String> fileUploadFileName = new ArrayList<String>();
     private DiaryBookBO diaryBookBO;
     private List<BeanDiaryBook> lstDiaryBook;
+    private DiaryBookContentBO bookContent;
+    private List<BeanDiaryBook> beanDiaryBook;
 
+    public List<BeanDiaryBook> getBeanDiaryBook() {
+        return beanDiaryBook;
+    }
+
+    public void setBeanDiaryBook(List<BeanDiaryBook> beanDiaryBook) {
+        this.beanDiaryBook = beanDiaryBook;
+    }
+    
+    public DiaryBookDAO getDiaryBookDAO() {
+        return diaryBookDAO;
+    }
+
+    public void setDiaryBookDAO(DiaryBookDAO diaryBookDAO) {
+        this.diaryBookDAO = diaryBookDAO;
+    }
+
+    public DiaryBookContentBO getBookContent() {
+        return bookContent;
+    }
+
+    public void setBookContent(DiaryBookContentBO bookContent) {
+        this.bookContent = bookContent;
+    }
+    
     public List<BeanDiaryBook> getLstDiaryBook() {
         return lstDiaryBook;
     }

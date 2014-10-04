@@ -4,6 +4,8 @@
  */
 package diarry.bean;
 
+import java.util.Date;
+
 /**
  *
  * @author DinhTu
@@ -14,6 +16,16 @@ public class BeanDiaryBook {
     private String backgroundImages;
     private Long userId;
     private Long dbkId;
+    private Date dateCreate;
+
+    public Date getDateCreate() {
+        return dateCreate;
+    }
+
+    public void setDateCreate(Date dateCreate) {
+        this.dateCreate = dateCreate;
+    }
+    
 
     public Long getDbkId() {
         return dbkId;
