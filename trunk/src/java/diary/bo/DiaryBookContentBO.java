@@ -4,6 +4,8 @@
  */
 package diary.bo;
 
+import java.util.Date;
+
 /**
  *
  * @author ThuTrang
@@ -12,7 +14,7 @@ public class DiaryBookContentBO extends BasicBO{
     private Integer dbcId;
     private String title;
     private String content;
-    private String dateWrite;
+    private Date dateWrite;
     private Integer page;
     private Integer dbkId;
 
@@ -40,11 +42,11 @@ public class DiaryBookContentBO extends BasicBO{
         this.content = content;
     }
 
-    public String getDateWrite() {
+    public Date getDateWrite() {
         return dateWrite;
     }
 
-    public void setDateWrite(String dateWrite) {
+    public void setDateWrite(Date dateWrite) {
         this.dateWrite = dateWrite;
     }
 
