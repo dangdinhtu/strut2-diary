@@ -14,10 +14,37 @@ public class BeanDiaryBook {
     private String name;
     private String coverPhoto;
     private String backgroundImages;
-    private Long userId;
-    private Long dbkId;
+    private Integer userId;
+    private Integer dbkId;
     private Date dateCreate;
+    private String title;
+    private String content;
+    private Date dateWritten;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getDateWritten() {
+        return dateWritten;
+    }
+
+    public void setDateWritten(Date dateWritten) {
+        this.dateWritten = dateWritten;
+    }
+    
     public Date getDateCreate() {
         return dateCreate;
     }
@@ -27,11 +54,11 @@ public class BeanDiaryBook {
     }
     
 
-    public Long getDbkId() {
+    public Integer getDbkId() {
         return dbkId;
     }
 
-    public void setDbkId(Long dbkId) {
+    public void setDbkId(Integer dbkId) {
         this.dbkId = dbkId;
     }
     
@@ -59,11 +86,11 @@ public class BeanDiaryBook {
         this.backgroundImages = backgroundImages;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     

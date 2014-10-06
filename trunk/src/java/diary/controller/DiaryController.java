@@ -16,6 +16,7 @@ import diary.dao.CategoryDAO;
 import diary.dao.DiaryBookDAO;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletRequest;
@@ -30,7 +31,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
  *
  * @author DinhTu
  */
-public class DiaryController extends ActionSupport implements ServletRequestAware {
+public class DiaryController extends ActionSupport  {
     DiaryBookDAO diaryBookDAO = new DiaryBookDAO();
     public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
@@ -43,6 +44,22 @@ public class DiaryController extends ActionSupport implements ServletRequestAwar
         } else if ("write-diary".equals(action)) {
             return "write-diary";
         }  else if ("read".equals(action)) {
+            int userId = 125;
+            int dbkId = 1;
+            List<Object> lstDiaryBookContent = diaryBookDAO.getDiaryBookContent(userId, dbkId);
+            List<BeanDiaryBook> lst = new ArrayList<BeanDiaryBook>();
+            for (int i=0; i<lstDiaryBookContent.size(); i++){
+                Object[] row = (Object[]) lstDiaryBookContent.get(i);
+                BeanDiaryBook obj = new BeanDiaryBook();
+                obj.setUserId((Integer) row[0]);
+                obj.setDbkId((Integer) row[1]);
+                obj.setTitle((String) row[2]);
+                obj.setContent((String) row[3]);
+                obj.setDateWritten((Date) row[4]);
+                lst.add(obj);
+            }
+                  
+            req.setAttribute("lstDiaryBookContent", lst);
             return "read";
         }else if ("signin-diary".equals(action)) {
             HttpSession session = req.getSession();
@@ -174,8 +191,5 @@ public class DiaryController extends ActionSupport implements ServletRequestAwar
         this.lstCategory = lstCategory;
     }
 
-    @Override
-    public void setServletRequest(HttpServletRequest hsr) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
