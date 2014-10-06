@@ -71,6 +71,36 @@ public class DiaryBookDAO extends HibernateDAO {
         }
         return null;
     }
+    // lay noi dung fill vao trang doc nhat ki
+    public List getDiaryBookContent(Integer userId, Integer dbkId) {
+        try {
+            SQLQuery query = session.createSQLQuery("SELECT udb.user_Id, dbk.dbk_Id, title, content, date_Written\n" +
+                    "FROM user_diary_book AS udb\n" +
+                    "INNER JOIN diary_book AS dbk ON udb.dbk_Id = dbk.dbk_Id\n" +
+                    "INNER JOIN diary_book_content AS dbc ON dbk.dbk_Id = dbc.dbk_Id "
+                    + " WHERE  udb.user_id = :userId AND dbk.dbk_Id = :dbkId");
+            query.setParameter("userId", userId);
+            query.setParameter("dbkId", dbkId);
+//            query.addEntity("userId", BeanDiaryBook.class);
+//            query.addEntity("dbkId", BeanDiaryBook.class);
+//            query.addEntity("title", BeanDiaryBook.class);
+//            query.addEntity("content", BeanDiaryBook.class);
+//            query.addEntity("dateWritten", BeanDiaryBook.class);
+//            query.addScalar("dbkId", new LongType());
+//            query.addScalar("title", new StringType());
+//            query.addScalar("content", new StringType());
+//            query.addScalar("dateWritten", new DateType());
+            //query.setResultTransformer(Transformers.aliasToBean(BeanDiaryBook.class));
+            return query.list();                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.flush();
+            session.clear();
+            session.close();
+        }
+        return null;
+    }
 
     public static void main(String args[]) {
         DiaryBookDAO obj = new DiaryBookDAO();

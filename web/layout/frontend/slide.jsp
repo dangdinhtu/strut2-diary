@@ -43,7 +43,6 @@
                     </div>
                 </li>
                 </c:forEach>
-                <c:set var="itemAds" value="<%= list%>"/>
             </ul>
         </div>
         <div class="shadow_left"></div>
