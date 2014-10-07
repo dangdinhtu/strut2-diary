@@ -34,12 +34,5 @@ public class CategoryDAO extends HibernateDAO{
         return null;
     }
     
-//    public static  void main(String abc[]){
-//        CategoryDAO categoryDAO = new CategoryDAO();
-//        List<CategoryBO> listCategory = categoryDAO.getList();
-//        System.out.print(listCategory.get(0).getName());
-//               
-//    }
-    
-    
+
 }

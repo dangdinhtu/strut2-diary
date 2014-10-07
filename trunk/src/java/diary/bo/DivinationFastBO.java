@@ -15,10 +15,7 @@ public class DivinationFastBO extends BasicBO{
     private String name;
     private String descript;
     private Integer divinationId;
-    private String[] listAnswer;
-    private String[] listResult;
-    private String[] listImage;
-    private Integer[] stt;
+    private List<ResultsDivinationFastBO> listOfResult;
 
     public DivinationFastBO() {
     }
@@ -68,37 +65,12 @@ public class DivinationFastBO extends BasicBO{
         this.divinationId = divinationId;
     }
 
-    public String[] getListAnswer() {
-        return listAnswer;
+    public List<ResultsDivinationFastBO> getListOfResult() {
+        return listOfResult;
     }
 
-    public void setListAnswer(String[] listAnswer) {
-        this.listAnswer = listAnswer;
+    public void setListOfResult(List<ResultsDivinationFastBO> listOfResult) {
+        this.listOfResult = listOfResult;
     }
 
-    public String[] getListResult() {
-        return listResult;
-    }
-
-    public void setListResult(String[] listResult) {
-        this.listResult = listResult;
-    }
-
-    public String[] getListImage() {
-        return listImage;
-    }
-
-    public void setListImage(String[] listImage) {
-        this.listImage = listImage;
-    }
-
-    public Integer[] getStt() {
-        return stt;
-    }
-
-    public void setStt(Integer[] stt) {
-        this.stt = stt;
-    }
-    
-    
 }

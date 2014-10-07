@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách Trắc nghiệm nhanh</h1>
+        <h1 class="page-header">Danh sách Cung hoàng đạo</h1>
     </div>
 </div>
 <div class="row">
@@ -21,15 +21,15 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminDivinationFastController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDivinationFastController?action=delete&id=" value="Xóa">
+                        <a href="AdminZodiacController?action=add" class="btn btn-default">Thêm </a>
+                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminZodiacController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
-                        <form action="AdminDivinationFastController" method="get">
+                        <form action="AdminZodiacController" method="post">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
+                                    <button class="btn btn-default" type="submit" >
                                         <i class="glyphicon glyphicon-search"></i>
                                     </button>
                                 </span>
@@ -40,15 +40,18 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listDivinationFast" requestURI="/AdminDivinationFastController" pagesize="10" class="table table-striped table-bordered table-hover" >
-                        <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
-                            <input type="checkbox" name="divinationFastBO.listId[]" class="checkbox-selection " value="${data.dfnId}">
+                    <display:table id="data"  export="true" name="listZodiac" requestURI="/AdminZodiacController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                        <display:column style="width:5%;text-align:center;" title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
+                            <input type="checkbox" name="zodiacBO.listId[]" class="checkbox-selection " value="${data.zodiacId}">
                         </display:column>
                         <display:column property="name" title="Tên" sortable="true"/>
-                        <display:column property="descript" title="Mô Tả"/>
-                        <display:column title="Hành động">
-                            <a href="AdminDivinationFastController?action=form-edit&id=${data.dfnId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminDivinationFastController?action=delete&id=${data.dfnId}"><i class="glyphicon glyphicon-trash"></i></a>
+                        <display:column property="date" title="Thời gian"/>
+                        <display:column  title="Ảnh minh họa" style="width:20%;text-align:center;">
+                            <img src="${contextPath}/images/${data.image}" width="100px" height="90px">
+                        </display:column>    
+                        <display:column title="Sửa/Xóa" style="width:9%;text-align:center;">
+                            <a href="AdminZodiacController?action=form-edit&id=${data.zodiacId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#"  class="table-a-delete" data-redirect ="AdminZodiacController?action=delete&id=${data.zodiacId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						

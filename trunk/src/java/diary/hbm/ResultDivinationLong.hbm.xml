@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="diary.bo.ResultDivinationLongBO" table="RESULTS_DIVINATION_LONG">
+          <id name="rdlId">
+            <column name="RDL_ID"/>
+            <generator class="identity"/>
+          </id>
+          <property name="scoreMax">
+            <column name="SCORE_MAX"/>
+          </property>
+          <property name="scoreMin">
+            <column name="SCORE_MIN"/>
+          </property>
+          <property name="results">
+            <column name="RESULTS"/>
+          </property>
+          <property name="dlgId">
+            <column name="DLG_ID"/>
+          </property>
+    </class>
+</hibernate-mapping>

@@ -23,7 +23,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default" style="padding: 10px">
-            <form class="form-horizontal" style="margin-top: 20px" action="AdminRoleController" method="get">
+            <form class="form-horizontal" style="margin-top: 20px" action="AdminRoleController" method="post">
                <s:hidden name="action" value="addOrUpdate" />
                <s:hidden name="roleBO.roleId" />
                 <div class="form-group">
