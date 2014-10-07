@@ -32,27 +32,45 @@ public class AdminDivinationFastController extends ActionSupport {
     ResultDivinationFastDAO resultsDAO = new ResultDivinationFastDAO();
     private List<ResultsDivinationFastBO> listOfResult;
     
-    private String destPath;
     
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
-        HttpServletResponse res = ServletActionContext.getResponse();
         String action = req.getParameter("action");      
         String result = "";
-        destPath = "C:/Users/ThuTrang/Documents/strut2-diary/uploadImage/";/* Copy file to a safe location */
+        
         if ("addOrUpdate".equals(action)) {
+        Integer id = null;
+        divinationFastBO = new DivinationFastBO();
+         listOfResult = new ArrayList<ResultsDivinationFastBO>();
+        if(!"".equals(req.getParameter("divinationFastBO.dfnId"))){
+             id = Integer.parseInt(req.getParameter("divinationFastBO.dfnId"));
+        }
+        divinationFastBO.setName(req.getParameter("divinationFastBO.name"));
+        divinationFastBO.setDescript(req.getParameter("divinationFastBO.descript"));
+        System.out.println("length = "+ req.getParameter("listOfResult.answer").length());
+        ResultsDivinationFastBO arrAnswer[] = new ResultsDivinationFastBO[req.getParameter("listOfResult.answer").length()];
+         
+            for (int i = 0; i < arrAnswer.length; i++) {
+                resultsBO = new ResultsDivinationFastBO();
+                System.out.println("tra loi = "+req.getParameter("listOfResult.answer"));
+                resultsBO.setAnswer(req.getParameter("listOfResult.answer"));
+                resultsBO.setImages(req.getParameter("listOfResult.answer"));
+                resultsBO.setResult(req.getParameter("listOfResult.images"));
+                listOfResult.add(resultsBO);
+                
+            }
+            divinationFastBO.setListOfResult(listOfResult);
+            
             boolean checkDel = true;
             boolean checkInsert = true;
-            int lastId = divinationFastDAO.saveOrUpdateDivinationFast(divinationFastBO.getDfnId(), divinationFastBO);
+            int lastId = divinationFastDAO.saveOrUpdateDivinationFast(id, divinationFastBO);
             Object[] arrId = {lastId};
-            checkDel = resultsDAO.multiDelete(arrId, ResultsDivinationFastBO.class, "dfnId");
-            if(checkDel == true)
-                System.out.println("xóa đk rồi đấy");
-            else
-                System.out.println("có xóa đk đâu mà");
-            System.out.println("kích thước của listOfResult = "+listOfResult.size());
+            if(!"".equals(req.getParameter("divinationFastBO.dfnId"))){
+                checkDel = resultsDAO.multiDelete(arrId, ResultsDivinationFastBO.class, "dfnId");
+            }
             if(listOfResult.size() > 0){
                 for (int i = 0; i < listOfResult.size(); i++) {
+                    resultsBO = new ResultsDivinationFastBO();
                     resultsBO.setDfnId(lastId);
                     resultsBO.setAnswer(listOfResult.get(i).getAnswer());
                     resultsBO.setImages(listOfResult.get(i).getImages());
@@ -78,46 +96,37 @@ public class AdminDivinationFastController extends ActionSupport {
         }else if("delete_all".equals(action)){
         
         }else if("delete".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
-            DivinationFastBO divinationFastBO = divinationFastDAO.get(DivinationFastBO.class, id);
-            boolean check = divinationFastDAO.delete(divinationFastBO);
-            if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDivinationFastController");
-            else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDivinationFastController");
+            String str = req.getParameter("id");
+            String arr[] = str.split(",");
+            Integer arrId[] = new Integer[arr.length];
+            for (int i = 0; i < arrId.length; i++) {
+                try {
+                    arrId[i] = Integer.parseInt(arr[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                boolean check = divinationFastDAO.multiDelete(arrId, DivinationFastBO.class, "dfnId");
+                if (check) {
+                    result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDivinationFastController");
+                } else {
+                    result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDivinationFastController");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = Message.getMessage("Xóa bản ghi thất bại", "error");
+            }
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
         listDivinationFast = divinationFastDAO.getList();
+        listOfResult = divinationFastDAO.getListResult(divinationFastBO);
         req.setAttribute("keyword", keyword);
         return SUCCESS;
      
      }
-
-    public ResultsDivinationFastBO getResultsBO() {
-        return resultsBO;
-    }
-
-    public void setResultsBO(ResultsDivinationFastBO resultsBO) {
-        this.resultsBO = resultsBO;
-    }
-
-    public ResultDivinationFastDAO getResultsDAO() {
-        return resultsDAO;
-    }
-
-    public void setResultsDAO(ResultDivinationFastDAO resultsDAO) {
-        this.resultsDAO = resultsDAO;
-    }
-
-    public String getDestPath() {
-        return destPath;
-    }
-
-    public void setDestPath(String destPath) {
-        this.destPath = destPath;
-    }
 
     public DivinationFastBO getDivinationFastBO() {
         return divinationFastBO;
@@ -127,15 +136,6 @@ public class AdminDivinationFastController extends ActionSupport {
         this.divinationFastBO = divinationFastBO;
     }
 
-    
-    public DivinationFastDAO getDivinationFastDAO() {
-        return divinationFastDAO;
-    }
-
-    public void setDivinationFastDAO(DivinationFastDAO divinationFastDAO) {
-        this.divinationFastDAO = divinationFastDAO;
-    }
-
     public List<DivinationFastBO> getListDivinationFast() {
         return listDivinationFast;
     }
@@ -143,7 +143,15 @@ public class AdminDivinationFastController extends ActionSupport {
     public void setListDivinationFast(List<DivinationFastBO> listDivinationFast) {
         this.listDivinationFast = listDivinationFast;
     }
-    
+
+    public ResultsDivinationFastBO getResultsBO() {
+        return resultsBO;
+    }
+
+    public void setResultsBO(ResultsDivinationFastBO resultsBO) {
+        this.resultsBO = resultsBO;
+    }
+
     public List<ResultsDivinationFastBO> getListOfResult() {
         return listOfResult;
     }
@@ -151,6 +159,5 @@ public class AdminDivinationFastController extends ActionSupport {
     public void setListOfResult(List<ResultsDivinationFastBO> listOfResult) {
         this.listOfResult = listOfResult;
     }
-     
-
+    
 }

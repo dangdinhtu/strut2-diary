@@ -37,11 +37,11 @@
         </action>
         <action name="AdminDiLongController" class="diary.controller.AdminDiLongController">
             <result name="success" type="tiles">/listDlg.tiles</result> 
-            <result name="input" type="tiles">/form.tiles</result>   
+            <result name="input" type="tiles">/formDlg.tiles</result>   
         </action>
         <action name="AdminRDCController" class="diary.controller.AdminRDCController">
             <result name="success" type="tiles">/listResultsDivinationCouples.tiles</result> 
-            <result name="input" type="tiles">/form.tiles</result>   
+            <result name="input" type="tiles">/formResultsDivinationCouples.tiles</result>   
         </action>
         <action name="AdminResourceController" class="diary.controller.AdminResourceController">
             <result name="success" type="tiles">/listResource.tiles</result> 
@@ -50,6 +50,10 @@
         <action name="AdminRoleController" class="diary.controller.AdminRoleController">
             <result name="success" type="tiles">/listRole.tiles</result> 
             <result name="input" type="tiles">/formRole.tiles</result>   
+        </action>
+        <action name="AdminZodiacController" class="diary.controller.AdminZodiacController">
+            <result name="success" type="tiles">/listZodiac.tiles</result> 
+            <result name="input" type="tiles">/formZodiac.tiles</result>   
         </action>
     </package>
 </struts>

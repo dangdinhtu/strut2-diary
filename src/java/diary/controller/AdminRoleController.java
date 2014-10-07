@@ -41,7 +41,6 @@ public class AdminRoleController extends ActionSupport{
             
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
-        HttpServletResponse res = ServletActionContext.getResponse();
         String action = req.getParameter("action");      
         String result = "";
         

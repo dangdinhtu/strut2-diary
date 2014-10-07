@@ -8,8 +8,13 @@ import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.DivinationLongBO;
+import diary.bo.DivinationLongContentBO;
+import diary.bo.ResultDivinationLongBO;
 import diary.common.Message;
+import diary.dao.DivinationLongContentDAO;
 import diary.dao.DivinationLongDAO;
+import diary.dao.ResultDivinationLongDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,23 +25,81 @@ import org.apache.struts2.ServletActionContext;
  * @author ThuTrang
  */
 public class AdminDiLongController extends ActionSupport {
-    
-     private List<DivinationLongBO> dlgBO;
-    private DivinationLongBO dlg;
+    private DivinationLongBO dlgBO;
     DivinationLongDAO dlgDAO = new DivinationLongDAO();
-    private List<DivinationLongBO> listDlg;
+    private List<DivinationLongBO> listOfdlgBO;
+    
+    private DivinationLongContentBO diLongContentBO;
+    DivinationLongContentDAO diLongContentDAO = new DivinationLongContentDAO();
+    private List<DivinationLongContentBO> listOfDiLongContent;
+    
+    private ResultDivinationLongBO resultDiLongBO;
+    ResultDivinationLongDAO resultDiLongDAO = new ResultDivinationLongDAO();
+    private List<ResultDivinationLongBO> listOfResultDiLong;
+    
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
-        HttpServletResponse res = ServletActionContext.getResponse();
         String action = req.getParameter("action");      
         String result = "";
         
         if ("addOrUpdate".equals(action)) {
-            Integer dlgId =  dlg.getDlgId();
-            boolean flag = dlgDAO.saveOrUpdate(dlgId, dlg);
-            if(dlgId == null && flag)
+            Integer dlgId =  dlgBO.getDlgId();
+            String[] arr = dlgBO.getArrQuestion();
+            String[] arrA = dlgBO.getArrA();
+            String[] arrB = dlgBO.getArrB();
+            String[] arrC = dlgBO.getArrC();
+            String[] arrD = dlgBO.getArrD();
+            Integer[] arrMarkA = dlgBO.getArrMarkA();
+            Integer[] arrMarkB = dlgBO.getArrMarkB();
+            Integer[] arrMarkC = dlgBO.getArrMarkC();
+            Integer[] arrMarkD = dlgBO.getArrMarkD();
+            
+            Integer[] arrScoreMin = dlgBO.getArrScoreMin();
+            Integer[] arrScoreMax = dlgBO.getArrScoreMax();
+            String[] arrResult = dlgBO.getArrResult();
+            
+            boolean check = true;
+            boolean checkSaveContent = true;
+            boolean checkSaveResult = true;
+            
+            Integer lastId = dlgDAO.saveOrUpdateDivinationLong(dlgId, dlgBO);
+            for (int i = 0; i < arr.length; i++) {
+                diLongContentBO = new DivinationLongContentBO();
+                if(!"".equals(arr[i]) && !"".equals(arrA[i]) && !"".equals(arrB[i]) && !"".equals(arrC[i]) && !"".equals(arrD[i])){
+                    diLongContentBO.setQuestion(arr[i]);
+                    diLongContentBO.setA(arrA[i]);
+                    diLongContentBO.setB(arrB[i]);
+                    diLongContentBO.setC(arrC[i]);
+                    diLongContentBO.setD(arrD[i]);
+                    diLongContentBO.setMarkA(arrMarkA[i]);
+                    diLongContentBO.setMarkB(arrMarkB[i]);
+                    diLongContentBO.setMarkC(arrMarkC[i]);
+                    diLongContentBO.setMarkD(arrMarkD[i]);
+                    diLongContentBO.setDlgId(lastId);
+                    check = diLongContentDAO.save(diLongContentBO);
+                    if(check == false){
+                        checkSaveContent = false;
+                    }
+                }
+            }
+            
+            for (int i = 0; i < arrScoreMin.length; i++) {
+                resultDiLongBO = new ResultDivinationLongBO();
+                if(!"".equals(arrScoreMin[i]) &&!"".equals(arrScoreMax[i]) &&!"".equals(arrResult[i])){
+                    resultDiLongBO.setScoreMax(arrScoreMax[i]);
+                    resultDiLongBO.setScoreMin(arrScoreMin[i]);
+                    resultDiLongBO.setResults(arrResult[i]);
+                    resultDiLongBO.setDlgId(lastId);
+                    check = resultDiLongDAO.save(resultDiLongBO);
+                    if(check == false){
+                        checkSaveResult = false;
+                    }
+                }
+                
+            }
+            if(dlgId == null && checkSaveContent && checkSaveResult)
                 result = Message.getMessage("Thêm mới bản ghi thành công", "success");
-            else if(dlgId != 0 || dlgId != null && flag)
+            else if(dlgId != 0 || dlgId != null && checkSaveContent && checkSaveResult)
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success");
             else
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
@@ -45,44 +108,62 @@ public class AdminDiLongController extends ActionSupport {
             return INPUT;
         }else if("form-edit".equals(action)){
             Integer id = Integer.parseInt(req.getParameter("id"));
-            dlg = dlgDAO.get(DivinationLongBO.class, id);
+            dlgBO = dlgDAO.get(DivinationLongBO.class, id);
+            String StringId = id.toString();
+            listOfDiLongContent = new ArrayList<DivinationLongContentBO>();
+            listOfResultDiLong = new ArrayList<ResultDivinationLongBO>();
+            listOfDiLongContent = diLongContentDAO.getList("DivinationLongContentBO", "dlgId", StringId, "dlgId");
+            listOfResultDiLong = resultDiLongDAO.getList("ResultDivinationLongBO", "dlgId", StringId, "dlgId");
             return INPUT;
-        }else if("delete_all".equals(action)){
-        
         }else if("delete".equals(action)){
-            Integer id = Integer.parseInt(req.getParameter("id"));
-            DivinationLongBO dlgBO = dlgDAO.get(DivinationLongBO.class, id);
-            boolean check = dlgDAO.delete(dlgBO);
-            if(check)
-                result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDiLongController");
-            else
-                result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDiLongController");
+            String str = req.getParameter("id");
+            String arr[] = str.split(",");
+            Integer arrId[] = new Integer[arr.length];
+            for (int i = 0; i < arrId.length; i++) {
+                try {
+                    arrId[i] = Integer.parseInt(arr[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                boolean check = dlgDAO.multiDelete(arrId, DivinationLongBO.class, "dlgId");
+                if (check) {
+                    result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDiLongController");
+                } else {
+                    result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDiLongController");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = Message.getMessage("Xóa bản ghi thất bại", "error");
+            }
         }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
-        listDlg = dlgDAO.getList();
+        listOfdlgBO = dlgDAO.getList();
         req.setAttribute("keyword", keyword);
         return SUCCESS;
      
      }
 
-    public List<DivinationLongBO> getDlgBO() {
+    public List<DivinationLongBO> getListOfdlgBO() {
+        return listOfdlgBO;
+    }
+
+    public void setListOfdlgBO(List<DivinationLongBO> listOfdlgBO) {
+        this.listOfdlgBO = listOfdlgBO;
+    }
+
+    public DivinationLongBO getDlgBO() {
         return dlgBO;
     }
 
-    public void setDlgBO(List<DivinationLongBO> dlgBO) {
+    public void setDlgBO(DivinationLongBO dlgBO) {
         this.dlgBO = dlgBO;
     }
 
-    public DivinationLongBO getDlg() {
-        return dlg;
-    }
-
-    public void setDlg(DivinationLongBO dlg) {
-        this.dlg = dlg;
-    }
-
+ 
     public DivinationLongDAO getDlgDAO() {
         return dlgDAO;
     }
@@ -91,12 +172,52 @@ public class AdminDiLongController extends ActionSupport {
         this.dlgDAO = dlgDAO;
     }
 
-    public List<DivinationLongBO> getListDlg() {
-        return listDlg;
+    public DivinationLongContentBO getDiLongContentBO() {
+        return diLongContentBO;
     }
 
-    public void setListDlg(List<DivinationLongBO> listDlg) {
-        this.listDlg = listDlg;
+    public void setDiLongContentBO(DivinationLongContentBO diLongContentBO) {
+        this.diLongContentBO = diLongContentBO;
+    }
+
+    public List<DivinationLongContentBO> getListOfDiLongContent() {
+        return listOfDiLongContent;
+    }
+
+    public void setListOfDiLongContent(List<DivinationLongContentBO> listOfDiLongContent) {
+        this.listOfDiLongContent = listOfDiLongContent;
+    }
+
+    public ResultDivinationLongBO getResultDiLongBO() {
+        return resultDiLongBO;
+    }
+
+    public void setResultDiLongBO(ResultDivinationLongBO resultDiLongBO) {
+        this.resultDiLongBO = resultDiLongBO;
+    }
+
+    public List<ResultDivinationLongBO> getListOfResultDiLong() {
+        return listOfResultDiLong;
+    }
+
+    public void setListOfResultDiLong(List<ResultDivinationLongBO> listOfResultDiLong) {
+        this.listOfResultDiLong = listOfResultDiLong;
+    }
+
+    public DivinationLongContentDAO getDiLongContentDAO() {
+        return diLongContentDAO;
+    }
+
+    public void setDiLongContentDAO(DivinationLongContentDAO diLongContentDAO) {
+        this.diLongContentDAO = diLongContentDAO;
+    }
+
+    public ResultDivinationLongDAO getResultDiLongDAO() {
+        return resultDiLongDAO;
+    }
+
+    public void setResultDiLongDAO(ResultDivinationLongDAO resultDiLongDAO) {
+        this.resultDiLongDAO = resultDiLongDAO;
     }
      
      

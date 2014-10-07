@@ -58,6 +58,10 @@
 		<put-attribute name="title" value="Phân quyền người dùng" />
 		<put-attribute name="body" value="/backend/role/list.jsp" />
 	</definition>
+        <definition name="/listZodiac.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Danh sách cung hoàng đạo" />
+		<put-attribute name="body" value="/backend/zodiac/list.jsp" />
+	</definition>
         
         
         <definition name="/formUser.tiles" extends="baseLayout">
@@ -75,6 +79,18 @@
         <definition name="/formDFC.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Trắc nghiệm nhanh"/>
 		<put-attribute name="body" value="/backend/divinationFast/add.jsp" />
+	</definition>
+        <definition name="/formDlg.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Trắc nghiệm dài"/>
+		<put-attribute name="body" value="/backend/divinationLong/add.jsp" />
+	</definition>
+        <definition name="/formResultsDivinationCouples.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Cặp đôi"/>
+		<put-attribute name="body" value="/backend/resultsDivinationCouples/add.jsp" />
+	</definition>
+        <definition name="/formZodiac.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Cung hoàng đạo"/>
+		<put-attribute name="body" value="/backend/zodiac/add.jsp" />
 	</definition>
         <!--==================layout cho frontend=========================-->
 	<definition name="layout-frontend" template="/layout/frontend/index.jsp">

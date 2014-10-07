@@ -13,22 +13,12 @@ public class ResultsDivinationFastBO extends BasicBO{
     private Integer rdfId;
     private String answer;
     private String result;
-    private File images;
+    private String images;
     private Integer dfnId;
     private Integer stt;
 
     public ResultsDivinationFastBO() {
     }
-
-    public ResultsDivinationFastBO(Integer rdfId, String answer, String result, File images, Integer dfnId, Integer stt) {
-        this.rdfId = rdfId;
-        this.answer = answer;
-        this.result = result;
-        this.images = images;
-        this.dfnId = dfnId;
-        this.stt = stt;
-    }
-
 
     public Integer getRdfId() {
         return rdfId;
@@ -54,11 +44,11 @@ public class ResultsDivinationFastBO extends BasicBO{
         this.result = result;
     }
 
-    public File getImages() {
+    public String getImages() {
         return images;
     }
 
-    public void setImages(File images) {
+    public void setImages(String images) {
         this.images = images;
     }
 

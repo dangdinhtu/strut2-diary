@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách Nhật ký</h1>
+        <h1 class="page-header">Danh sách Trắc nghiệm dài</h1>
     </div>
 </div>
 <div class="row">
@@ -25,7 +25,7 @@
                         <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDiLongController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
-                        <form action="AdminDiLongController" method="get">
+                        <form action="AdminDiLongController" method="post">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="${keyword}" class="form-control" placeholder="Nhập từ khóa tìm kiếm..">
                                 <span class="input-group-btn">
@@ -40,16 +40,16 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listDlg" requestURI="/AdminDiLongController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                    <display:table id="data"  export="true" name="listOfdlgBO" requestURI="/AdminDiLongController" pagesize="10" class="table table-striped table-bordered table-hover" >
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
                             <input type="checkbox" name="diaryBook.listId[]" class="checkbox-selection " value="${data.dlgId}">
                         </display:column>
                         <display:column property="name" title="Tên" sortable="true"/>
-                        <display:column property="name" title="Tên"/>
-                        <display:column property="images" title="Ảnh"/>
                         <display:column property="descript" title="Mô tả"/>
-                        <display:column property="divinationId" title="divinationID"/>
-                        <display:column title="resource.key">
+                         <display:column  title="Ảnh minh họa" style="width:20%;text-align:center;">
+                            <img src="${contextPath}/images/${data.images}" width="100px" height="90px">
+                        </display:column>
+                        <display:column title="Sửa / Xóa">
                             <a href="AdminDiLongController?action=form-edit&id=${data.dlgId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
                             <a href="#"  class="table-a-delete" data-redirect ="AdminDiLongController?action=delete&id=${data.dlgId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>

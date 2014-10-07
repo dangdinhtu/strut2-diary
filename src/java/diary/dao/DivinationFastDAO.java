@@ -6,6 +6,7 @@ package diary.dao;
 
 import diary.bo.DivinationBO;
 import diary.bo.DivinationFastBO;
+import diary.bo.ResultsDivinationFastBO;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,6 +38,27 @@ public class DivinationFastDAO extends HibernateDAO{
         }
         return null;
     }
+    
+    public List getListResult(DivinationFastBO divinationFastBO) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        try {
+            List<DivinationFastBO> df = new LinkedList<DivinationFastBO>();
+            StringBuffer sb = new StringBuffer();
+            sb.append(" FROM ResultsDivinationFastBO ");
+            sb.append(" Where dfnId = "+ divinationFastBO.getDfnId()); 
+            org.hibernate.Query query = session.createQuery(sb.toString());
+            df = query.list();
+            return df;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            session.flush();
+            session.clear();
+            session.close();
+        }
+        return null;
+    }
+    
     public int addDivination(DivinationFastBO roleBO) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction transaction = null;
@@ -56,7 +78,7 @@ public class DivinationFastDAO extends HibernateDAO{
         return lastId;
     }
     
-    public int saveOrUpdateDivinationFast(Object idDFast, DivinationFastBO divinationFastBO) {
+    public int saveOrUpdateDivinationFast(Integer idDFast, DivinationFastBO divinationFastBO) {
         boolean flag = false;
         Integer id = null;
         if (idDFast == null || (Integer) idDFast == 0){
@@ -69,21 +91,22 @@ public class DivinationFastDAO extends HibernateDAO{
         return id;
     }
 //    public static void main(String abc[]){
-//       
+////       
 //        DivinationFastDAO d = new DivinationFastDAO();
-////        List<DivinationBO> df = new LinkedList<DivinationBO>();
-////        df = d.getList(); 
-////        if(df.size() > 0)
-////            System.out.println(df.get(0).getName());
+//         DivinationFastBO b = new DivinationFastBO( null,"cfffffffffff", "b", 1);
+//        List ResultsDivinationFastBOdf = new LinkedList();
+//        ResultsDivinationFastBOdf = d.getListResult(b); 
+//        if(ResultsDivinationFastBOdf.size() == 0)
+//            System.out.println(ResultsDivinationFastBOdf.size());
 //        
-//        DivinationFastBO b = new DivinationFastBO( 3,"cfffffffffff", "b", 1);
-//        Object id = 3;
-//        Integer check = d.saveOrUpdateDivinationFast(id, b);
-//        if (check > 0 || check != null ) {
-//            System.out.println("hahahaa thành công rồi" + check );
-//        }else{
-//            System.out.println("thốn vồn");
-//        }
+////        DivinationFastBO b = new DivinationFastBO( null,"cfffffffffff", "b", 1);
+////        Integer id = null;
+////        Integer check = d.saveOrUpdateDivinationFast(id, b);
+////        if (check > 0 || check != null ) {
+////            System.out.println("hahahaa thành công rồi" + check );
+////        }else{
+////            System.out.println("thốn vồn");
+////        }
 //            
 //    }
 }

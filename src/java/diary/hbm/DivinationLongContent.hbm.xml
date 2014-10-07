@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="diary.bo.DivinationLongContentBO" table="DIVINATION_LONG_CONTENTS">
+          <id name="dlcId">
+            <column name="DLC_ID"/>
+            <generator class="identity"/>
+          </id>
+          <property name="question">
+            <column name="QUESTION"/>
+          </property>
+          <property name="a">
+            <column name="A"/>
+          </property>
+          <property name="b">
+            <column name="B"/>
+          </property>
+          <property name="c">
+            <column name="C"/>
+          </property>
+          <property name="d">
+            <column name="D"/>
+          </property>
+          <property name="markA">
+            <column name="MARK_A"/>
+          </property>
+          <property name="markB">
+            <column name="MARK_B"/>
+          </property>
+          <property name="markC">
+            <column name="MARK_C"/>
+          </property>
+          <property name="markD">
+            <column name="MARK_D"/>
+          </property>
+          <property name="dlgId">
+            <column name="DLG_ID"/>
+          </property>
+    </class>
+</hibernate-mapping>

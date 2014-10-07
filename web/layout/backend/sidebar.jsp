@@ -59,6 +59,9 @@
                         <a href="AdminRDCController">Cặp đôi ăn ý</a>
                     </li>
                     <li>
+                        <a href="AdminZodiacController">Danh sách cung hoàng đạo</a>
+                    </li>
+                    <li>
                         <a href="#">Tạo ảnh ngộ nghĩnh</a>
                     </li>
                 </ul>

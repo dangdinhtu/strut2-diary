@@ -215,6 +215,27 @@ public class HibernateDAO {
         }
         return null;
     }
+    
+    public List getList(String nameBO, String col, Integer key, String order) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        try {
+            List listOfUsers = new ArrayList();
+            StringBuffer sb = new StringBuffer();
+            sb.append(" FROM "+ nameBO +" ");
+            sb.append(" WHERE  "+ col +" like '%"+ key +"%'  ");
+            sb.append(" ORDER BY "+ order +" DESC  ");
+            org.hibernate.Query query = session.createQuery(sb.toString());
+            listOfUsers = query.list();
+            return listOfUsers;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            session.flush();
+            session.clear();
+            session.close();
+        }
+        return null;
+    }
     /**
      * Hàm tìm kiếm trả về danh sách (Thường là danh mục) dựa vào tên thuộc tính
      *

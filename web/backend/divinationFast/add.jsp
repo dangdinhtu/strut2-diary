@@ -13,16 +13,8 @@
 <script>
     $(document).ready(function() {
         $("#add").click(function() {
-            //var string = "<div class='form-group'>" +
-//                    "<label for='answer' class='col-sm-3 col-xs-12 control-label'>Đáp án</label>" +
-//                    "<div class='co'l-sm-7 col-xs-12'>" +
-//                    "<textfield  cssClass='form-control' id='answer' /><br>" +
-//                    "<textarea   cssClass='form-control' rows='5' id='result'/><br>" +
-//                    "<input type='file' name = 'myFile' /> </div> </div>";
             var content = $(this).parent().find(".form-group").html();
-            //content.find(".form-group").attr("style", "");
             $(".js-form-add").append(content);
-            //$(string).appendTo("form");
         });
     });
 </script>
@@ -42,9 +34,9 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default" style="padding: 10px">
-            <form class="form-horizontal" style="margin-top: 20px" action="AdminDivinationFastController" method="get">
+            <form class="form-horizontal" style="margin-top: 20px" action="AdminDivinationFastController" method="post">
                 <s:hidden name="action" value="addOrUpdate"/>
-                <s:hidden name="divinationFastBO.dfnId"/>
+                <input type="hidden" name="divinationFastBO.dfnId"">
                 <div class="form-group">
                     <label for="name" class="col-sm-3 col-xs-12 control-label">Tiêu đề</label>
                     <div class="col-sm-7 col-xs-12">
@@ -57,15 +49,15 @@
                         <s:textfield name="divinationFastBO.descript" cssClass="form-control" id="descript" />
                     </div>
                 </div>
-                <c:forEach var="items"  items="${stt}">
+                <c:forEach var="items"  items="${listOfResult}">
                     <div class="form-group">
-                        <label for="answer" class="col-sm-3 col-xs-12 control-label">Đáp án  </label>
+                        <label for="answer" class="col-sm-3 col-xs-12 control-label">Đáp án</label>
                         <div class="col-sm-7 col-xs-12">
-                            <s:textfield name="divinationFastBO.listAnswer" cssClass="form-control" id="answer" />
+                            <input type="text" name="listOfResult.answer" value="${items.answer}" class="form-control"  placeholder="Mời nhập đáp án">
                             <br>
-                            <s:textarea name="divinationFastBO.listResult"  cssClass="form-control" rows="5" id="result"/>
+                            <s:textarea name="listOfResult.result"  cssClass="form-control" rows="5" placeholder="Mời nhập kết quả" id="result"/>
                             <br>
-                            <input name="divinationFastBO.listImage" type="file" name="myFile" />
+                            <input name="listOfResult.images" placeholder="Chọn ảnh từ máy" type="file" />
                         </div>
                     </div>
                 </c:forEach>
@@ -80,17 +72,18 @@
                             <div class="form-group">
                             <label for="answer" class="col-sm-3 col-xs-12 control-label">Đáp án  </label>
                             <div class="col-sm-7 col-xs-12">
-                                <s:textfield name="divinationFastBO.listAnswer" cssClass="form-control" id="answer" />
+                                <input type="text" name="listOfResult.answer" value="${items.answer}" class="form-control"  placeholder="Mời nhập đáp án">
                                 <br>
-                                <s:textarea name="divinationFastBO.listResult"  cssClass="form-control" rows="5" id="result"/>
+                                <s:textarea name="listOfResult.result"  cssClass="form-control" rows="5" placeholder="Mời nhập kết quả" id="result"/>
                                 <br>
-                                <input name="divinationFastBO.listImage" type="file" name="myFile" />
+                                <input name="listOfResult.images" placeholder="Chọn ảnh từ máy" type="file" />
                             </div>
                             </div>
                         </div>
                         
                     </div>
                 </div>
+                                <br>
                 <div class="panel-footer table-footer">
                     <s:submit value="Lưu lại " cssClass="js-add btn btn-primary" />
                     <s:reset value="Làm lại" id="resetFormId" cssClass="js-reset btn btn-warning" />
