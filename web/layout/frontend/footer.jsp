@@ -17,24 +17,79 @@
                     <h4 class="modal-title" id="myModalLabel"><b>Đăng kí tài khoản</b></h4>
                 </div>
                 <div class="modal-body">
-                <s:form action="acount" name="frm" id="" cssClass="form-horizontal form-modal"  label="Name" method="post">
+                    <!--  Lỗi ở đây -->
+                    <form class="form-horizontal" action="acount" role="form">
                     <s:hidden name="action" value="sign_in" cssClass="form-control"/>
                     <s:hidden name="userId" cssClass="form-control"/>
                     <s:hidden name="url" cssClass="current_url"/>
-                    <s:textfield name="name" cssClass="form-control required" pattern="[\w\-'\s]+"  label="Tên" data-required="Tên không được để trống"  />
-                    <s:textfield name="username" label="Tên đăng nhập" cssClass="form-control required" pattern="\w{6,20}" data-required="Tên đăng nhập không được để trống" />
-                    <s:password name="password" label="Mật khẩu" pattern="\w{6,20}" cssClass="form-control required" data-required="Mật khẩu không được để trống" />
-                    <s:password name="rePassword" label="Nhập lại mật khẩu" cssClass="form-control"/>
-                    <s:textfield name="birthday" label="Ngày sinh" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/]\d{4}$" cssClass="form-control required" data-required="Ngày sinh không được để trống" />
-                    <s:textfield name="address" label="Địa chỉ"  pattern="[\w\-'\s]+" cssClass="form-control required" data-required="Địa chỉ không được để trống" />
-                    <s:textfield name="phone" label="Điện thoại" pattern="[0][1-9][0-9]{8,9}" cssClass="form-control required" data-required="Điện thoại không được để trống" />
-                    <s:textfield name="email" label="Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" cssClass="form-control required" data-required="Email không được để trống" />
-                    <s:select label="Giới tính" data-required="Bạn chưa chọn giới tính" 
-                              headerKey="" headerValue="chọn ...."
-                              list="#{'1':'Nam', '0':'Nữ'}"  name="gender" cssClass="form-control required"/>
-                    <s:submit value="Lưu lại " cssClass="js-add btn btn-primary" />
-                    <s:reset value="Làm lại" id="resetFormId" cssClass="js-reset btn btn-warning" />
-                </s:form>
+                    <div class="js-form-login">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-3 control-label">Tên</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="text" pattern="[\w\-'\s]+" required class="form-control input-popup" name="name" id="name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-3 control-label">Tên đăng nhập</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="text" class="form-control input-popup" required pattern="\w{6,20}" name="username" id="username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">Mật khẩu</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="text" pattern="\w{6,20}" required class="form-control input-popup" name="password" id="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="rePassword" class="col-sm-3 control-label">Nhập lại mật khẩu</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="text" class="form-control input-popup" required name="rePassword" id="rePassword" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday" class="col-sm-3 control-label">Ngày sinh</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="date" class="form-control input-popup" required name="birthday" id="birthday" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-3 control-label">Địa chỉ</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="text" pattern="[\w\-'\s]+"  class="form-control input-popup" required name="address" id="address" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-3 control-label">Điện thoại</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="text" pattern="[0][1-9][0-9]{8,9}" class="form-control input-popup" required name="phone" id="phone" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-9 input-group">
+                                <input type="email" class="form-control input-popup" required name="email" id="email" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">Giới tính</label>
+                            <div class="col-sm-8 input-group">
+                                <select class="form-control" required>
+                                    <option value="-1">Chọn ...</option>
+                                    <option value="0">Nữ</option>
+                                    <option value="1">Nam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-success">Hoàn tất</button>
+                                <button type="reset" class="btn btn-default">Nhập lại</button>
+                            </div>
+                        </div>
+                    </div>              
+                </form>
+                <!-- end -->
             </div>
             <div class="modal-footer" style="height: 50px">
                 <input type="button" class="btn" value="xóa" style="display: none;">
@@ -61,7 +116,7 @@
                             <label for="inputEmail3" class="col-sm-3 control-label">Tên đăng nhập</label>
                             <div class="col-sm-9 input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
-                                <input type="text" class="form-control input-popup" name="username" id="inputEmail3" placeholder="Email">
+                                <input type="text" class="form-control input-popup" name="username" id="inputEmail3" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -87,13 +142,13 @@
                             </div>
                         </div>
                     </div>
-<!--                       form quên mật khẩu-->
+                    <!--                       form quên mật khẩu-->
                     <div class="js-hidden js-form-forget-password">
                         <div class="form-group">
                             <label for="inputEmail4" class="col-sm-3 control-label">Email</label>
                             <div class="col-sm-9 input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
+                                <input type="text" class="form-control" id="inputEmail4" >
                             </div>
                         </div>
                         <div class="form-group login-bt">
@@ -106,7 +161,7 @@
             </div>
             <div class="modal-footer" style="height: 50px">
                 <a href="#" class="js-a-forget-password" >Quên mật khẩu</a>
-                 <a href="#" class="js-a-login js-hidden" >Đăng nhập</a>
+                <a href="#" class="js-a-login js-hidden" >Đăng nhập</a>
             </div>
         </div>
     </div>
