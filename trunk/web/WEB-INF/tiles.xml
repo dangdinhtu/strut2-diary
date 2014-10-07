@@ -91,6 +91,10 @@
             <put-attribute name="menu" value="/layout/frontend/menu.jsp" />
             <put-attribute name="body" value="" />
 	</definition>
+        <definition name="layout-single" template="/layout/layout-user/layout-single.jsp">
+            <put-attribute name="title" value="" />
+            <put-attribute name="body" value="" />
+	</definition>
         
         
         
@@ -120,7 +124,7 @@
 		<put-attribute name="title" value="viết nhật kí" />
 		<put-attribute name="body" value="/frontend/diary/write.jsp" />
 	</definition>
-        <definition name="/read.tiles" extends="layout-frontend">
+        <definition name="/read.tiles" extends="layout-single">
 		<put-attribute name="title" value="đọc nhật kí" />
 		<put-attribute name="body" value="/frontend/diary/read.jsp" />
 	</definition>

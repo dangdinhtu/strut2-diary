@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <c:set  var="contextPath" scope="request">${pageContext.request.contextPath}</c:set>
     <!DOCTYPE html>
     <html>
@@ -8,22 +10,22 @@
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
-            <title><tiles:insertAttribute name="title" ignore="true" /></title>
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap-theme.min.css">
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/layout.css">
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom-mobile.css">
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom.css">
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/table.css">
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/default.css" />
-            <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/component.css" />
-            <link href="${contextPath }/layout/backend/css/sb-admin.css" rel="stylesheet">
-            <link href="${contextPath }/layout/backend/css/jquery.toastmessage.css" rel="stylesheet" >
-            <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/jquery-1.9.js"></script>
-            <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/bootstrap.min.js"></script>
-            <script src= "${contextPath }/layout/backend/js/jquery.toastmessage.js"></script>
-            <!-- slide-->
-            <link rel="stylesheet" href="${contextPath}/layout/frontend/css/home.css">
+            <title><tiles:insertAttribute name="title" /></title>
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/lib/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/layout.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom-mobile.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/table.css">
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/default.css" />
+        <link rel="stylesheet" type="text/css" href="${contextPath }/layout/frontend/css/component.css" />
+        <link href="${contextPath }/layout/backend/css/sb-admin.css" rel="stylesheet">
+        <link href="${contextPath }/layout/backend/css/jquery.toastmessage.css" rel="stylesheet" >
+        <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/jquery-1.9.js"></script>
+        <script type="text/javascript" src="${contextPath }/layout/frontend/js/lib/bootstrap.min.js"></script>
+        <script src= "${contextPath }/layout/backend/js/jquery.toastmessage.js"></script>
+        <!-- slide-->
+        <link rel="stylesheet" href="${contextPath}/layout/frontend/css/home.css">
         <!-- CSS==================================== -->
         <!--[if lt IE 9]>
                 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -61,8 +63,10 @@
             <tiles:insertAttribute name="body" />       
             <br><hr class="hr-footer" size="2px" width="83%">
             <div class="row">
-                <tiles:insertAttribute name="footer" />
+                <tiles:insertAttribute name="footer" />  
             </div>
+
+
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
