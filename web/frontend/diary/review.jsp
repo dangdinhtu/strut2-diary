@@ -48,13 +48,21 @@
                 </div>
             </li>
         <c:forEach var="item" items="${beanDiaryBook}">
+            <style>
+                .book-3 .bk-front > div,
+                .book-3 .bk-back,
+                .book-3 .bk-left,
+                .book-3 .bk-front:after {
+                        background-color: ${item.backgroundAudio}!important;
+                }
+                </style>
             <li>
                 <div class="bk-book book-3 bk-bookdefault">
                     <div class="bk-front">
                         <div class="bk-cover">
                             <h2>
-                                <span>J.C. Salinger</span>
-                                <span>Ngon</span>
+                                <span>${item.dateCreate} </span>
+                                <span>${item.name}</span>
                             </h2>
                         </div>
                         <div class="bk-cover-back"></div>
@@ -77,8 +85,8 @@
                     <div class="bk-right"></div>
                     <div class="bk-left">
                         <h2>
-                            <span>J.C. Salinger</span>
-                            <span>The Catcher in the Rye</span>
+                            <span>${item.dateCreate}</span>
+                            <span>${item.name}</span>
                         </h2>
                     </div>
                     <div class="bk-top"></div>
@@ -88,8 +96,8 @@
                     <a class="bk-bookback btn btn-default">Bìa sau</a>
                     <a class="bk-bookview btn btn-default">Mô tả</a>
                     <!--                    <button class="demo-popup">Chia sẻ</button>-->
-                    <a href="diary?action=read" class="btn btn-default">Đọc nhật kí</a>
-                    <a href="diary?action=write-diary&dbkId=${item.dbkId}" class="btn btn-default">Viết nhật kí</a>
+                    <a href="diary?action=read&id=${item.dbkId}" class="btn btn-default">Đọc nhật kí</a>
+                    <a href="diary?action=write-diary&id=${item.dbkId}" class="btn btn-default">Viết nhật kí</a>
                 </div>
             </li>
         </c:forEach>

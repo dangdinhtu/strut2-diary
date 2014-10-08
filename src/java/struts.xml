@@ -21,6 +21,7 @@
             <result name="write-diary" type="tiles">/write-diary.tiles</result>
             <result name="reviewDiary" type="tiles">/reviewDiary.tiles</result>
             <result name="read" type="tiles">/read.tiles</result>
+            <result name="input" type="tiles">/create-diary.tiles</result> 
         </action> 
         
         <action name="acount" class="diary.controller.AcountController">

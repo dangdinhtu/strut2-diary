@@ -33,7 +33,15 @@
       <filter-name>struts2</filter-name>
       <url-pattern>/*</url-pattern>
    </filter-mapping>
-
+    <!-- fillter -->
+  <filter>
+    <filter-name>check login</filter-name><!-- tên của filter -->
+    <filter-class>diary.common.DoFillter</filter-class><!-- class chỉ định để thực hiện filter -->
+  </filter>
+  <filter-mapping>
+    <filter-name>check login</filter-name>
+    <url-pattern>/Admin*</url-pattern><!-- tất cả các url có xuất hiện admin thì gọi tới filter -->
+  </filter-mapping>
    <welcome-file-list>
       <welcome-file>index.jsp</welcome-file>
    </welcome-file-list>

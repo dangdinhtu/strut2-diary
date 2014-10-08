@@ -35,7 +35,7 @@
         <form method="post" id="frm-save" name="diary" action="diary?action=save">
             <div class="r-top">
                 <input type="text" name="bookContent.title" id="tit-here" value="Enter title !" />
-                <input type="hidden" name="bookContent.dbkId" class="js-dbk-id"  />
+                <input type="hidden" name="bookContent.dbkId" value="${dbkId}" class="js-dbk-id"  />
             </div>
             <div class="r-main">
                 <textarea id="text-here" name="bookContent.content" row="40" cols="60">

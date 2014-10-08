@@ -27,6 +27,9 @@
     <property name="categoryId">
       <column name="CATEGORY_ID"/>
     </property>
+    <property name="userId">
+      <column name="USER_ID"/>
+    </property>
       
 </class>
   

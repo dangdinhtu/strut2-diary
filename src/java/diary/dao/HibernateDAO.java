@@ -367,4 +367,8 @@ public class HibernateDAO {
             session.close();
         }
     }
+    public void flushSession() {
+        getSession().flush();
+        getSession().clear();
+    }
 }

@@ -20,6 +20,16 @@ public class BeanDiaryBook {
     private String title;
     private String content;
     private Date dateWritten;
+    private String backgroundAudio;
+
+    public String getBackgroundAudio() {
+        return backgroundAudio;
+    }
+
+    public void setBackgroundAudio(String backgroundAudio) {
+        this.backgroundAudio = backgroundAudio;
+    }
+    
 
     public String getTitle() {
         return title;
