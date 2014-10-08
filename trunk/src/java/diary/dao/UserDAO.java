@@ -78,6 +78,8 @@ public class UserDAO extends HibernateDAO{
          else {
             update(entity);
             idUser = (Integer) id;
+            UserRoleDAO userRoleDAO = new UserRoleDAO();
+            userRoleDAO.deleteByUserId(idUser);
         }
         return idUser;
     }

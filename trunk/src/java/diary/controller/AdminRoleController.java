@@ -14,6 +14,7 @@ import diary.dao.FunctionDAO;
 import diary.dao.PermissionDAO;
 import diary.dao.RoleDAO;
 import diary.dao.RolePermDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,7 @@ public class AdminRoleController extends ActionSupport{
     
     private RolePermBO rolePermBO;
     RolePermDAO rolePermDAO = new RolePermDAO();
+    private List<RolePermBO> listRolePerm;
             
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
@@ -65,21 +67,22 @@ public class AdminRoleController extends ActionSupport{
                     }
                 }
             }
-            
-            if(lastId != 0 || roleId != null  && check)
-                result = Message.getMessage("Cập nhật bản ghi thành công", "success");
+            if (roleId == null && check) 
+                    result = Message.getMessage("Thêm mới bản ghi thành công", "success", "AdminRoleController");
+            if(roleId != 0 || roleId != null  && check)
+                result = Message.getMessage("Cập nhật bản ghi thành công", "success", "AdminRoleController");
             else
-                result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
+                result = Message.getMessage("Cập nhật bản ghi thất bại", "error", "AdminRoleController");
             
         }else if ("add".equals(action)) {
             listFunction = functionDAO.getListFunctionBySql();
             listPermission = permissionDAO.getListBySql();
-            //req.setAttribute("listPermission", res);
             return INPUT;
         }else if("form-edit".equals(action)){
             listFunction = functionDAO.getListFunctionBySql();
             listPermission = permissionDAO.getListBySql();
             Integer id = Integer.parseInt(req.getParameter("id"));
+            listRolePerm = rolePermDAO.getList("RolePermBO", "roleId", id, "rpmId");
             roleBO = roleDAO.get(RoleBO.class, id);
             return INPUT;
         }else if("delete".equals(action)){
@@ -201,5 +204,12 @@ public class AdminRoleController extends ActionSupport{
     public void setRolePermDAO(RolePermDAO rolePermDAO) {
         this.rolePermDAO = rolePermDAO;
     }
-     
+
+    public List<RolePermBO> getListRolePerm() {
+        return listRolePerm;
+    }
+
+    public void setListRolePerm(List<RolePermBO> listRolePerm) {
+        this.listRolePerm = listRolePerm;
+    }
 }
