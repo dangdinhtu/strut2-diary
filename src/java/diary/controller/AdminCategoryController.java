@@ -26,6 +26,7 @@ public class AdminCategoryController extends ActionSupport{
     private CategoryBO category;
     CategoryDAO categoryDAO = new CategoryDAO();
     private List<CategoryBO> listCategory;
+    
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();

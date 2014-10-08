@@ -8,18 +8,19 @@ import java.util.Date;
 
 public class UserBO extends BasicBO {
 
-	private Integer userId;
-	private String name;
-	private String username;
-        private Date birthday;
-        private String avartar;
-        private String address;
-        private String phone;
-        private String email;
-        private String password;
-        private Boolean gender;
-        private Boolean active;
-        private Integer[] listId;
+    private Integer userId;
+    private String name;
+    private String username;
+    private Date birthday;
+    private String avartar;
+    private String address;
+    private String phone;
+    private String email;
+    private String password;
+    private Boolean gender;
+    private Boolean active;
+    private Integer[] listId;
+    private Integer[] listRole;
 
     public String getRePassword() {
         return rePassword;
@@ -28,8 +29,7 @@ public class UserBO extends BasicBO {
     public void setRePassword(String rePassword) {
         this.rePassword = rePassword;
     }
-        private String rePassword;
-        
+    private String rePassword;
 
     public Integer[] getListId() {
         return listId;
@@ -38,7 +38,6 @@ public class UserBO extends BasicBO {
     public void setListId(Integer[] listId) {
         this.listId = listId;
     }
-        
 
     public Integer getUserId() {
         return userId;
@@ -79,8 +78,6 @@ public class UserBO extends BasicBO {
     public void setAvartar(String avartar) {
         this.avartar = avartar;
     }
-
-    
 
     public String getAddress() {
         return address;
@@ -129,10 +126,15 @@ public class UserBO extends BasicBO {
     public void setActive(Boolean active) {
         this.active = active;
     }
-        
 
-	public UserBO() {
-	}
-	
+    public UserBO() {
+    }
 
+    public Integer[] getListRole() {
+        return listRole;
+    }
+
+    public void setListRole(Integer[] listRole) {
+        this.listRole = listRole;
+    }
 }

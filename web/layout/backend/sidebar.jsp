@@ -25,7 +25,7 @@
                 <a href="#"><i class="glyphicon glyphicon-user"></i>  Người dùng<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="AdminUserController">Quản trị người dùng</a>
+                        <a href="AdminUserController">Tài khoản người dùng</a>
                     </li>
                     <li>
                         <a href="AdminRoleController">Thông tin chức vụ</a>

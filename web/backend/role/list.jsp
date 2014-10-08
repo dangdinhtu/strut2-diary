@@ -49,7 +49,7 @@
                         <display:column title="Trạng thái">
                             <c:out value="${data.status eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
                         </display:column>
-                        <display:column title="resource.key">
+                        <display:column title="Sửa/Xóa">
                             <a href="AdminRoleController?action=form-edit&id=${data.roleId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
                             <a href="#"  class="table-a-delete" data-redirect ="AdminRoleController?action=delete&id=${data.roleId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>

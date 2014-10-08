@@ -28,62 +28,38 @@ import org.apache.struts2.ServletActionContext;
  */
 public class AdminUserController extends ActionSupport {
 
-    private List<UserBO> listUser;
-    private UserBO user;
-    private Integer lstRoleId[];
+    private UserBO userBO;
     UserDAO userDAO = new UserDAO();
+    private List<UserBO> listUser;
     RoleDAO roleDAO = new RoleDAO();
+    private List<RoleBO> listRole;
+    UserRoleDAO userRoleDAO = new UserRoleDAO();
+    List<UserRoleBO> listUserRole;
+
     public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         String action = req.getParameter("action");
-        
+
         String result = "";
         if ("addOrUpdate".equals(action)) {
-            Integer userId = null;
-            user = new UserBO();
-            if (!"".equals(req.getParameter("userId"))) {
-                userId = Integer.parseInt(req.getParameter("userId"));
-            }
-            if("1".equals(req.getParameter("active")))
-                user.setActive(true);
-            else
-                user.setActive(false);
-            
-            if("1".equals(req.getParameter("gender")))
-                user.setGender(true);
-            else
-                user.setGender(false);
-            user.setAddress(req.getParameter("address"));
-            user.setBirthday(Date.valueOf(req.getParameter("birthday")));
-            user.setEmail(req.getParameter("email"));
-            user.setName(req.getParameter("name"));
-            user.setPhone(req.getParameter("phone"));
-            user.setUsername(req.getParameter("username"));
-            user.setPassword("123456");
-            user.setUserId(userId);
-            // check duplicate username and email
-            List<UserBO> lstUser = userDAO.findByProperty(UserBO.class, "username", user.getUsername(), "");
-            List<UserBO> lstByEmail = userDAO.findByProperty(UserBO.class, "email", user.getEmail(), "");
-            String url = "AdminUserController?action=add";
+            Integer userId = userBO.getUserId();
+
+            List<UserBO> lstUser = userDAO.findByProperty(UserBO.class, "username", userBO.getUsername(), "");
+            List<UserBO> lstByEmail = userDAO.findByProperty(UserBO.class, "email", userBO.getEmail(), "");
             int size = 0;
-            if(userId != null){
-                url = "AdminUserController?action=form-edit";
+            if (userId != null) {
                 size = 1;
             }
             if (lstUser.size() > size || lstByEmail.size() > size) {
-                
-//                if(userId != null)
-//                    //url = "AdminUserController?action=form-edit";
                 result = Message.getMessage("Email hoặc username đã tồn tại", "error");
             } else {
-                Integer id = userDAO.saveOrUpdateUser(userId, user);
+                Integer id = userDAO.saveOrUpdateUser(userId, userBO);
                 Boolean check = null;
-                UserRoleDAO userRoleDAO = new UserRoleDAO();
-                userRoleDAO.deleteByUserId(id);
-                for (int i = 0; i < lstRoleId.length; i++) {
-                    Integer roleId = lstRoleId[i];
+
+                for (int i = 0; i < userBO.getListRole().length; i++) {
+                    Integer[] roleId = userBO.getListRole();
                     UserRoleBO userRoleBO = new UserRoleBO();
-                    userRoleBO.setRoleId(roleId);
+                    userRoleBO.setRoleId(roleId[i]);
                     userRoleBO.setStatus(true);
                     userRoleBO.setUserId(id);
                     check = userRoleDAO.save(userRoleBO);
@@ -97,16 +73,13 @@ public class AdminUserController extends ActionSupport {
                 }
             }
         } else if ("add".equals(action)) {
-            req.setAttribute("lstRole", roleDAO.getListBySql());
+            listRole = roleDAO.getListBySql();
             return INPUT;
         } else if ("form-edit".equals(action)) {
+            listRole = roleDAO.getListBySql();
             Integer id = Integer.parseInt(req.getParameter("id"));
-            user = userDAO.get(UserBO.class, id);
-            req.setAttribute("user", user);
-            req.setAttribute("lstRole", roleDAO.getListBySql());
-            UserRoleDAO userRoleDAO = new UserRoleDAO();
-            List<UserRoleBO> lstUserRole = userRoleDAO.findByProperty(UserRoleBO.class, "userId", id, "");
-            req.setAttribute("lstRoleUser", lstUserRole);
+            userBO = userDAO.get(UserBO.class, id);
+            listUserRole = userRoleDAO.findByProperty(UserRoleBO.class, "userId", id, "");
             return INPUT;
         } else if ("delete".equals(action)) {
             String str = req.getParameter("id");
@@ -130,13 +103,14 @@ public class AdminUserController extends ActionSupport {
                 e.printStackTrace();
                 result = Message.getMessage("Xóa bản ghi thất bại", "error");
             }
-        } else {
-            String keyword = req.getParameter("keyword");
-            keyword = keyword == null ? "" : keyword;
-            listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
-            req.setAttribute("keyword", keyword);
         }
+        action = null;
         req.setAttribute("result", result);
+        String keyword = req.getParameter("keyword");
+        keyword = keyword == null ? "" : keyword;
+        listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
+        req.setAttribute("keyword", keyword);
+
         return SUCCESS;
     }
 
@@ -148,12 +122,19 @@ public class AdminUserController extends ActionSupport {
         this.listUser = listUser;
     }
 
-    public Integer[] getLstRoleId() {
-        return lstRoleId;
+    public UserBO getUserBO() {
+        return userBO;
     }
 
-    public void setLstRoleId(Integer[] lstRoleId) {
-        this.lstRoleId = lstRoleId;
+    public void setUserBO(UserBO userBO) {
+        this.userBO = userBO;
     }
-    
+
+    public List<RoleBO> getListRole() {
+        return listRole;
+    }
+
+    public void setListRole(List<RoleBO> listRole) {
+        this.listRole = listRole;
+    }
 }

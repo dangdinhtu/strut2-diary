@@ -24,8 +24,8 @@
     <div class="col-lg-12">
         <div class="panel panel-default" style="padding: 10px">
             <form class="form-horizontal" style="margin-top: 20px" action="AdminRoleController" method="post">
-               <s:hidden name="action" value="addOrUpdate" />
-               <s:hidden name="roleBO.roleId" />
+                <s:hidden name="action" value="addOrUpdate" />
+                <s:hidden name="roleBO.roleId" />
                 <div class="form-group">
                     <label for="name" class="col-sm-3 col-xs-12 control-label">Tên chức vụ</label>
                     <div class="col-sm-7 col-xs-12">
@@ -57,14 +57,18 @@
                             <div style="margin-left: 20px">
                                 <c:forEach var="item" items="${listPermission}">
                                     <span style="margin-left: 10px">
-                                        <input type="checkbox" value="${item.permId}_${itemFunction.functionId}" name="roleBO.listPerm"> ${item.name} 
+                                        <input type="checkbox" value="${item.permId}_${itemFunction.functionId}" name="roleBO.listPerm"
+                                            <c:forEach var="itemcheck" items="${listRolePerm}" >
+                                                <c:if test="${itemcheck.permId eq item.permId && itemcheck.functionId eq itemFunction.functionId}">checked</c:if>
+                                           </c:forEach>
+                                        > ${item.name} 
                                     </span>
                                 </c:forEach>
                             </div>
                         </c:forEach>
                     </div>
                 </div>
-
+               
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-info">Lưu lại</button>

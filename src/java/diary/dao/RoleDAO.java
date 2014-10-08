@@ -97,6 +97,7 @@ public class RoleDAO extends HibernateDAO{
     
     
     public int saveOrUpdateRole(Object idRole, RoleBO roleBO) {
+        rolePermDAO = new RolePermDAO();
         boolean flag = false;
         Integer id = null;
         if (idRole == null || (Integer) idRole == 0){
@@ -105,6 +106,8 @@ public class RoleDAO extends HibernateDAO{
         }else{
             flag = update(roleBO);
             id = roleBO.getRoleId();
+            Object[] arrId = {id};
+            rolePermDAO.multiDelete(arrId, RolePermBO.class, "roleId");
         }
         return id;
     }
