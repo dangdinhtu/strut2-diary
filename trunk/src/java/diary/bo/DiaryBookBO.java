@@ -19,6 +19,15 @@ public class DiaryBookBO extends BasicBO{
     private String backgroundImages;
     private String backgroundAudio;
     private Boolean audioAutoPlay;
+    private Integer userId;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
     
     public DiaryBookBO() {
     }

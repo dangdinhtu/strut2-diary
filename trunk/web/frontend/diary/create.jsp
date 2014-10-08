@@ -45,9 +45,9 @@
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label class="control-label col-sm-3" for="">Nhạc nền</label>
+                        <label class="control-label col-sm-3" for="">Màu nền</label>
                         <div class="col-sm-7">
-                            <input type="file" class="btn btn-default" required name="fileUpload">
+                            <input type="color" class="form-control" required name="diaryBookBO.backgroundAudio">
                         </div>
                     </div>
                     <div class="form-group">

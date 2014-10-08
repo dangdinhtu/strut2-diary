@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="diary.bo.UserDiaryBookBO" table="USER_DIARY_BOOK">
+    <id name="udbId">
+      <column name="UDB_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="status">
+      <column name="STATUS"/>
+    </property>
+    <property name="userId">
+      <column name="USER_ID"/>
+    </property>
+    <property name="dbkId">
+      <column name="DBK_ID"/>
+    </property>
+    <property name="remindId">
+      <column name="REMIND_ID"/>
+    </property>
+    
+  </class>
+</hibernate-mapping>

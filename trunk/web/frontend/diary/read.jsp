@@ -44,7 +44,11 @@
         int i = 0;
         for(i = 0; i < lst.size(); i = i+2){
             BeanDiaryBook beanDiaryBookEvent = lst.get(i);
-            BeanDiaryBook beanDiaryBookOdd = lst.get(i+1);
+            BeanDiaryBook beanDiaryBookOdd = null;
+            if(lst.size() > 1){
+                beanDiaryBookOdd = lst.get(i+1);
+            }
+            
             
             
     %>
@@ -60,8 +64,8 @@
                     <li class="right">
                         <div>
                             <p style="text-align: center;"><%=(i+2)%></p>
-                            <h3><% out.print(beanDiaryBookOdd.getTitle()); %></h3>
-                            <p><% out.print(beanDiaryBookOdd.getContent()); %> </p>
+                            <h3><% //out.print(beanDiaryBookOdd.getTitle()); %></h3>
+                            <p><% //out.print(beanDiaryBookOdd.getContent()); %> </p>
                         </div>
                     </li>
                 </ul>

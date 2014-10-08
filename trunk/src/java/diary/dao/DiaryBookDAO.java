@@ -48,19 +48,21 @@ public class DiaryBookDAO extends HibernateDAO {
         return null;
     }
 
-    public List<BeanDiaryBook> getDiaryBookByUser(Integer userId) {
+    public List<Object> getDiaryBookByUser(Integer userId) {
         try {
             SQLQuery query = session.createSQLQuery("SELECT udb.user_id, udb.dbk_id, dbk.name, dbk.date_create, dbk.cover_photo, "
-                    + "dbk.background_images FROM user_diary_book as udb inner join diary_book as dbk on udb.dbk_id = dbk.dbk_id "
+                    + "dbk.background_images, background_audio "
+                    + "FROM user_diary_book as udb "
+                    + "INNER JOIN diary_book as dbk on udb.dbk_id = dbk.dbk_id "
                     + " WHERE  udb.user_id = :userId");
             query.setParameter("userId", userId);
-            query.addScalar("userId", new LongType());
-            query.addScalar("dbkId", new LongType());
-            query.addScalar("name", new StringType());
-            query.addScalar("dateCreate", new DateType());
-            query.addScalar("coverPhoto", new StringType());
-            query.addScalar("backgroundImages", new StringType());
-            query.setResultTransformer(Transformers.aliasToBean(BeanDiaryBook.class));
+//            query.addScalar("userId", new LongType());
+//            query.addScalar("dbkId", new LongType());
+//            query.addScalar("name", new StringType());
+//            query.addScalar("dateCreate", new DateType());
+//            query.addScalar("coverPhoto", new StringType());
+//            query.addScalar("backgroundImages", new StringType());
+//            query.setResultTransformer(Transformers.aliasToBean(BeanDiaryBook.class));
             return query.list();                    
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,12 +105,12 @@ public class DiaryBookDAO extends HibernateDAO {
     }
 
     public static void main(String args[]) {
-        DiaryBookDAO obj = new DiaryBookDAO();
-        List<BeanDiaryBook> persons = obj.getDiaryBookByUser(1);
-        System.out.println(persons.size());
-        for (int i = 0; i < persons.size(); i++) {
-            System.out.println("sinhVien " + persons.get(i).getName());
-
-        }
+//        DiaryBookDAO obj = new DiaryBookDAO();
+//        List<BeanDiaryBook> persons = obj.getDiaryBookByUser(1);
+//        System.out.println(persons.size());
+//        for (int i = 0; i < persons.size(); i++) {
+//            System.out.println("sinhVien " + persons.get(i).getName());
+//
+//        }
     }
 }
