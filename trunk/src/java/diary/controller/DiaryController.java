@@ -52,21 +52,21 @@ public class DiaryController extends ActionSupport {
             HttpSession session = req.getSession();
             Integer userId = (Integer) session.getAttribute("userId");
             Integer dbkId = Integer.parseInt( req.getParameter("id"));
-//            List<Object> lstDiaryBookContent = diaryBookDAO.getDiaryBookContent(userId, dbkId);
-//            List<BeanDiaryBook> lst = new ArrayList<BeanDiaryBook>();
-//            for (int i = 0; i < lstDiaryBookContent.size(); i++) {
-//                Object[] row = (Object[]) lstDiaryBookContent.get(i);
-//                BeanDiaryBook obj = new BeanDiaryBook();
-//                obj.setUserId((Integer) row[0]);
-//                obj.setDbkId((Integer) row[1]);
-//                obj.setTitle((String) row[2]);
-//                obj.setContent((String) row[3]);
-//                obj.setDateWritten((Date) row[4]);
-//                lst.add(obj);
-//            }
+            List<Object> lstDiaryBookContent = diaryBookDAO.getDiaryBookContent(userId, dbkId);
+            List<BeanDiaryBook> lst = new ArrayList<BeanDiaryBook>();
+            for (int i = 0; i < lstDiaryBookContent.size(); i++) {
+                Object[] row = (Object[]) lstDiaryBookContent.get(i);
+                BeanDiaryBook obj = new BeanDiaryBook();
+                obj.setUserId((Integer) row[0]);
+                obj.setDbkId((Integer) row[1]);
+                obj.setTitle((String) row[2]);
+                obj.setContent((String) row[3]);
+                obj.setDateWritten((Date) row[4]);
+                lst.add(obj);
+            }
             req.setAttribute("dbkId", dbkId);
             req.setAttribute("userId", userId);
-            //req.setAttribute("lstDiaryBookContent", lst);
+            req.setAttribute("lstDiaryBookContent", lst);
             return "read";
         } else if ("signin-diary".equals(action)) {
             HttpSession session = req.getSession();
@@ -131,7 +131,7 @@ public class DiaryController extends ActionSupport {
                 Date date = new Date();
                 bookContent.setDateWrite(date);
                 diaryBookDAO.save(bookContent);
-                result = Message.getMessage("Dòng tâm sự của bạn đã được lưu", "success", "diary");
+                result = Message.getMessage("Dòng tâm sự của bạn đã được lưu", "success", "diary?action=review-diary");
             } catch (Exception e) {
                 e.printStackTrace();
                 result = Message.getMessage("Thực hiện thao tác thất bại", "error");
