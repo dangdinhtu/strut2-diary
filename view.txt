@@ -14,7 +14,7 @@ GROUP BY diary_book.DBK_ID
 
 tao view
 
-CREATE VIEW VIEW_USER_ROLE AS SELECT user.USER_ID, user.USERNAME, role_perm.ROLE_ID, role_perm.PERM_ID, role_perm.FUNCTION_ID
+CREATE VIEW VIEW_USER_ROLE AS SELECT user.USER_ID, user.USERNAME, role_perm.ROLE_ID, role_perm.PERM_ID, role_perm.FUNCTION_ID, role.NAME as ROLE
 FROM user
 JOIN user_role ON user.USER_ID = user_role.USER_ID
 JOIN role ON role.ROLE_ID = user_role.ROLE_ID

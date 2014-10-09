@@ -24,10 +24,6 @@
             <result name="success" type="tiles">/listDivination.tiles</result> 
             <result name="input" type="tiles">/form.tiles</result>   
         </action>
-        <action name="AdminDCYController" class="diary.controller.AdminDCYController">
-            <result name="success" type="tiles">/listDCY.tiles</result> 
-            <result name="input" type="tiles">/form.tiles</result>   
-        </action>
         <action name="AdminDivinationFastController" class="diary.controller.AdminDivinationFastController">
             <interceptor-ref name="fileUpload">
                 <param name="allowedTypes">image/jpeg,image/gif</param>
@@ -55,7 +51,7 @@
             <result name="success" type="tiles">/listZodiac.tiles</result> 
             <result name="input" type="tiles">/formZodiac.tiles</result>   
         </action>
-        <action name="AdminStartontroller" class="diary.controller.AdminZodiacController">
+        <action name="AdminStartController" class="diary.controller.AdminStartController">
             <result name="success" type="tiles">/listStart.tiles</result>   
         </action>
     </package>

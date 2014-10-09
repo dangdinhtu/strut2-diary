@@ -109,7 +109,6 @@ public class AdminUserController extends ActionSupport {
                 result = Message.getMessage("Xóa bản ghi thất bại", "error");
             }
         }
-        action = null;
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;

@@ -34,10 +34,6 @@
 		<put-attribute name="title" value="Danh sách Divination" />
 		<put-attribute name="body" value="/backend/divination/list.jsp" />
 	</definition>
-        <definition name="/listDCY.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Danh sách thể loại giải trí" />
-		<put-attribute name="body" value="/backend/divinationCategory/list.jsp" />
-	</definition>
         <definition name="/listDivinationFast.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Danh sách trắc nghiệm nhanh" />
 		<put-attribute name="body" value="/backend/divinationFast/list.jsp" />

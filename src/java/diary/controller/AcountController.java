@@ -8,10 +8,13 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.UserBO;
+import diary.bo.ViewUserRoleBO;
 import diary.common.Common;
 import diary.common.Message;
+import diary.dao.RoleDAO;
 import diary.dao.UserDAO;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +32,7 @@ public class AcountController extends ActionSupport {
     private final String SIGN_IN = "sign_in";
     HttpServletRequest req = ServletActionContext.getRequest();
     UserDAO userDAO = new UserDAO();
+    private String checkAcount = "";
 
     public String execute() throws Exception {
 
@@ -38,11 +42,12 @@ public class AcountController extends ActionSupport {
             acountController.singIn();
             //return SIGN_IN;
         } else if ("login".equals(action)) {
-            acountController.login();
+            checkAcount = acountController.login();
             //return "login";
         }else if("logout".equals(action)){
             acountController.logout();
         }
+        String a = checkAcount;
         return SIGN_IN;
     }
 
@@ -89,14 +94,24 @@ public class AcountController extends ActionSupport {
         req.setAttribute("result", result);
     }
 
-    public void login() {
+    public String login() {
+        String checkAcount = "";
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         UserBO userBO = userDAO.checkLogin(username, password);
         String result = "";
         String actionName = req.getParameter("url");
+        if("acount?action=logout".equals(actionName)){
+            actionName = "Index";
+        }
         if (userBO != null) {
             HttpSession session = req.getSession();
+            RoleDAO roleDAO = new RoleDAO();
+            List<ViewUserRoleBO> view = new ArrayList<ViewUserRoleBO>();
+            view = roleDAO.getList("ViewUserRoleBO", "username", username, "userId");
+            if(view.size() == 0){
+                checkAcount = "style='display: none'";
+            }
             //String contextPath = req.getContextPath();
             session.setAttribute("userName", userBO.getUsername());
             session.setAttribute("userId", userBO.getUserId());
@@ -106,6 +121,7 @@ public class AcountController extends ActionSupport {
             result = Message.getMessage("Mật khẩu hoặc Tên đăng nhập chưa chính xác", "error", actionName);
         }
         req.setAttribute("result", result);
+        return checkAcount;
     }
 
     public void forgetPassword() {
@@ -117,5 +133,15 @@ public class AcountController extends ActionSupport {
             session.invalidate();
         }
     }
+
+    public String getCheckAcount() {
+        return checkAcount;
+    }
+
+    public void setCheckAcount(String checkAcount) {
+        this.checkAcount = checkAcount;
+    }
+    
+    
     
 }
