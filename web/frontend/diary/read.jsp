@@ -27,8 +27,9 @@
     </li>
     <%
         DiaryBookDAO diaryBookDAO = new DiaryBookDAO();
-        int userId = 125;
-            int dbkId = 1;
+        //String a = request.getParameter("id");
+        Integer dbkId  = (Integer) request.getAttribute("dbkId");
+        Integer userId = (Integer) session.getAttribute("userId");
             List<Object> lstDiaryBookContent = diaryBookDAO.getDiaryBookContent(userId, dbkId);
             List<BeanDiaryBook> lst = new ArrayList<BeanDiaryBook>();
             for (int i=0; i<lstDiaryBookContent.size(); i++){
@@ -57,15 +58,16 @@
                     <li class="left">
                         <div>
                             <p style="text-align: center;"><%=(i+1)%></p>
-                            <h1><% out.print(beanDiaryBookEvent.getTitle()); %></h1>
-                            <p><% out.print(beanDiaryBookEvent.getContent()); %> </p>
+                            <h1><% if(beanDiaryBookEvent != null) out.print(beanDiaryBookEvent.getTitle()); %></h1>
+                            <p><% if(beanDiaryBookEvent != null) out.print(beanDiaryBookEvent.getContent()); %> </p>
                         </div>
                     </li>
+                    
                     <li class="right">
                         <div>
                             <p style="text-align: center;"><%=(i+2)%></p>
-                            <h3><% //out.print(beanDiaryBookOdd.getTitle()); %></h3>
-                            <p><% //out.print(beanDiaryBookOdd.getContent()); %> </p>
+                            <h3><% if(beanDiaryBookOdd != null) out.print(beanDiaryBookOdd.getTitle()); %></h3>
+                            <p><%  if(beanDiaryBookOdd != null)  out.print(beanDiaryBookOdd.getContent()); %> </p>
                         </div>
                     </li>
                 </ul>
