@@ -47,6 +47,7 @@
                     </ul>
                 </c:if>
             </div><!-- /.navbar-collapse -->
+            <div><script>${resultAdmin}</script></div>
         </div><!-- /.container-fluid -->
     </nav>
 </div>

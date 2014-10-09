@@ -52,7 +52,8 @@
             <result name="input" type="tiles">/formZodiac.tiles</result>   
         </action>
         <action name="AdminStartController" class="diary.controller.AdminStartController">
-            <result name="success" type="tiles">/listStart.tiles</result>   
+            <result name="success" type="tiles">/listStart.tiles</result>
+            <result name="input" type="tiles">/index.tiles</result>     
         </action>
     </package>
 </struts>
