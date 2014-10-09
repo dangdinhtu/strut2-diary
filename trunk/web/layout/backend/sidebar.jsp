@@ -9,7 +9,7 @@
             
             <!--kết thúc mục tìm kiếm tổng thể-->
             <li>
-                <h3>Xin chào ${sessionScope.userName}</h3>
+                <h4 class="text-success" style="margin-left: 10px"><b>Xin chào ${sessionScope.userName}</b></h4>
             </li>
             <li>
                 <a href="Index"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>

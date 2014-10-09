@@ -23,13 +23,12 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default" style="padding: 10px">
-            <form class="form-horizontal" style="margin-top: 20px" action="AdminUserController" method="get">
-                <s:hidden name="action" value="addOrUpdate" />
+            <form class="form-horizontal" style="margin-top: 20px" action="AdminUserController?action=addOrUpdate" method="post">
                 <s:hidden name="userBO.userId" />
                 <div class="form-group">
                     <label for="username" class="col-sm-3 col-xs-12 control-label">Tên tài khoản</label>
                     <div class="col-sm-7 col-xs-12">
-                        <s:textfield name="userBO.username" cssClass="form-control" id="username" />
+                        <input type="text" name="userBO.username" value="${user.username}" class="form-control" id="username" required/>
                     </div>
                 </div>
                 <div class="form-group" style='display: none'>
@@ -39,15 +38,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="name" class="col-sm-3 col-xs-12 control-label">Tên chủ tài khoản</label>
+                    <label for="name" class="col-sm-3 col-xs-12 control-label">Tên</label>
                     <div class="col-sm-7 col-xs-12">
-                        <s:textfield name="userBO.name" cssClass="form-control" id="name" />
+                        <input type="text" name="userBO.name" value="${user.name}" class="form-control" id="name" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 col-xs-12 control-label">Email</label>
                     <div class="col-sm-7 col-xs-12">
-                        <s:textfield name="userBO.email" cssClass="form-control" id="email" />
+                        <input type="email" name="userBO.email" class="form-control" id="email" required/>
                     </div>
                 </div>
 
@@ -60,13 +59,13 @@
                 <div class="form-group">
                     <label for="address" class="col-sm-3 col-xs-12 control-label">Địa chỉ</label>
                     <div class="col-sm-7 col-xs-12">
-                        <s:textfield name="userBO.address" cssClass="form-control" id="address" />
+                        <input type="text" name="userBO.address" class="form-control" id="address" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="col-sm-3 col-xs-12 control-label">Điện thoại</label>
                     <div class="col-sm-7 col-xs-12">
-                        <s:textfield name="userBO.phone" cssClass="form-control" id="phone" />
+                        <input type="text" name="userBO.phone" class="form-control" id="phone" required/>
                     </div>
                 </div>
                 <div class="form-group">

@@ -41,7 +41,7 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listUser" requestURI="/AdminUserController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                    <display:table id="data"   name="listUser"  class="table table-striped table-bordered table-hover" >
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
                             <input type="checkbox" name="user.listId[]" class="checkbox-selection " value="${data.userId}">
                         </display:column>
