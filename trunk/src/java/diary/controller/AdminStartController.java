@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.UserBO;
 import diary.bo.UserRoleBO;
 import diary.bo.ViewUserRoleBO;
+import diary.common.Message;
 import diary.dao.RoleDAO;
 import diary.dao.UserDAO;
 import diary.dao.UserRoleDAO;
@@ -45,7 +46,7 @@ public class AdminStartController extends ActionSupport{
     public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         String action = req.getParameter("action");
-        
+        String resultAdmin = "";
         HttpSession session = req.getSession();
         String username = (String) session.getAttribute("userName");
         checkUser = roleDAO.checkRole(username, 1, 1);
@@ -63,6 +64,10 @@ public class AdminStartController extends ActionSupport{
         if(listUser.size() > 0){
             userBO = listUser.get(0);
             listUserRole = userRoleDAO.getList("ViewUserRoleBO", "userId", userBO.getUserId(), "userId");
+            if(listUserRole.size() == 0){
+                resultAdmin = Message.getMessage("Bạn không thể thực hiện chức năng này", "error", "AdminStartController");
+                return INPUT;
+            }
             avata = userBO.getAvartar();
         }
         
@@ -70,6 +75,7 @@ public class AdminStartController extends ActionSupport{
         keyword = keyword == null ? "" : keyword;
         listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
         req.setAttribute("keyword", keyword);
+        req.setAttribute("resultAdmin", resultAdmin);
         return SUCCESS;
     }
 
