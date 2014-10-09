@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Danh sách Chức vụ</h1>
+        <h2 class="page-header">Danh sách Chức vụ</h2>
     </div>
 </div>
 <div class="row">
@@ -40,7 +40,7 @@
                 <br>
 
                 <div class="table-responsive">
-                    <display:table id="data"  export="true" name="listRole" requestURI="/AdminRoleController" pagesize="10" class="table table-striped table-bordered table-hover" >
+                    <display:table id="data" name="listRole"  class="table table-striped table-bordered table-hover" >
                         <display:column title="<input type='checkbox' name='selectall' class='js-ck-all'  />" media="html">
                             <input type="checkbox" name="roleBO.listId[]" class="checkbox-selection " value="${data.roleId}">
                         </display:column>

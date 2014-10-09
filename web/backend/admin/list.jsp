@@ -7,7 +7,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="commonTags"%>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Tài khoản cá nhân</h1>
+        <h2 class="page-header">Tài khoản cá nhân</h2>
     </div>
 </div>
 <div class="row">
@@ -18,10 +18,10 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div>
-                    <div class="col-xs-12 col-md-3">
-                        <img src="${contextPath}/images/${avata}" width="100px" height="90px">
+                    <div class="col-xs-12 col-md-2">
+                        <img src="${contextPath}/images/${avata}" width="161px" height="200px">
                     </div>
-                    <div class="col-xs-6 col-md-9">
+                    <div class="col-xs-12 col-md-10">
                         <form class="form-horizontal" style="margin-top: 20px" action="AdminStartController" method="post">
                             <s:hidden name="action" value="addOrUpdate" />
                             <s:hidden name="userBO.userId"/>
@@ -34,7 +34,7 @@
                             <div class="form-group" >
                                 <label for="pass" class="col-sm-3 col-xs-12 control-label">Mật khẩu</label>
                                 <div class="col-sm-7 col-xs-12">
-                                    <input type="password" name="userBO.password"  id="pass" >
+                                    <input type="password" class="form-control" name="userBO.password"  id="pass" >
                                 </div>
                             </div>
                             <div class="form-group">

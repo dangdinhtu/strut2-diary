@@ -127,14 +127,6 @@
                 $("#toppage1k").scrollToTop();
             });
         </script><!-- kết thúc di chuyển chuột-->
-        <a style='display:scroll;position:fixed;top:200px;right:10px;' href='#'>
-            <div id="like1">
-                <div class='g-plusone'></div><br><br>
-                <script type='text/javascript'>
-                    document.write("<fb:like layout='button_count' show_faces='false' width='100?'></fb:like");
-                </script>
-                <br>	
-            </div>
-        </a>
+       
     </body>
 </html>

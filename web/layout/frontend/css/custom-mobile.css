@@ -2,7 +2,7 @@
 
 @media screen and (max-width: 1200px) {
     .bk-list li {
-        margin: 26px 50px 0px 20px!important;
+        margin: 26px 50px 0px 14px!important;
         width: 280px!important;
     }
     .book-2 .bk-cover h2 {
@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 500px) {
     .bk-list li {
-        margin: 11px 0px 40px -29px!important;
+        margin: 11px 0px 40px -45px!important;
         width: 288px!important;
     }
 
@@ -55,5 +55,19 @@
     .choose-language {
         width: 100px;
         margin: 10px 0 5px 0;
+    }
+    .social-icons{
+        margin: auto;
+        text-align: right;
+        margin-top: -28px;
+    }
+    body{
+        padding-top: 0px!important;
+    }
+    .pagebanner{
+        display: none!important;
+    }
+    .search-table {
+        width: 141px!important;
     }
 }
