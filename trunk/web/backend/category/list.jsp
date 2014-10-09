@@ -21,8 +21,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminCategoryController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminCategoryController?action=delete&id=" value="Xóa">
+                        <a href="AdminCategoryController?action=add" ${checkAdd} class="btn btn-default">Thêm </a>
+                        <input type="button" ${checkDel} class="btn btn-default btn-delete" data-delete-all="AdminCategoryController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminCategoryController" method="get">
@@ -49,9 +49,9 @@
                         <display:column title="Trạng thái">
                             <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
                         </display:column>
-                        <display:column title="Sửa/xóa">
-                            <a href="AdminCategoryController?action=form-edit&id=${data.categoryId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminCategoryController?action=delete&id=${data.categoryId}"><i class="glyphicon glyphicon-trash"></i></a>
+                        <display:column title="Sửa/xóa" >
+                            <a href="AdminCategoryController?action=form-edit&id=${data.categoryId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
+                            <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminCategoryController?action=delete&id=${data.categoryId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						

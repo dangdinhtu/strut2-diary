@@ -39,6 +39,7 @@
     <mapping resource="diary/hbm/Zodiac.hbm.xml"/>
     <mapping resource="diary/hbm/DivinationLongContent.hbm.xml"/>
     <mapping resource="diary/hbm/ResultDivinationLong.hbm.xml"/>
+    <mapping resource="diary/hbm/ViewUserRoleBO.hbm.xml"/>
     <mapping resource="diary/hbm/UserDiaryBook.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

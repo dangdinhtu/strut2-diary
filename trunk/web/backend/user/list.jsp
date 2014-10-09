@@ -22,8 +22,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminUserController?action=add" class="btn btn-default">Thêm</a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminUserController?action=delete&id=" value="Xóa">
+                        <a href="AdminUserController?action=add" class="btn btn-default" ${checkAdd}>Thêm</a>
+                        <input type="button" ${checkDel} class="btn btn-default btn-delete" data-delete-all="AdminUserController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminUserController" method="get">
@@ -58,8 +58,8 @@
                             <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngưng hoạt động'}"/>
                         </display:column>
                         <display:column title="Hành động">
-                            <a href="AdminUserController?action=form-edit&id=${data.userId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminUserController?action=delete&id=${data.userId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminUserController?action=form-edit&id=${data.userId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
+                            <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminUserController?action=delete&id=${data.userId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						

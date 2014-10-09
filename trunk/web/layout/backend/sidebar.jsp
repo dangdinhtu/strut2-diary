@@ -6,18 +6,11 @@
 <div class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
-            <!--mục tìm kiếm tổng thể-->
-            <li class="sidebar-search">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </span>
-                </div>
-                <!-- /input-group -->
-            </li><!--kết thúc mục tìm kiếm tổng thể-->
+            
+            <!--kết thúc mục tìm kiếm tổng thể-->
+            <li>
+                <h3>Xin chào ${sessionScope.userName}</h3>
+            </li>
             <li>
                 <a href="index.html"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
             </li>

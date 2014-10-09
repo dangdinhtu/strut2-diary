@@ -10,9 +10,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import diary.bo.ResultsDivinationCouplesBO;
 import diary.common.Message;
 import diary.dao.ResultsDivinationCouplesDAO;
+import diary.dao.RoleDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -23,11 +25,22 @@ public class AdminRDCController extends ActionSupport {
     private ResultsDivinationCouplesBO resultsDivinationCouples;
     ResultsDivinationCouplesDAO resultsDivinationCouplesDAO = new ResultsDivinationCouplesDAO();
     private List<ResultsDivinationCouplesBO> listResultsDivinationCouples;
+    
+    RoleDAO roleDAO = new RoleDAO();
+    private String checkAdd = "";
+    private String checkEdit = "";
+    private String checkDel = "";
+    
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         HttpServletResponse res = ServletActionContext.getResponse();
         String action = req.getParameter("action");      
         String result = "";
+        HttpSession session = req.getSession();
+        String username = (String) session.getAttribute("userName");
+        checkAdd = roleDAO.checkRole(username, 2, 7);
+        checkEdit = roleDAO.checkRole(username, 3, 7);
+        checkDel = roleDAO.checkRole(username, 4, 7);
         
         if ("addOrUpdate".equals(action)) {
             Integer resultsDivinationCouplesId =  resultsDivinationCouples.getRdcId();
@@ -40,14 +53,17 @@ public class AdminRDCController extends ActionSupport {
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
             
         }else if ("add".equals(action)) {
-            return INPUT;
+            if (checkAdd == "") {
+                return INPUT;
+            }
         }else if("form-edit".equals(action)){
+            if (checkEdit == "") {
             Integer id = Integer.parseInt(req.getParameter("id"));
             resultsDivinationCouples = resultsDivinationCouplesDAO.get(ResultsDivinationCouplesBO.class, id);
             return INPUT;
-        }else if("delete_all".equals(action)){
-        
+            }
         }else if("delete".equals(action)){
+             if (checkDel == "") {
             Integer id = Integer.parseInt(req.getParameter("id"));
             ResultsDivinationCouplesBO resultsDivinationCouplesBO = resultsDivinationCouplesDAO.get(ResultsDivinationCouplesBO.class, id);
             boolean check = resultsDivinationCouplesDAO.delete(resultsDivinationCouplesBO);
@@ -56,13 +72,14 @@ public class AdminRDCController extends ActionSupport {
             else
                 result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminRDCController");
         }
+        }
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
         listResultsDivinationCouples = resultsDivinationCouplesDAO.getList();
         req.setAttribute("keyword", keyword);
         return SUCCESS;
-     
+        
      }
 
     public ResultsDivinationCouplesBO getResultsDivinationCouples() {

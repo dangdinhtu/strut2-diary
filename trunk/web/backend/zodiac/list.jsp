@@ -21,8 +21,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminZodiacController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminZodiacController?action=delete&id=" value="Xóa">
+                        <a href="AdminZodiacController?action=add" ${checkAdd} class="btn btn-default">Thêm </a>
+                        <input type="button" ${checkDel} class="btn btn-default btn-delete" data-delete-all="AdminZodiacController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminZodiacController" method="post">
@@ -50,8 +50,8 @@
                             <img src="${contextPath}/images/${data.image}" width="100px" height="90px">
                         </display:column>    
                         <display:column title="Sửa/Xóa" style="width:9%;text-align:center;">
-                            <a href="AdminZodiacController?action=form-edit&id=${data.zodiacId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminZodiacController?action=delete&id=${data.zodiacId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminZodiacController?action=form-edit&id=${data.zodiacId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
+                            <a href="#"  class="table-a-delete" data-redirect ="AdminZodiacController?action=delete&id=${data.zodiacId}"><i class="glyphicon glyphicon-trash" ${checkDel}></i></a>
                         </display:column>
                     </display:table>
                 </div>						

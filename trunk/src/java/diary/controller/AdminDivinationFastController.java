@@ -12,10 +12,12 @@ import diary.bo.ResultsDivinationFastBO;
 import diary.common.Message;
 import diary.dao.DivinationFastDAO;
 import diary.dao.ResultDivinationFastDAO;
+import diary.dao.RoleDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -23,52 +25,59 @@ import org.apache.struts2.ServletActionContext;
  * @author ThuTrang
  */
 public class AdminDivinationFastController extends ActionSupport {
-    
+
     private DivinationFastBO divinationFastBO;
     DivinationFastDAO divinationFastDAO = new DivinationFastDAO();
     private List<DivinationFastBO> listDivinationFast;
-    
     private ResultsDivinationFastBO resultsBO;
     ResultDivinationFastDAO resultsDAO = new ResultDivinationFastDAO();
     private List<ResultsDivinationFastBO> listOfResult;
-    
-    
-     public String execute() throws Exception {
+    RoleDAO roleDAO = new RoleDAO();
+    private String checkAdd = "";
+    private String checkEdit = "";
+    private String checkDel = "";
+
+    public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
-        String action = req.getParameter("action");      
+        String action = req.getParameter("action");
         String result = "";
-        
+        HttpSession session = req.getSession();
+        String username = (String) session.getAttribute("userName");
+        checkAdd = roleDAO.checkRole(username, 2, 5);
+        checkEdit = roleDAO.checkRole(username, 3, 5);
+        checkDel = roleDAO.checkRole(username, 4, 5);
+
         if ("addOrUpdate".equals(action)) {
-        Integer id = null;
-        divinationFastBO = new DivinationFastBO();
-         listOfResult = new ArrayList<ResultsDivinationFastBO>();
-        if(!"".equals(req.getParameter("divinationFastBO.dfnId"))){
-             id = Integer.parseInt(req.getParameter("divinationFastBO.dfnId"));
-        }
-        divinationFastBO.setName(req.getParameter("divinationFastBO.name"));
-        divinationFastBO.setDescript(req.getParameter("divinationFastBO.descript"));
-        System.out.println("length = "+ req.getParameter("listOfResult.answer").length());
-        ResultsDivinationFastBO arrAnswer[] = new ResultsDivinationFastBO[req.getParameter("listOfResult.answer").length()];
-         
+            Integer id = null;
+            divinationFastBO = new DivinationFastBO();
+            listOfResult = new ArrayList<ResultsDivinationFastBO>();
+            if (!"".equals(req.getParameter("divinationFastBO.dfnId"))) {
+                id = Integer.parseInt(req.getParameter("divinationFastBO.dfnId"));
+            }
+            divinationFastBO.setName(req.getParameter("divinationFastBO.name"));
+            divinationFastBO.setDescript(req.getParameter("divinationFastBO.descript"));
+            System.out.println("length = " + req.getParameter("listOfResult.answer").length());
+            ResultsDivinationFastBO arrAnswer[] = new ResultsDivinationFastBO[req.getParameter("listOfResult.answer").length()];
+
             for (int i = 0; i < arrAnswer.length; i++) {
                 resultsBO = new ResultsDivinationFastBO();
-                System.out.println("tra loi = "+req.getParameter("listOfResult.answer"));
+                System.out.println("tra loi = " + req.getParameter("listOfResult.answer"));
                 resultsBO.setAnswer(req.getParameter("listOfResult.answer"));
                 resultsBO.setImages(req.getParameter("listOfResult.answer"));
                 resultsBO.setResult(req.getParameter("listOfResult.images"));
                 listOfResult.add(resultsBO);
-                
+
             }
             divinationFastBO.setListOfResult(listOfResult);
-            
+
             boolean checkDel = true;
             boolean checkInsert = true;
             int lastId = divinationFastDAO.saveOrUpdateDivinationFast(id, divinationFastBO);
             Object[] arrId = {lastId};
-            if(!"".equals(req.getParameter("divinationFastBO.dfnId"))){
+            if (!"".equals(req.getParameter("divinationFastBO.dfnId"))) {
                 checkDel = resultsDAO.multiDelete(arrId, ResultsDivinationFastBO.class, "dfnId");
             }
-            if(listOfResult.size() > 0){
+            if (listOfResult.size() > 0) {
                 for (int i = 0; i < listOfResult.size(); i++) {
                     resultsBO = new ResultsDivinationFastBO();
                     resultsBO.setDfnId(lastId);
@@ -76,46 +85,51 @@ public class AdminDivinationFastController extends ActionSupport {
                     resultsBO.setImages(listOfResult.get(i).getImages());
                     resultsBO.setResult(listOfResult.get(i).getResult());
                     checkInsert = resultsDAO.save(resultsBO);
-                    if(checkInsert == false){
+                    if (checkInsert == false) {
                         break;
                     }
                 }
             }
-            if(lastId != 0 || divinationFastBO.getDfnId() != null  && checkInsert)
+            if (lastId != 0 || divinationFastBO.getDfnId() != null && checkInsert) {
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success");
-            else
+            } else {
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error");
-            
-        }else if ("add".equals(action)) {
-            return INPUT;
-        }else if("form-edit".equals(action)){
-            listOfResult = resultsDAO.getList(divinationFastBO);
-            Integer id = Integer.parseInt(req.getParameter("id"));
-            divinationFastBO = divinationFastDAO.get(DivinationFastBO.class, id);
-            return INPUT;
-        }else if("delete_all".equals(action)){
-        
-        }else if("delete".equals(action)){
-            String str = req.getParameter("id");
-            String arr[] = str.split(",");
-            Integer arrId[] = new Integer[arr.length];
-            for (int i = 0; i < arrId.length; i++) {
+            }
+
+        } else if ("add".equals(action)) {
+            if (checkAdd == "") {
+                return INPUT;
+            }
+        } else if ("form-edit".equals(action)) {
+            if (checkEdit == "") {
+                listOfResult = resultsDAO.getList(divinationFastBO);
+                Integer id = Integer.parseInt(req.getParameter("id"));
+                divinationFastBO = divinationFastDAO.get(DivinationFastBO.class, id);
+                return INPUT;
+            }
+        } else if ("delete".equals(action)) {
+            if (checkDel == "") {
+                String str = req.getParameter("id");
+                String arr[] = str.split(",");
+                Integer arrId[] = new Integer[arr.length];
+                for (int i = 0; i < arrId.length; i++) {
+                    try {
+                        arrId[i] = Integer.parseInt(arr[i]);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
                 try {
-                    arrId[i] = Integer.parseInt(arr[i]);
+                    boolean check = divinationFastDAO.multiDelete(arrId, DivinationFastBO.class, "dfnId");
+                    if (check) {
+                        result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDivinationFastController");
+                    } else {
+                        result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDivinationFastController");
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    result = Message.getMessage("Xóa bản ghi thất bại", "error");
                 }
-            }
-            try {
-                boolean check = divinationFastDAO.multiDelete(arrId, DivinationFastBO.class, "dfnId");
-                if (check) {
-                    result = Message.getMessage("Xóa bản ghi thành công", "success", "AdminDivinationFastController");
-                } else {
-                    result = Message.getMessage("Xóa bản ghi thất bại", "error", "AdminDivinationFastController");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                result = Message.getMessage("Xóa bản ghi thất bại", "error");
             }
         }
         req.setAttribute("result", result);
@@ -125,8 +139,32 @@ public class AdminDivinationFastController extends ActionSupport {
         listOfResult = divinationFastDAO.getListResult(divinationFastBO);
         req.setAttribute("keyword", keyword);
         return SUCCESS;
-     
-     }
+
+    }
+
+    public String getCheckAdd() {
+        return checkAdd;
+    }
+
+    public void setCheckAdd(String checkAdd) {
+        this.checkAdd = checkAdd;
+    }
+
+    public String getCheckEdit() {
+        return checkEdit;
+    }
+
+    public void setCheckEdit(String checkEdit) {
+        this.checkEdit = checkEdit;
+    }
+
+    public String getCheckDel() {
+        return checkDel;
+    }
+
+    public void setCheckDel(String checkDel) {
+        this.checkDel = checkDel;
+    }
 
     public DivinationFastBO getDivinationFastBO() {
         return divinationFastBO;
@@ -159,5 +197,4 @@ public class AdminDivinationFastController extends ActionSupport {
     public void setListOfResult(List<ResultsDivinationFastBO> listOfResult) {
         this.listOfResult = listOfResult;
     }
-    
 }

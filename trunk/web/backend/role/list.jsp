@@ -21,8 +21,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminRoleController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminRoleController?action=delete&id=" value="Xóa">
+                        <a href="AdminRoleController?action=add" ${checkAdd} class="btn btn-default">Thêm </a>
+                        <input type="button" class="btn btn-default btn-delete" ${checkDel} data-delete-all="AdminRoleController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminRoleController" method="post">
@@ -50,8 +50,8 @@
                             <c:out value="${data.status eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
                         </display:column>
                         <display:column title="Sửa/Xóa">
-                            <a href="AdminRoleController?action=form-edit&id=${data.roleId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminRoleController?action=delete&id=${data.roleId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminRoleController?action=form-edit&id=${data.roleId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
+                            <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminRoleController?action=delete&id=${data.roleId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						

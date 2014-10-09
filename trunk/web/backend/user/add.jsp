@@ -32,6 +32,12 @@
                         <s:textfield name="userBO.username" cssClass="form-control" id="username" />
                     </div>
                 </div>
+                <div class="form-group" style='display: none'>
+                    <label for="pass" class="col-sm-3 col-xs-12 control-label">Mật khẩu</label>
+                    <div class="col-sm-7 col-xs-12">
+                        <s:textfield name="userBO.password" cssClass="form-control"  id="pass" />
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="name" class="col-sm-3 col-xs-12 control-label">Tên chủ tài khoản</label>
                     <div class="col-sm-7 col-xs-12">
@@ -91,10 +97,10 @@
                         <div class="checkbox">
                             <c:forEach var="item" items="${listRole}">
                                 <label>
-                                    <input type="checkbox" name="userBO.listRole" 
+                                    <input type="checkbox" name="userBO.arrRole" 
                                            value="${item.roleId}"
-                                           <c:forEach var="listUserRole" items="${listUserRole}">
-                                               <c:if test="${listUserRole.roleId eq item.roleId}">checked</c:if>
+                                           <c:forEach var="itemUserRole" items="${listUserRole}">
+                                               <c:if test="${itemUserRole.roleId eq item.roleId}">checked</c:if>
                                            </c:forEach>
                                            > ${item.name}
                                 </label><br>

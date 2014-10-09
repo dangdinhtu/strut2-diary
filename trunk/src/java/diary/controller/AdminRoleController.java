@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -40,11 +41,20 @@ public class AdminRoleController extends ActionSupport{
     private RolePermBO rolePermBO;
     RolePermDAO rolePermDAO = new RolePermDAO();
     private List<RolePermBO> listRolePerm;
+    
+    private String checkAdd = "";
+    private String checkEdit = "";
+    private String checkDel = "";
             
      public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
         String action = req.getParameter("action");      
         String result = "";
+        HttpSession session = req.getSession();
+        String username = (String) session.getAttribute("userName");
+        checkAdd = roleDAO.checkRole(username, 2, 2);
+        checkEdit = roleDAO.checkRole(username, 3, 2);
+        checkDel = roleDAO.checkRole(username, 4, 2);
         
         if ("addOrUpdate".equals(action)) {
             Integer roleId =  roleBO.getRoleId();
@@ -75,17 +85,22 @@ public class AdminRoleController extends ActionSupport{
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error", "AdminRoleController");
             
         }else if ("add".equals(action)) {
+            if (checkAdd == "") {
             listFunction = functionDAO.getListFunctionBySql();
             listPermission = permissionDAO.getListBySql();
             return INPUT;
+            }
         }else if("form-edit".equals(action)){
+             if (checkEdit == "") {
             listFunction = functionDAO.getListFunctionBySql();
             listPermission = permissionDAO.getListBySql();
             Integer id = Integer.parseInt(req.getParameter("id"));
             listRolePerm = rolePermDAO.getList("RolePermBO", "roleId", id, "rpmId");
             roleBO = roleDAO.get(RoleBO.class, id);
             return INPUT;
+             }
         }else if("delete".equals(action)){
+            if (checkDel == "") {
             String str = req.getParameter("id");
             String arr[] = str.split(",");
             Integer arrId[] = new Integer[arr.length];
@@ -107,6 +122,7 @@ public class AdminRoleController extends ActionSupport{
                 result = Message.getMessage("Xóa bản ghi thất bại", "error");
             }
         }
+        }
         action = null;
         req.setAttribute("result", result);
         String keyword = req.getParameter("keyword");
@@ -117,20 +133,36 @@ public class AdminRoleController extends ActionSupport{
      
      }
 
+    public String getCheckAdd() {
+        return checkAdd;
+    }
+
+    public void setCheckAdd(String checkAdd) {
+        this.checkAdd = checkAdd;
+    }
+
+    public String getCheckEdit() {
+        return checkEdit;
+    }
+
+    public void setCheckEdit(String checkEdit) {
+        this.checkEdit = checkEdit;
+    }
+
+    public String getCheckDel() {
+        return checkDel;
+    }
+
+    public void setCheckDel(String checkDel) {
+        this.checkDel = checkDel;
+    }
+
     public RoleBO getRoleBO() {
         return roleBO;
     }
 
     public void setRoleBO(RoleBO roleBO) {
         this.roleBO = roleBO;
-    }
-
-    public RoleDAO getRoleDAO() {
-        return roleDAO;
-    }
-
-    public void setRoleDAO(RoleDAO roleDAO) {
-        this.roleDAO = roleDAO;
     }
 
     public List<RoleBO> getListRole() {
@@ -149,14 +181,6 @@ public class AdminRoleController extends ActionSupport{
         this.functionBO = functionBO;
     }
 
-    public FunctionDAO getFunctionDAO() {
-        return functionDAO;
-    }
-
-    public void setFunctionDAO(FunctionDAO functionDAO) {
-        this.functionDAO = functionDAO;
-    }
-
     public List<FunctionBO> getListFunction() {
         return listFunction;
     }
@@ -173,14 +197,6 @@ public class AdminRoleController extends ActionSupport{
         this.permissionBO = permissionBO;
     }
 
-    public PermissionDAO getPermissionDAO() {
-        return permissionDAO;
-    }
-
-    public void setPermissionDAO(PermissionDAO permissionDAO) {
-        this.permissionDAO = permissionDAO;
-    }
-
     public List<PermissionBO> getListPermission() {
         return listPermission;
     }
@@ -195,14 +211,6 @@ public class AdminRoleController extends ActionSupport{
 
     public void setRolePermBO(RolePermBO rolePermBO) {
         this.rolePermBO = rolePermBO;
-    }
-
-    public RolePermDAO getRolePermDAO() {
-        return rolePermDAO;
-    }
-
-    public void setRolePermDAO(RolePermDAO rolePermDAO) {
-        this.rolePermDAO = rolePermDAO;
     }
 
     public List<RolePermBO> getListRolePerm() {

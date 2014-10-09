@@ -21,8 +21,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminRDCController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminRDCController?action=delete&id=" value="Xóa">
+                        <a href="AdminRDCController?action=add" ${checkAdd} class="btn btn-default">Thêm </a>
+                        <input type="button" class="btn btn-default btn-delete" ${checkDel} data-delete-all="AdminRDCController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminRDCController" method="get">
@@ -49,8 +49,8 @@
                         <display:column property="coupleZodiac" title="Cặp cung hoàng đạo"/>
                         <display:column property="resultContent" title="Kết quả"/>
                         <display:column title="resource.key">
-                            <a href="AdminRDCController?action=form-edit&id=${data.rdcId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminRDCController?action=delete&id=${data.rdcId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminRDCController?action=form-edit&id=${data.rdcId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
+                            <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminRDCController?action=delete&id=${data.rdcId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						
