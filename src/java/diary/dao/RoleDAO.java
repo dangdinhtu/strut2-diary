@@ -8,8 +8,11 @@ import diary.bo.BasicBO;
 import diary.bo.PermissionBO;
 import diary.bo.RoleBO;
 import diary.bo.RolePermBO;
+import diary.bo.UserBO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
@@ -22,6 +25,8 @@ import org.hibernate.Transaction;
  */
 public class RoleDAO extends HibernateDAO{
    public RolePermDAO rolePermDAO;
+   HttpServletRequest req = ServletActionContext.getRequest();
+   String action = req.getParameter("action");
     public List getList() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         try {
@@ -50,7 +55,18 @@ public class RoleDAO extends HibernateDAO{
         return query.list();
     }
     
-
+    public  String checkRole( String username, Integer permId, Integer functionId){
+        String action = "style='display: none'";
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        List list = new ArrayList();
+        String sql = "SELECT * FROM `view_user_role` WHERE USERNAME = '"+ username +"' and PERM_ID = "+ permId +" and FUNCTION_ID =" + functionId ;
+        SQLQuery query = session.createSQLQuery(sql);
+        list = query.list();
+        if(list.size() > 0){
+            action = "";
+        }
+        return action;
+    }
     
     public int addRole(RoleBO roleBO) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
@@ -111,5 +127,11 @@ public class RoleDAO extends HibernateDAO{
         }
         return id;
     }
+    
+//    public static void main(String[] abc){
+//        RoleDAO a = new RoleDAO();
+//        String b = a.checkRole("thutrangq1", 2, 1);
+//        System.out.println("keets qua la : " + b);
+//    }
     
 }

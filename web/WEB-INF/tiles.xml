@@ -62,6 +62,10 @@
 		<put-attribute name="title" value="Danh sách cung hoàng đạo" />
 		<put-attribute name="body" value="/backend/zodiac/list.jsp" />
 	</definition>
+        <definition name="/listStart.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Tài khoản cá nhân" />
+		<put-attribute name="body" value="/backend/admin/list.jsp" />
+	</definition>
         
         
         <definition name="/formUser.tiles" extends="baseLayout">

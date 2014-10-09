@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="diary.bo.ViewUserRoleBO" table="VIEW_USER_ROLE">
+          <id name="userId">
+            <column name="USER_ID"/>
+          </id>
+          <property name="username">
+            <column name="USERNAME"/>
+          </property>
+          <property name="permId">
+            <column name="PERM_ID"/>
+          </property>
+          <property name="functionId">
+            <column name="FUNCTION_ID"/>
+          </property>
+          <property name="roleId">
+            <column name="ROLE_ID"/>
+          </property>
+    </class>
+</hibernate-mapping>

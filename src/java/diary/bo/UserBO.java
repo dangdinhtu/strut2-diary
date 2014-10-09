@@ -20,7 +20,7 @@ public class UserBO extends BasicBO {
     private Boolean gender;
     private Boolean active;
     private Integer[] listId;
-    private Integer[] listRole;
+    private Integer[] arrRoleId;
 
     public String getRePassword() {
         return rePassword;
@@ -130,11 +130,13 @@ public class UserBO extends BasicBO {
     public UserBO() {
     }
 
-    public Integer[] getListRole() {
-        return listRole;
+    public Integer[] getArrRoleId() {
+        return arrRoleId;
     }
 
-    public void setListRole(Integer[] listRole) {
-        this.listRole = listRole;
+    public void setArrRoleId(Integer[] arrRoleId) {
+        this.arrRoleId = arrRoleId;
     }
+
+   
 }

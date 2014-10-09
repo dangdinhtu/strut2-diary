@@ -21,8 +21,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminDivinationFastController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDivinationFastController?action=delete&id=" value="Xóa">
+                        <a href="AdminDivinationFastController?action=add" ${checkAdd} class="btn btn-default">Thêm </a>
+                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDivinationFastController?action=delete&id=" ${checkDel} value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminDivinationFastController" method="get">
@@ -47,8 +47,8 @@
                         <display:column property="name" title="Tên" sortable="true"/>
                         <display:column property="descript" title="Mô Tả"/>
                         <display:column title="Hành động">
-                            <a href="AdminDivinationFastController?action=form-edit&id=${data.dfnId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminDivinationFastController?action=delete&id=${data.dfnId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminDivinationFastController?action=form-edit&id=${data.dfnId}" class="table-a-edit"><i ${checkEdit} class="glyphicon glyphicon-pencil"></i></a>
+                            <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminDivinationFastController?action=delete&id=${data.dfnId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						

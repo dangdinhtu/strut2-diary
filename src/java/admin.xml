@@ -55,6 +55,9 @@
             <result name="success" type="tiles">/listZodiac.tiles</result> 
             <result name="input" type="tiles">/formZodiac.tiles</result>   
         </action>
+        <action name="AdminStartontroller" class="diary.controller.AdminZodiacController">
+            <result name="success" type="tiles">/listStart.tiles</result>   
+        </action>
     </package>
 </struts>
 

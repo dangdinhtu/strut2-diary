@@ -43,30 +43,35 @@ public class AdminUserController extends ActionSupport {
         String result = "";
         if ("addOrUpdate".equals(action)) {
             Integer userId = userBO.getUserId();
+            Integer[] arrRoleId = userBO.getArrRoleId();
 
             List<UserBO> lstUser = userDAO.findByProperty(UserBO.class, "username", userBO.getUsername(), "");
             List<UserBO> lstByEmail = userDAO.findByProperty(UserBO.class, "email", userBO.getEmail(), "");
+
             int size = 0;
             if (userId != null) {
                 size = 1;
+            }else{
+                userBO.setPassword("123456");
             }
             if (lstUser.size() > size || lstByEmail.size() > size) {
-                result = Message.getMessage("Email hoặc username đã tồn tại", "error");
+                result = Message.getMessage("Email hoặc username đã tồn tại", "error", "AdminUserController");
             } else {
+                
                 Integer id = userDAO.saveOrUpdateUser(userId, userBO);
-                Boolean check = null;
 
-                for (int i = 0; i < userBO.getListRole().length; i++) {
-                    Integer[] roleId = userBO.getListRole();
-                    UserRoleBO userRoleBO = new UserRoleBO();
-                    userRoleBO.setRoleId(roleId[i]);
-                    userRoleBO.setStatus(true);
-                    userRoleBO.setUserId(id);
-                    check = userRoleDAO.save(userRoleBO);
+                if (arrRoleId.length > 0) {
+                    for (int i = 0; i < arrRoleId.length; i++) {
+                        UserRoleBO userRoleBO = new UserRoleBO();
+                        userRoleBO.setRoleId(arrRoleId[i]);
+                        userRoleBO.setStatus(true);
+                        userRoleBO.setUserId(id);
+                        userRoleDAO.save(userRoleBO);
+                    }
                 }
-                if (userId == null && check) {
+                if (userId == null) {
                     result = Message.getMessage("Thêm mới bản ghi thành công", "success", "AdminUserController");
-                } else if (userId != null && check) {
+                } else if (userId != null) {
                     result = Message.getMessage("Cập nhật bản ghi thành công", "success", "AdminUserController");
                 } else {
                     result = Message.getMessage("Cập nhật bản ghi thất bại", "error", "AdminUserController");
@@ -79,7 +84,7 @@ public class AdminUserController extends ActionSupport {
             listRole = roleDAO.getListBySql();
             Integer id = Integer.parseInt(req.getParameter("id"));
             userBO = userDAO.get(UserBO.class, id);
-            listUserRole = userRoleDAO.findByProperty(UserRoleBO.class, "userId", id, "");
+            listUserRole = userRoleDAO.getList("UserRoleBO", "userId", id, "ureId");
             return INPUT;
         } else if ("delete".equals(action)) {
             String str = req.getParameter("id");

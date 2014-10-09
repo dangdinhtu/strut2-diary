@@ -21,8 +21,8 @@
                 <div class="table-action">
                     
                     <div class="pull-left">
-                        <a href="AdminDiLongController?action=add" class="btn btn-default">Thêm </a>
-                        <input type="button" class="btn btn-default btn-delete" data-delete-all="AdminDiLongController?action=delete&id=" value="Xóa">
+                        <a href="AdminDiLongController?action=add" ${checkAdd} class="btn btn-default">Thêm </a>
+                        <input type="button" ${checkDel} class="btn btn-default btn-delete" data-delete-all="AdminDiLongController?action=delete&id=" value="Xóa">
                     </div>
                     <div class="pull-right search-table">
                         <form action="AdminDiLongController" method="post">
@@ -50,8 +50,8 @@
                             <img src="${contextPath}/images/${data.images}" width="100px" height="90px">
                         </display:column>
                         <display:column title="Sửa / Xóa">
-                            <a href="AdminDiLongController?action=form-edit&id=${data.dlgId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                            <a href="#"  class="table-a-delete" data-redirect ="AdminDiLongController?action=delete&id=${data.dlgId}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a href="AdminDiLongController?action=form-edit&id=${data.dlgId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit} ></i></a>
+                            <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminDiLongController?action=delete&id=${data.dlgId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>
                 </div>						
