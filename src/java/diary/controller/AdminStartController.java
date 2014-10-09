@@ -63,16 +63,12 @@ public class AdminStartController extends ActionSupport{
         if(listUser.size() > 0){
             userBO = listUser.get(0);
             listUserRole = userRoleDAO.getList("ViewUserRoleBO", "userId", userBO.getUserId(), "userId");
-            Integer[] arrRoleId = null;
-            for (int i = 0; i < listUserRole.size(); i++) {
-                arrRoleId[i] = listUserRole.get(i).getRoleId();
-            }
-            userBO.setArrRoleId(arrRoleId);
             avata = userBO.getAvartar();
         }
         
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
+        listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
         req.setAttribute("keyword", keyword);
         return SUCCESS;
     }
@@ -163,6 +159,14 @@ public class AdminStartController extends ActionSupport{
 
     public void setCheckZodiac(String checkZodiac) {
         this.checkZodiac = checkZodiac;
+    }
+
+    public String getCheckCouple() {
+        return checkCouple;
+    }
+
+    public void setCheckCouple(String checkCouple) {
+        this.checkCouple = checkCouple;
     }
 
     public String getCheckImage() {

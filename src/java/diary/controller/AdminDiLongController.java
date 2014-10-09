@@ -41,6 +41,16 @@ public class AdminDiLongController extends ActionSupport {
     private String checkAdd = "";
     private String checkEdit = "";
     private String checkDel = "";
+    private String checkUser = "";
+    private String checkRole = "";
+    private String checkCat = "";
+    private String checkDiary = "";
+    private String checkDiFast = "";
+    private String checkDiLong = "";
+    private String checkCouple = "";
+    private String checkZodiac = "";
+    private String checkImage = "";
+    private String checkResource = "";
 
     public String execute() throws Exception {
         HttpServletRequest req = ServletActionContext.getRequest();
@@ -52,6 +62,16 @@ public class AdminDiLongController extends ActionSupport {
         checkAdd = roleDAO.checkRole(username, 2, 6);
         checkEdit = roleDAO.checkRole(username, 3, 6);
         checkDel = roleDAO.checkRole(username, 4, 6);
+        checkUser = roleDAO.checkRole(username, 1, 1);
+        checkRole = roleDAO.checkRole(username, 1, 2);
+        checkCat = roleDAO.checkRole(username, 1, 3);
+        checkDiary = roleDAO.checkRole(username, 1, 4);
+        checkDiFast = roleDAO.checkRole(username, 1, 5);
+        checkDiLong = roleDAO.checkRole(username, 1, 6);
+        checkCouple = roleDAO.checkRole(username, 1, 7);
+        checkZodiac = roleDAO.checkRole(username, 1, 8);
+        checkImage = roleDAO.checkRole(username, 1, 9);
+        checkResource = roleDAO.checkRole(username, 1, 10);
 
         if ("addOrUpdate".equals(action)) {
             Integer dlgId = dlgBO.getDlgId();
@@ -260,4 +280,86 @@ public class AdminDiLongController extends ActionSupport {
     public void setCheckDel(String checkDel) {
         this.checkDel = checkDel;
     }
+
+    public String getCheckUser() {
+        return checkUser;
+    }
+
+    public void setCheckUser(String checkUser) {
+        this.checkUser = checkUser;
+    }
+
+    public String getCheckRole() {
+        return checkRole;
+    }
+
+    public void setCheckRole(String checkRole) {
+        this.checkRole = checkRole;
+    }
+
+    public String getCheckCat() {
+        return checkCat;
+    }
+
+    public void setCheckCat(String checkCat) {
+        this.checkCat = checkCat;
+    }
+
+    public String getCheckDiary() {
+        return checkDiary;
+    }
+
+    public void setCheckDiary(String checkDiary) {
+        this.checkDiary = checkDiary;
+    }
+
+    public String getCheckDiFast() {
+        return checkDiFast;
+    }
+
+    public void setCheckDiFast(String checkDiFast) {
+        this.checkDiFast = checkDiFast;
+    }
+
+    public String getCheckDiLong() {
+        return checkDiLong;
+    }
+
+    public void setCheckDiLong(String checkDiLong) {
+        this.checkDiLong = checkDiLong;
+    }
+
+    public String getCheckCouple() {
+        return checkCouple;
+    }
+
+    public void setCheckCouple(String checkCouple) {
+        this.checkCouple = checkCouple;
+    }
+
+    public String getCheckZodiac() {
+        return checkZodiac;
+    }
+
+    public void setCheckZodiac(String checkZodiac) {
+        this.checkZodiac = checkZodiac;
+    }
+
+    public String getCheckImage() {
+        return checkImage;
+    }
+
+    public void setCheckImage(String checkImage) {
+        this.checkImage = checkImage;
+    }
+
+    public String getCheckResource() {
+        return checkResource;
+    }
+
+    public void setCheckResource(String checkResource) {
+        this.checkResource = checkResource;
+    }
+    
+    
 }
