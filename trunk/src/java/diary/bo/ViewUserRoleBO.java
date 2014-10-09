@@ -11,6 +11,7 @@ package diary.bo;
 public class ViewUserRoleBO extends BasicBO{
      private Integer userId;
      private String username;
+     private String role;
      private Integer permId;
      private Integer functionId;
      private Integer roleId;
@@ -56,6 +57,14 @@ public class ViewUserRoleBO extends BasicBO{
 
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
      
      

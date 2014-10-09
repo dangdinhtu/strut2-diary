@@ -9,6 +9,7 @@ import diary.bo.PermissionBO;
 import diary.bo.RoleBO;
 import diary.bo.RolePermBO;
 import diary.bo.UserBO;
+import diary.bo.ViewUserRoleBO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;

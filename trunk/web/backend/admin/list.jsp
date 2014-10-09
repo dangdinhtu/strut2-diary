@@ -14,13 +14,14 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                DataTables Advanced Tables 
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div>
-                    <div class="col-xs-12 col-md-4"></div>
-                    <div class="col-xs-6 col-md-8">
+                    <div class="col-xs-12 col-md-3">
+                        <img src="${contextPath}/images/${avata}" width="100px" height="90px">
+                    </div>
+                    <div class="col-xs-6 col-md-9">
                         <form class="form-horizontal" style="margin-top: 20px" action="AdminStartController" method="post">
                             <s:hidden name="action" value="addOrUpdate" />
                             <s:hidden name="userBO.userId"/>
@@ -79,25 +80,20 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="status" class="col-sm-2 control-label">Trạng thái</label>
-                                <div class="col-sm-8">
+                                <label for="status" class="col-sm-3 control-label">Trạng thái</label>
+                                <div class="col-sm-7">
                                     <label class="radio-inline">
                                         <input type="radio" checked name="userBO.active" id="inlineRadio1" value="true"> Hoạt động
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="gender" class="col-sm-2 control-label">Chức vụ</label>
-                                <div class="col-sm-8">
+                                <label for="gender" class="col-sm-3 control-label">Chức vụ</label>
+                                <div class="col-sm-7">
                                     <div class="checkbox">
-                                        <c:forEach var="item" items="${listRole}">
+                                        <c:forEach var="item" items="${listUserRole}">
                                             <label>
-                                                <input type="checkbox" name="userBO.arrRole" 
-                                                       value="${item.roleId}"
-                                                       <c:forEach var="itemUserRole" items="${listUserRole}">
-                                                           <c:if test="${itemUserRole.roleId eq item.roleId}">checked</c:if>
-                                                       </c:forEach>
-                                                       > ${item.name}
+                                                <input type="checkbox" checked> ${item.role}
                                             </label><br>
                                         </c:forEach>
                                     </div>

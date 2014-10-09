@@ -12,15 +12,15 @@
                 <h3>Xin chào ${sessionScope.userName}</h3>
             </li>
             <li>
-                <a href="index.html"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
+                <a href="Index"><i class="glyphicon glyphicon-home"></i> Trang chủ</a>
             </li>
             <li>
                 <a href="#"><i class="glyphicon glyphicon-user"></i>  Người dùng<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
+                    <li ${checkUser}>
                         <a href="AdminUserController">Tài khoản người dùng</a>
                     </li>
-                    <li>
+                    <li ${checkRole}>
                         <a href="AdminRoleController">Thông tin chức vụ</a>
                     </li>
                     
@@ -30,10 +30,10 @@
             <li>
                 <a href="#"><i class="glyphicon glyphicon-user"></i>Nhật kí<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
+                    <li ${checkCat}>
                         <a href="AdminCategoryController">Thể loại</a>
                     </li>
-                    <li>
+                    <li ${checkDiary}>
                         <a href="AdminDiaryBookController">Danh sách nhật kí</a>
                     </li>
                 </ul>
@@ -42,26 +42,26 @@
             <li>
                 <a href="#"><i class="fa fa-edit fa-fw"></i>Giải trí<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
+                    <li ${checkDiFast}>
                         <a href="AdminDivinationFastController">Trắc nghiệm nhanh</a>
                     </li>
-                    <li>
+                    <li ${checkDiLong}>
                         <a href="AdminDiLongController">Trắc nghiệm dài</a>
                     </li>
-                    <li>
+                    <li ${checkCouple}>
                         <a href="AdminRDCController">Cặp đôi ăn ý</a>
                     </li>
-                    <li>
+                    <li ${checkZodiac}>
                         <a href="AdminZodiacController">Danh sách cung hoàng đạo</a>
                     </li>
-                    <li>
+                    <li ${checkImage}>
                         <a href="#">Tạo ảnh ngộ nghĩnh</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="AdminResourceController"><i class="glyphicon glyphicon-list-alt"></i> Quản trị tài nguyên<span class="fa arrow"></span></a>
+                <a href="AdminResourceController" ${checkResource}><i class="glyphicon glyphicon-list-alt"></i> Quản trị tài nguyên<span class="fa arrow"></span></a>
             </li>
         </ul>
         <!-- /#side-menu -->

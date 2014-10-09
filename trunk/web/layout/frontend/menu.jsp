@@ -39,7 +39,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Thiết lập</a></li>
                                 <li><a href="#">Đổi mật khẩu</a></li>
-                                <li><s:a href="AdminStartController"> Trang Admin</s:a></li>
+                                <li><a href="AdminStartController"> Trang Admin</a></li>
                                 <li class="divider"></li>
                                 <li><a href="acount?action=logout">Thoát</a></li>
                             </ul>
