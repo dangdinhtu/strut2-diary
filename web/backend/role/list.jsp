@@ -50,7 +50,7 @@
                             <c:out value="${data.status eq true ? 'Đang hoạt động': 'Ngung hoạt động'}"/>
                         </display:column>
                         <display:column title="Sửa/Xóa">
-                            <a href="AdminRoleController?action=form-edit&id=${data.roleId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
+                            <a href="AdminRoleController?action=form-edit&id=${data.roleId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit} ></i></a>
                             <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminRoleController?action=delete&id=${data.roleId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>
                     </display:table>

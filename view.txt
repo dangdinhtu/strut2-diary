@@ -19,4 +19,4 @@ FROM user
 JOIN user_role ON user.USER_ID = user_role.USER_ID
 JOIN role ON role.ROLE_ID = user_role.ROLE_ID
 JOIN role_perm ON role.ROLE_ID = role_perm.ROLE_ID
-GROUP BY user.USER_ID
+

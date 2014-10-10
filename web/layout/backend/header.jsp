@@ -129,11 +129,11 @@
             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
         </a>
         <ul class="dropdown-menu dropdown-user">
-            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+            <li><a href="#"><i class="fa fa-user fa-fw"></i> Tài khoản người dùng</a></li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a></li>
             <li><a href="Index"><i class="fa fa-gear fa-fw"></i> Trang chủ</a></li>
             <li class="divider"></li>
-            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+            <li><a href="acount?action=logout"><i class="fa fa-sign-out fa-fw"></i> Thoát</a></li>
         </ul>
     </li><!--kết thúc thông tin profile-->
 </ul>
