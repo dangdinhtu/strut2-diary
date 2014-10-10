@@ -62,7 +62,7 @@
 
             <!--========body=================-->
             <tiles:insertAttribute name="body" />       
-            <br><hr class="hr-footer" size="2px" width="83%">
+            
             <div class="row">
                 <tiles:insertAttribute name="footer" />  
             </div>

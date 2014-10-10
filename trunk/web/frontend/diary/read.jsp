@@ -16,11 +16,11 @@
             </li>
             <li class="right front-cover">
                 <div>
-                    <h4>Tên cuốn nhật kí</h4>
-                    <h5>Title của nhật kí <br />
+                    <h4>Tự truyện project kì 3</h4>
+                    <h5>Project java web<br />
                         Nhấn nút next để đọc nhật kí</h5>
-                    <p>But there is a story from page 7 onwards</p>
-                    <h6>Read on...</h6>
+                    <p</p>
+                    <h6>Xem chi tiết</h6>
                 </div>
             </li>
         </ul>
