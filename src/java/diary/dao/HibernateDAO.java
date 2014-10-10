@@ -88,7 +88,7 @@ public class HibernateDAO {
         }
         return id;
     }
-    
+  
     public boolean saveOrUpdate(String key, BasicBO entity) {
         boolean flag = false;
         if (key == null)
@@ -171,6 +171,15 @@ public class HibernateDAO {
             session.close();
         }
         return null;
+    }
+    
+    public List getList(String nameBO,  String order, int start, int display) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        List list = new ArrayList();
+        String sql = "SELECT * FROM "+nameBO+" ORDER BY "+order+" DESC LIMIT "+start+" , "+display ;
+        SQLQuery query = session.createSQLQuery(sql);
+        list = query.list();
+        return list;
     }
     
     public List getList(String nameBO, String col1, String col2, String key, String order) {
