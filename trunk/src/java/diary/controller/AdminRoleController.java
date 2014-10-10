@@ -90,20 +90,19 @@ public class AdminRoleController extends ActionSupport{
                     }
                     roleBO.setPermId(arrRelation[0]);
                     roleBO.setFunctionId(arrRelation[1]);
-                    req.setAttribute(roleBO.getListPerm()[i], "checked");  
                     check = roleDAO.addRelation(roleBO);
                     if(check == false){
                         break;
                     }
                 }
             }
-            if (roleId == null && check) 
+            if (roleId == null && check){ 
                     result = Message.getMessage("Thêm mới bản ghi thành công", "success", "AdminRoleController");
-            if(roleId != 0 || roleId != null  && check)
+            }else if(roleId != null  && check){
                 result = Message.getMessage("Cập nhật bản ghi thành công", "success", "AdminRoleController");
-            else
+            }else{
                 result = Message.getMessage("Cập nhật bản ghi thất bại", "error", "AdminRoleController");
-            
+            }
         }else if ("add".equals(action)) {
             if (checkAdd == "") {
             listFunction = functionDAO.getListFunctionBySql();

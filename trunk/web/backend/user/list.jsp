@@ -57,7 +57,7 @@
                         <display:column title="Trạng thái">
                             <c:out value="${data.active eq true ? 'Đang hoạt động': 'Ngưng hoạt động'}"/>
                         </display:column>
-                        <display:column title="Hành động">
+                        <display:column title="Sửa/Xóa">
                             <a href="AdminUserController?action=form-edit&id=${data.userId}" class="table-a-edit"><i class="glyphicon glyphicon-pencil" ${checkEdit}></i></a>
                             <a href="#"  class="table-a-delete" ${checkDel} data-redirect ="AdminUserController?action=delete&id=${data.userId}"><i class="glyphicon glyphicon-trash"></i></a>
                         </display:column>

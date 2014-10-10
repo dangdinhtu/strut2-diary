@@ -231,7 +231,7 @@ public class HibernateDAO {
             List listOfUsers = new ArrayList();
             StringBuffer sb = new StringBuffer();
             sb.append(" FROM "+ nameBO +" ");
-            sb.append(" WHERE  "+ col +" like '%"+ key +"%'  ");
+            sb.append(" WHERE  "+ col +" = "+ key);
             sb.append(" ORDER BY "+ order +" DESC  ");
             org.hibernate.Query query = session.createQuery(sb.toString());
             listOfUsers = query.list();

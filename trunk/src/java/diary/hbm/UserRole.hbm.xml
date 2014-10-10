@@ -3,7 +3,7 @@
 <hibernate-mapping>
   <class name="diary.bo.UserRoleBO" table="USER_ROLE">
     <id name="ureId">
-      <column name="ERE_ID"/>
+      <column name="ERE"/>
       <generator class="identity"/>
     </id>
     <property name="roleId">
