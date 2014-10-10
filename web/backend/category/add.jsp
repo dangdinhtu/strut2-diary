@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-3 col-xs-12 control-label">Tên thể loại</label>
                     <div class="col-sm-7 col-xs-12">
-                        <s:textfield name="category.name" cssClass="form-control" id="name" />
+                        <s:textfield name="category.name"  cssClass="form-control" id="name" />
                     </div>
                 </div>
                 <div class="form-group">

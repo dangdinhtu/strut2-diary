@@ -17,13 +17,16 @@
                     </div>
                     <div class="bk-page">
                         <div class="bk-content bk-content-current">
-                            <p>Giới thiệu về hệ thống nhật kí</p>
+                            <p>Viết để biết được kinh nghiệm trưởng thành của bản thân. Viết để lưu lại và chia sẽ với con cái, bạn bè và những người đời sau, để họ biết được tôi đã làm như thế nào khắt phục nỗi sợ hãi, làm thế nào để thoát khỏi bế tắc, làm thế nào để nhận định mục tiêu.
+                            </p>
                         </div>
                         <div class="bk-content">
-                            <p>Giới thiệu về hệ thống nhật kí</p>
+                            <p>Giây phút bạn ghi lại những điều tâm đắc thì tư tưởng của các bạn chỉ tập trung vào việc ấy, việc viết nhật ký sẽ giúp các bạn bồi dưỡng sự tập trung chú ý. Viết nhật ký cũng có tác dụng cách ly, nếu chúng ta đã ghi vấn đề trên giấy trắng là đã cách ly được cảm giác trong lòng, do vậy vấn đề cảm thấy nghiêm trọng ở trong đầu óc sẽ trở nên không còn nghiêm trọng đến mức như vậy nữa…
+                            </p>
                         </div>
                         <div class="bk-content">
-                            <p>Hướng dẫn cách viết nhật kí</p>
+                            <p>Giây phút bạn ghi lại những điều tâm đắc thì tư tưởng của các bạn chỉ tập trung vào việc ấy, việc viết nhật ký sẽ giúp các bạn bồi dưỡng sự tập trung chú ý. Viết nhật ký cũng có tác dụng cách ly, nếu chúng ta đã ghi vấn đề trên giấy trắng là đã cách ly được cảm giác trong lòng, do vậy vấn đề cảm thấy nghiêm trọng ở trong đầu óc sẽ trở nên không còn nghiêm trọng đến mức như vậy nữa…
+                            </p>
                         </div>
                     </div>
                     <div class="bk-back">
@@ -55,10 +58,12 @@
                 .book-3 .bk-front:after {
                         background-color: ${item.backgroundAudio}!important;
                 }
-                </style>
+                
+            </style>
+                
             <li>
                 <div class="bk-book book-3 bk-bookdefault">
-                    <div class="bk-front">
+                    <div class="bk-front" style="background-color: red !important;">
                         <div class="bk-cover">
                             <h2>
                                 <span>${item.dateCreate} </span>

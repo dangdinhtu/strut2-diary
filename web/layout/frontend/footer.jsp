@@ -116,14 +116,14 @@
                             <label for="inputEmail3" class="col-sm-3 control-label">Tên đăng nhập</label>
                             <div class="col-sm-9 input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
-                                <input type="text" class="form-control input-popup" name="username" id="inputEmail3" >
+                                <input type="text" class="form-control input-popup" name="username" required placeholder="Tên đăng nhập" pattern="\w{5,40}" id="inputEmail3" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPassword3" class="col-sm-3 control-label">Mật khẩu</label>
                             <div class="col-sm-9 input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> </span>
-                                <input type="password" name="password" class="form-control input-popup" id="inputPassword3" placeholder="Password">
+                                <input type="password" name="password" class="form-control input-popup" pattern="\w{5,40}"  required id="inputPassword3" placeholder="Mật khẩu">
                             </div>
                         </div>
                         <div class="form-group login-remember-password">

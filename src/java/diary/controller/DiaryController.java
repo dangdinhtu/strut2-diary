@@ -74,7 +74,7 @@ public class DiaryController extends ActionSupport {
             String result = "";
             if (userId != null && userId != 0) {
                 try {
-                    String filePath = session.getServletContext().getRealPath("/").concat("userimages");
+                    String filePath = session.getServletContext().getRealPath("/").concat("/layout/frontend/images");
                     for (int i = 0; i < fileUpload.size(); i++) {
                         String contentType = fileUploadContentType.get(i);
                         File fileToCreate = new File(filePath, fileUploadFileName.get(i));
