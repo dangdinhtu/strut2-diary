@@ -14,6 +14,7 @@ public class DivinationFastBO extends BasicBO{
     private Integer dfnId;
     private String name;
     private String descript;
+    private String image;
     private Integer divinationId;
     private List<ResultsDivinationFastBO> listOfResult;
 
@@ -31,6 +32,14 @@ public class DivinationFastBO extends BasicBO{
         this.name = name;
         this.descript = descript;
         this.divinationId = divinationId;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getDfnId() {

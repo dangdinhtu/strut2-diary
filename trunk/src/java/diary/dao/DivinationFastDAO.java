@@ -6,7 +6,9 @@ package diary.dao;
 
 import diary.bo.DivinationBO;
 import diary.bo.DivinationFastBO;
+import diary.bo.FunctionBO;
 import diary.bo.ResultsDivinationFastBO;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -90,23 +92,25 @@ public class DivinationFastDAO extends HibernateDAO{
         }
         return id;
     }
-//    public static void main(String abc[]){
-////       
+//   public static void main(String abc[]){
+//     
 //        DivinationFastDAO d = new DivinationFastDAO();
-//         DivinationFastBO b = new DivinationFastBO( null,"cfffffffffff", "b", 1);
-//        List ResultsDivinationFastBOdf = new LinkedList();
-//        ResultsDivinationFastBOdf = d.getListResult(b); 
-//        if(ResultsDivinationFastBOdf.size() == 0)
-//            System.out.println(ResultsDivinationFastBOdf.size());
-//        
-////        DivinationFastBO b = new DivinationFastBO( null,"cfffffffffff", "b", 1);
-////        Integer id = null;
-////        Integer check = d.saveOrUpdateDivinationFast(id, b);
-////        if (check > 0 || check != null ) {
-////            System.out.println("hahahaa thành công rồi" + check );
-////        }else{
-////            System.out.println("thốn vồn");
-////        }
-//            
-//    }
+////         DivinationFastBO b = new DivinationFastBO( null,"cfffffffffff", "b", 1);
+////        List ResultsDivinationFastBOdf = new LinkedList();
+////        ResultsDivinationFastBOdf = d.getListResult(b); 
+////        if(ResultsDivinationFastBOdf.size() == 0)
+////            System.out.println(ResultsDivinationFastBOdf.size());
+////        
+//////        DivinationFastBO b = new DivinationFastBO( null,"cfffffffffff", "b", 1);
+//////        Integer id = null;
+//////        Integer check = d.saveOrUpdateDivinationFast(id, b);
+//////        if (check > 0 || check != null ) {
+//////            System.out.println("hahahaa thành công rồi" + check );
+//////        }else{
+//////            System.out.println("thốn vồn");
+//////        }
+//        List<FunctionBO> list = new ArrayList<FunctionBO>();
+//        list = d.getList("function", "FUNCTION_ID ",  1, 5);
+//        System.out.println("fsdfdsa = " + list.size());
+//   }
 }

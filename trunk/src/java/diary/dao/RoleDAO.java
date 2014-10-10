@@ -131,8 +131,15 @@ public class RoleDAO extends HibernateDAO{
     
 //    public static void main(String[] abc){
 //        RoleDAO a = new RoleDAO();
-//        String b = a.checkRole("thutrangq1", 2, 1);
-//        System.out.println("keets qua la : " + b);
+////        String b = a.checkRole("thutrangq1", 2, 1);
+////        System.out.println("keets qua la : " + b);
+//        
+//        
+//        int b = 3;
+//        int c = 5;
+//        int page = (int) c+b;
+//        System.out.println("keets qua la : " + page);
+//        
 //    }
     
 }
