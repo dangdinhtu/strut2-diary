@@ -26,8 +26,6 @@
         <script src= "${contextPath }/layout/backend/js/jquery.toastmessage.js"></script>
         <!-- slide-->
         <link rel="stylesheet" href="${contextPath}/layout/frontend/css/home.css">
-        <link type="text/css" rel="stylesheet" href="css/styles.css" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         
         <!-- CSS==================================== -->
         <!--[if lt IE 9]>
