@@ -45,6 +45,12 @@
                         <input type="email" name="userBO.email" value="${userBO.email}" class="form-control" id="email" required/>
                     </div>
                 </div>
+                    <div class="form-group">
+                                <label for="birthday" class="col-sm-3 col-xs-12 control-label">Ngày sinh</label>
+                                <div class="col-sm-7 col-xs-12">
+                                    <input type="date" name="userBO.birthday" value="${user.birthday}" class="form-control" id="birthday" placeholder="">
+                                </div>
+                            </div>
                 <div class="form-group">
                     <label for="address" class="col-sm-3 col-xs-12 control-label">Địa chỉ</label>
                     <div class="col-sm-7 col-xs-12">
