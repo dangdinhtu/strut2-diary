@@ -84,12 +84,6 @@ public class AdminUserController extends ActionSupport {
 
             if (lstUser.size() > size || lstByEmail.size() > size) {
                 result = Message.getMessage("Email hoặc username đã tồn tại", "error");
-                req.setAttribute("result", result);
-                listRole = roleDAO.getListBySql();
-                Integer id = Integer.parseInt(req.getParameter("id"));
-                userBO = userDAO.get(UserBO.class, id);
-                listUserRole = userRoleDAO.getList("UserRoleBO", "userId", id, "ureId");
-                return INPUT;
             } else {
                 if (size == 0) {
                     userBO.setPassword("123456");
