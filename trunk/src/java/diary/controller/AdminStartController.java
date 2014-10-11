@@ -63,7 +63,7 @@ public class AdminStartController extends ActionSupport{
         listUser = userDAO.getList("UserBO", "username", username, "userId");
         if(listUser.size() > 0){
             userBO = listUser.get(0);
-            listUserRole = userRoleDAO.getList("ViewUserRoleBO", "userId", userBO.getUserId(), "userId");
+            listUserRole = userRoleDAO.getList1("ViewUserRoleBO", "userId", userBO.getUserId(), "roleId");
             if(listUserRole.size() == 0){
                 resultAdmin = Message.getMessage("Bạn không thể thực hiện chức năng này", "error", "AdminStartController");
                 return INPUT;
@@ -73,7 +73,7 @@ public class AdminStartController extends ActionSupport{
         
         String keyword = req.getParameter("keyword");
         keyword = keyword == null ? "" : keyword;
-        listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId");
+        listUser = userDAO.getList("UserBO", "username", "email", keyword, "userId" );
         req.setAttribute("keyword", keyword);
         req.setAttribute("resultAdmin", resultAdmin);
         return SUCCESS;
