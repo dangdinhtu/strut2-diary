@@ -31,12 +31,6 @@
                                     <s:textfield name="userBO.username" cssClass="form-control" id="username" />
                                 </div>
                             </div>
-                            <div class="form-group" >
-                                <label for="pass" class="col-sm-3 col-xs-12 control-label">Mật khẩu</label>
-                                <div class="col-sm-7 col-xs-12">
-                                    <input type="password" class="form-control" name="userBO.password"  id="pass" >
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="name" class="col-sm-3 col-xs-12 control-label">Tên chủ tài khoản</label>
                                 <div class="col-sm-7 col-xs-12">
